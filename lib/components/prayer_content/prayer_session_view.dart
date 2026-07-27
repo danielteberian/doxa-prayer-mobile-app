@@ -19,6 +19,7 @@ import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
 import '../buttons/action_button.dart';
 import 'people_group_of_the_day_view.dart';
+import 'prayer_content_skeleton.dart';
 import 'prayer_content_view.dart';
 import 'prayer_thank_you_modal.dart';
 
@@ -294,7 +295,7 @@ class _PrayerSessionViewState extends State<PrayerSessionView>
               future: _future,
               builder: (context, snapshot) {
                 if (snapshot.connectionState != ConnectionState.done) {
-                  return const Center(child: CircularProgressIndicator());
+                  return const PrayerContentSkeleton();
                 }
                 if (snapshot.hasError) {
                   return PageContainer(

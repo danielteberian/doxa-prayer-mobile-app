@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../components/buttons/action_button.dart';
 import '../../components/cards/people_group_list_card.dart';
 import '../../components/inputs/search_field.dart';
+import '../../components/widgets/people_groups_list_skeleton.dart';
 import '../../models/people_group.dart';
 import '../../services/people_groups_service.dart';
 import '../../services/select_people_group_flow.dart';
@@ -104,7 +105,9 @@ class _PeopleGroupsListState extends State<PeopleGroupsList> {
             future: _future,
             builder: (context, snapshot) {
               if (snapshot.connectionState != ConnectionState.done) {
-                return const Center(child: CircularProgressIndicator());
+                return PeopleGroupsListSkeleton(
+                  bottomPadding: widget.listBottomPadding,
+                );
               }
               if (snapshot.hasError) {
                 return _ErrorView(

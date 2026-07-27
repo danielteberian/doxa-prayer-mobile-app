@@ -11,6 +11,7 @@ import 'package:doxa_prayer_mobile_app/components/misc/credit_popover_button.dar
 import 'package:doxa_prayer_mobile_app/components/misc/titles.dart';
 import 'package:doxa_prayer_mobile_app/components/nav/details_nav_bar.dart';
 import 'package:doxa_prayer_mobile_app/components/nav/root_pop_scope.dart';
+import 'package:doxa_prayer_mobile_app/components/widgets/people_group_details_skeleton.dart';
 import 'package:doxa_prayer_mobile_app/l10n/app_localizations.dart';
 import 'package:doxa_prayer_mobile_app/models/people_group_detail.dart';
 import 'package:doxa_prayer_mobile_app/services/locale_controller.dart';
@@ -81,7 +82,7 @@ class _PeopleGroupDetailsScreenState extends State<PeopleGroupDetailsScreen> {
               future: _future,
               builder: (context, snapshot) {
                 if (snapshot.connectionState != ConnectionState.done) {
-                  return const Center(child: CircularProgressIndicator());
+                  return const PeopleGroupDetailsSkeleton();
                 }
                 if (snapshot.hasError) {
                   return _ErrorView(

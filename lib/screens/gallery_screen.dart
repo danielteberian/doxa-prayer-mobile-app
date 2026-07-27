@@ -13,6 +13,7 @@ import '../components/buttons/icon_label_button.dart';
 import '../components/cards/elevated_card.dart';
 import '../components/cards/flat_card.dart';
 import '../components/cards/people_group_card.dart';
+import '../components/cards/people_group_list_card_skeleton.dart';
 import '../components/cards/reminder_card.dart';
 import '../components/inputs/checkbox_field.dart';
 import '../components/inputs/search_field.dart';
@@ -24,6 +25,8 @@ import '../components/misc/app_icon.dart';
 import '../components/misc/app_image.dart';
 import '../components/misc/icon_set.dart';
 import '../components/misc/progress_dots.dart';
+import '../components/misc/skeleton_box.dart';
+import '../components/misc/skeleton_paragraph.dart';
 import '../components/misc/titles.dart';
 import '../components/nav/bottom_nav_bar.dart';
 import '../components/nav/top_nav_bar.dart';
@@ -98,6 +101,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                   _progressDotsSection(),
                   _iconsSection(),
                   _imageSection(),
+                  _skeletonSection(),
                   _layoutsSection(),
                 ],
               ),
@@ -492,6 +496,27 @@ class _GalleryScreenState extends State<GalleryScreen> {
   Widget _imageSection() => const Section(
     title: 'Image',
     child: AppImage(url: null, aspectRatio: 16 / 9),
+  );
+
+  Widget _skeletonSection() => const Section(
+    title: 'Loading skeletons',
+    description:
+        'Pulsing placeholders shown while server content loads, sized to the '
+        'content they stand in for.',
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: AppSpacing.lg,
+      children: [
+        Row(
+          spacing: AppSpacing.lg,
+          children: [
+            SkeletonBox(width: 96, height: 96, radius: 16),
+            Expanded(child: SkeletonParagraph()),
+          ],
+        ),
+        PeopleGroupListCardSkeleton(),
+      ],
+    ),
   );
 
   Widget _layoutsSection() => Section(
