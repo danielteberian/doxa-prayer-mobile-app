@@ -3,7 +3,7 @@
 Thank you for helping us test the whole app! This guide walks through **every
 main part** of Doxa, from first opening it to praying, setting reminders,
 changing languages, and managing your account. It also includes the feedback,
-email-verification, news-signup and profile tests.
+email-verification, news-signup, profile and **accessibility** tests.
 
 You don't need any technical knowledge — just follow the steps and tick the
 boxes. If anything looks wrong, confusing, or different from what's described,
@@ -78,6 +78,13 @@ welcome flow.*
 - [ ] A **reminders summary** shows your upcoming prayer reminder(s).
 - [ ] A **Get Involved** card shows **Donate** and **Feedback** buttons.
   - [ ] **Donate** opens the donation page in your browser.
+- [ ] If you've selected a group but **haven't prayed yet today**, a banner appears at
+      the **bottom** — *"Ready for today's prayer? Tap to pray for [your group]"*.
+  - [ ] Tapping the banner opens the **Pray** tab.
+  - [ ] Tapping its **×** dismisses it (it stays hidden for the rest of the session).
+  - [ ] The banner **doesn't** appear once you've prayed today. (This is separate from
+        the reminders summary above, which lists your scheduled reminder *times*.)
+- [ ] After you've prayed today, the group card shows a green **"Prayed today"** badge.
 
 ---
 
@@ -96,6 +103,9 @@ welcome flow.*
 - [ ] If you haven't chosen a group yet, it instead **prompts you to select one**.
 - [ ] You can read the prayer content, scripture/verses and any images.
 - [ ] Tapping a **credit** marker on an image shows the photo credit.
+- [ ] The prayer content and the **Amen** button sit on a plain (white) area; **below**
+      Amen, a **"My people group"** section and any copyright sit on a distinct
+      shaded/beige band — making it clear where the prayer ends and the extra info begins.
 
 **Day navigation:**
 3. Tap the **previous-day** arrow, then the **next-day** arrow.
@@ -107,7 +117,9 @@ welcome flow.*
 **Amen:**
 4. Tap **Amen**.
 
-- [ ] A **thank-you message** appears, affirming your prayer.
+- [ ] A **thank-you message** appears, affirming your prayer (with a Bible verse).
+- [ ] The modal has a **"Home"** button (house icon) that closes it and takes you to the
+      **Home** tab. The **×** in the corner just closes the modal and leaves you on Pray.
 - [ ] Afterwards the group shows as **prayed today** (e.g. on the Home card).
 
 ---
@@ -122,8 +134,15 @@ that shared links/QRs bring you to the right group.*
 - [ ] The **People Groups** tab lists people groups you can pray for.
 - [ ] The **search** box filters the list as you type, and can be cleared.
 - [ ] Tapping a group opens its **details** page.
-  - [ ] It shows **photos**, the group's **name**, a **description**, and its
-        **prayer status** and **adoption status**.
+  - [ ] It shows **photos**, the group's **name**, a **description**, and an
+        **engagement status** card.
+  - [ ] The engagement card lists markers such as **Prayer status** and **Adoption
+        status**, each with a coloured yes/no icon.
+    - [ ] **Prayer status** has three states: **green** (prayer goal reached),
+          **orange** (partial — some people praying but the goal isn't met yet), and
+          **red** (no one praying yet).
+    - [ ] For a group marked as **engaged**, the individual work markers collapse into a
+          single green **"Engaged"** item (so you see fewer rows).
   - [ ] Everything reads correctly and nothing looks cut off.
 - [ ] From details you can **Select** that group as your current one.
 - [ ] Your **currently selected** group is clearly indicated in the list.
@@ -139,14 +158,14 @@ that shared links/QRs bring you to the right group.*
 - [ ] The app opens to **that specific people group** (its details, or the group
       pre-selected if you were still onboarding).
 
-### 5c. Installing from a QR / link auto-selects the group (deferred deep linking) ⭐
+### 5c. **ANDROID ONLY** Installing from a QR / link auto-selects the group (deferred deep linking) ⭐
 
 *This is the important one: a brand-new user scans a QR, installs the app, and
 the app should already know which group they came for.* **(Android)**
 
 **Steps:**
 1. On a device that does **not** have Doxa installed, scan a people group's **QR
-   code** (or open its share link).
+   code** (or open its share link, e.g. at https://doxa.pray.life/adi).
 2. Follow it to the **Play Store** and **install** the app.
 3. **Open** the app for the first time and go through setup.
 
@@ -171,6 +190,8 @@ the app should already know which group they came for.* **(Android)**
 - [ ] The **Reminders** tab lists your prayer reminders (or an empty state if you
       have none).
 - [ ] You can **add** a reminder, choosing a **time** and one or more **days**.
+  - [ ] The **time picker** matches your phone: a **spinning wheel** on iPhone, the
+        standard **clock dial** on Android.
 - [ ] You **can't save** a reminder with no days selected.
 - [ ] You can **edit** an existing reminder and **delete** one.
 - [ ] Saved reminders show the correct **time** and **days**.
@@ -244,12 +265,26 @@ the app should already know which group they came for.* **(Android)**
 
 ## Section 11 — Feedback form
 
-- [ ] From **Home → Get Involved**, tap **Feedback** (speech-bubble icon).
-- [ ] A **feedback form opens in your browser**, **in your app's language**.
-- [ ] You can type a message and submit it.
+*The feedback form is now **built into the app** — it no longer opens in your browser.*
 
-> The form automatically attaches harmless phone details (model, OS, app
-> version) — please leave those as they are.
+- [ ] From **Home → Get Involved**, tap **Feedback** (speech-bubble icon).
+- [ ] A **feedback form opens inside the app**, **in your app's language** (it slides in
+      over the tabs — you stay in the app).
+- [ ] The form has:
+  - [ ] **What kind of feedback?** — three choices: **Compliment**, **Suggestion**,
+        **Problem** (you must pick one).
+  - [ ] **Name** (optional).
+  - [ ] **Email** (required; if you have an account it's **pre-filled** for you).
+  - [ ] **Message** (required).
+  - [ ] A **"Keep me updated"** tick-box (off by default).
+- [ ] Submitting with **no type**, an **invalid/blank email**, or a **blank message** shows
+      an inline warning and doesn't send.
+- [ ] On success, the form is replaced by a **thank-you** message (green tick) that shows
+      the **email** your feedback was sent with — all **without leaving the app**.
+- [ ] Sending a lot of feedback in a short time shows a gentle "try again later" message.
+
+> The form still automatically attaches harmless phone details (model, OS, app
+> version) behind the scenes — you won't see them, and that's expected.
 
 ---
 
@@ -285,6 +320,65 @@ the app should already know which group they came for.* **(Android)**
 
 ---
 
+## Section 15 — Accessibility
+
+*We've done a lot of work to make Doxa usable for people who need **larger text** or who
+use a **screen reader**. Part **15a** is quick and everyone should try it. Part **15b**
+(screen reader) is **optional/advanced** — do it if you can, but feel free to skip.*
+
+### 15a. Larger text & display zoom (please try this)
+
+**Steps:**
+1. In your phone's settings, turn **font size** (and **display/zoom size** if available)
+   up to a **large** setting. On Android: *Settings → Display → Font size / Display size*.
+   On iPhone: *Settings → Accessibility → Display & Text Size → Larger Text*.
+2. Reopen Doxa and walk through the main screens.
+
+**What you should see — big text, but nothing broken:**
+- [ ] Text is **larger** everywhere and the app still works.
+- [ ] **Onboarding wizard:** the **Get started** button isn't jammed against the bottom;
+      the sign-up step **scrolls** so you can still reach its buttons (even with the keyboard up).
+- [ ] **Home:** the **Get Involved** buttons (Donate/Feedback) and the people-group card
+      buttons (Profile/Share/QR) **wrap onto more than one line** instead of running off the edge.
+- [ ] **Pray tab:** the scripture **reference/citation** line **wraps** instead of being cut off.
+- [ ] **Reminders:** the **day-of-week** circles **wrap** onto a second row if needed; the
+      **Delete** and **Save** buttons stack neatly rather than overflowing.
+- [ ] **Notifications settings:** the "notifications enabled/disabled" heading **wraps**
+      instead of being clipped.
+- [ ] **Pop-ups scroll:** the **QR share** pop-up (the QR shrinks so it stays fully visible),
+      the **Amen** thank-you pop-up, and confirmation pop-ups all **scroll** if they're too
+      tall — nothing important is cut off or unreachable.
+- [ ] In general, nothing is **cut off, overlapping, or unreachable** at the large size.
+
+### 15b. Screen reader — *optional / advanced*
+
+*This tests **TalkBack** (Android) or **VoiceOver** (iPhone) — the phone reads the screen
+aloud and you swipe between items. It takes some getting used to; skip if you'd rather not.*
+
+**Steps:**
+1. Turn it on — Android: *Settings → Accessibility → TalkBack*. iPhone: *Settings →
+   Accessibility → VoiceOver* (or triple-click the side button if you set that shortcut).
+2. **Swipe right/left** to move between items; **double-tap** to activate the selected item.
+3. Move through onboarding, Home, Pray, People Groups (incl. a group's details) and Reminders.
+
+**What you should hear — things are announced sensibly:**
+- [ ] Buttons are announced as **"button"**, and the bottom tabs say whether they're **selected**.
+- [ ] **Icon-only** controls have spoken names, e.g. the back/forward **arrows** say
+      "Back"/"Forward", the **settings** gear says "Settings", the photo **info** marker says
+      "Picture credit", and the search **X** says "Clear search".
+- [ ] **Photos** of a people group announce the **group's name** (decorative graphics stay silent).
+- [ ] **Section titles** are announced as **headings** (you can jump between headings).
+- [ ] Tappable **cards** read as a **single button** — including Home's **"Next reminder"**
+      card and the bottom **"Pray for [group]"** banner (its **×** says "Dismiss reminder").
+- [ ] In the reminder form, each **day circle** reads its **full name** ("Monday", "Tuesday"…)
+      and whether it's selected — not just a single letter.
+- [ ] On **Home**, the **"Prayed today"** badge is read as one clear status.
+- [ ] After you tap **Amen**, the screen reader **speaks "Prayer recorded"**.
+- [ ] On a group's **details** page, each engagement marker is read separately and speaks its
+      status — **"Yes" / "No" / "Partial"** — rather than being skipped or run together.
+
+---
+
 ## Final checklist
 
 Priority tests are marked ⭐.
@@ -292,17 +386,18 @@ Priority tests are marked ⭐.
 - [ ] **1** First-time setup completed
 - [ ] **2** Navigation between tabs works
 - [ ] **3** Home screen (group card, pray, share, get involved)
-- [ ] ⭐ **4** Pray tab shows **my** group and **today's** prayers (+ Amen, day nav)
-- [ ] ⭐ **5** Viewed people group info; shared QR/link opens the right group
+- [ ] ⭐ **4** Pray tab shows **my** group and **today's** prayers (+ Amen → **Home**, day nav)
+- [ ] ⭐ **5** Viewed people group info (incl. prayer-status colours); shared QR/link opens the right group
 - [ ] ⭐ **5c** Fresh install from a QR auto-selected the right group (Android)
 - [ ] ⭐ **6** Reminders save **and fire** at the right time/day
 - [ ] **7** Notifications enabled
 - [ ] **8** News signup (with validation)
 - [ ] **9** Email verified + resend cooldown
 - [ ] **10** View profile in browser
-- [ ] **11** Feedback form in correct language
+- [ ] **11** Feedback form **in-app**, in correct language (with validation + thank-you)
 - [ ] **12** Language switching incl. Arabic (right-to-left)
 - [ ] **13** Update banner behaves
 - [ ] **14** No crashes / offline handled / settings remembered
+- [ ] **15** Accessibility — large text (15a); screen reader if possible (15b, optional)
 
 Thank you! 🙏 Your testing directly shapes the app.
