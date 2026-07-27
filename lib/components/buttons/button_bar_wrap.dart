@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../../theme/app_spacing.dart';
@@ -5,9 +7,10 @@ import 'action_button.dart';
 
 /// Bottom button group used by the wizard steps.
 ///
-/// Lays the two buttons out side by side (equal width) when their labels fit
-/// on one line, and stacks them full width when a long (e.g. translated) label
-/// would otherwise overflow the row.
+/// Lays the two buttons out side by side (equal width) when both labels fit on
+/// one line in half the row, and stacks them full width when a long (e.g.
+/// translated or text-scaled) label would otherwise wrap. Once stacked a label
+/// may still wrap — at full width there is nothing further to give it.
 class ButtonBarWrap extends StatelessWidget {
   const ButtonBarWrap({
     super.key,
@@ -47,12 +50,17 @@ class ButtonBarWrap extends StatelessWidget {
   }
 
   Widget _layout(BuildContext context, double maxWidth) {
-    final needed =
-        _labelWidth(context, leading.label) +
-        _labelWidth(context, trailing.label) +
-        spacing;
+    // Side by side the two buttons are equal width, so each one only gets half
+    // the row. Size the row off the *wider* label rather than the combined
+    // width: otherwise a long label (e.g. "CONTINUE" next to a short "BACK")
+    // wraps inside its own half while the pair still "fits", when stacking the
+    // buttons would have kept both labels on one line.
+    final widest = math.max(
+      _labelWidth(context, leading.label),
+      _labelWidth(context, trailing.label),
+    );
 
-    if (needed <= maxWidth) {
+    if (widest * 2 + spacing <= maxWidth) {
       return Row(
         children: [
           Expanded(child: leading),
