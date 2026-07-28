@@ -80,11 +80,13 @@ entire list (~15 min, no code changes):
    `CODE_SIGN_STYLE = Automatic` — only archives need match.
 6. **Ship it** — from the repo root:
    ```bash
-   ./release.sh deploy-ios staging               # build + TestFlight + staging gate
+   ./release.sh deploy-ios staging               # build + TestFlight (no gate change)
+   ./release.sh gate staging                     # gate staging clients, once it's live
    ./release.sh screenshots-ios                  # capture 6.9" iPhone + 13" iPad
    ./release.sh deploy-screenshots-ios staging   # upload to Doxa Staging listing
    # once staging is green:
    ./release.sh deploy-ios production
+   ./release.sh gate production
    ./release.sh deploy-screenshots-ios production
    ```
 
@@ -100,8 +102,9 @@ updating `DEVELOPMENT_TEAM`. The Fastfile, lanes, and `release.sh` never change.
 |---------------------------------|--------------------------------------------------------------------|
 | `build_unsigned flavor:`        | Compile only, no signing, **no account** — validation              |
 | `build_ipa flavor:`             | match (readonly) + signed App Store IPA (main app + OneSignal ext) |
-| `deploy flavor:`                | `build_ipa` → upload to TestFlight → update server version gate    |
-| `update_server_version flavor:` | PUT the gate only (same endpoint as Android)                       |
+| `upload flavor:`                | `build_ipa` → upload to TestFlight (gate untouched)                |
+| `deploy flavor:`                | Alias of `upload`                                                  |
+| `update_server_version flavor:` | PUT the gate only (same endpoint as Android) — `./release.sh gate` |
 | `screenshots`                   | Capture + frame 6.9" iPhone + 13" iPad shots on the simulator      |
 | `upload_screenshots flavor:`    | Push framed screenshots to a flavor's ASC listing (via `deliver`)  |
 

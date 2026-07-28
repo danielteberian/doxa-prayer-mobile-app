@@ -4,10 +4,12 @@
 #
 #   ./release.sh bump [build|patch|minor|major]    cut a release: bump version,
 #                                                  draft notes from commits, commit, tag
-#   ./release.sh deploy [staging|production]       build + upload Android app, update gate
+#   ./release.sh deploy [staging|production]       build + upload Android app (no gate change)
 #   ./release.sh build [staging|production]        build a signed AAB only (no upload)
+#   ./release.sh gate [staging|production]         update the server version gate to pubspec's
+#                                                  version — separate, deliberate step
 #
-#   ./release.sh deploy-ios [staging|production]         build + upload iOS app, update gate (macOS only)
+#   ./release.sh deploy-ios [staging|production]         build + upload iOS app (no gate change, macOS only)
 #   ./release.sh build-ios [staging|production]          build a signed iOS IPA only (macOS only)
 #   ./release.sh upload-ios [staging|production]         upload the built IPA to TestFlight, no gate change (macOS only)
 #   ./release.sh verify-upload-ios [staging|production]  preflight the upload: auth + app record, no upload (macOS only)
@@ -22,7 +24,14 @@
 # Typical flow:
 #   ./release.sh bump minor
 #   ./release.sh deploy staging      # test on the Doxa Staging app
+#   ./release.sh gate staging        # only once the build is live and verified
 #   git push --follow-tags
+#
+# The gate is deliberately NOT part of deploy: uploading a build and telling
+# every client "this is the version you must be on" are different decisions.
+# Play/TestFlight need time to process a build, and a bad build should be
+# pulled without ever having gated users onto it. `gate` is the same server
+# endpoint for both platforms — run it once per release, not once per store.
 #
 set -euo pipefail
 
@@ -68,7 +77,9 @@ track="beta"
 case "$cmd" in
   deploy)                 fl android deploy flavor:"${arg:-staging}" track:"${track}" ;;
   build)                  fl android build_aab flavor:"${arg:-staging}" ;;
-  upload)                 fl android upload flavor:"${arg:-staging}" track:"${track}" ;;
+  # Gate lives on the campaigns server, not in a store — the Android lane owns
+  # it for both platforms so it can run anywhere (no macOS/Xcode needed).
+  gate)                   fl android update_server_version flavor:"${arg:-staging}" ;;
   deploy-screenshots)     fl android upload_screenshots flavor:"${arg:-staging}" track:"${track}" ;;
   bump)                   fl android bump type:"${arg:-build}" ;;
   deploy-ios)             fl ios deploy flavor:"${arg:-staging}" ;;
@@ -79,7 +90,7 @@ case "$cmd" in
   screenshots-ios)        fl ios screenshots ;;
   deploy-screenshots-ios) fl ios upload_screenshots flavor:"${arg:-staging}" ;;
   *)
-    echo "usage: ./release.sh {deploy|build|upload [staging|production] | bump [build|patch|minor|major]" >&2
+    echo "usage: ./release.sh {deploy|build|gate [staging|production] | bump [build|patch|minor|major]" >&2
     echo "                     | deploy-screenshots [staging|production]" >&2
     echo "                     | deploy-ios|build-ios|upload-ios|verify-upload-ios|validate-ios [staging|production]" >&2
     echo "                     | screenshots-ios | deploy-screenshots-ios [staging|production]}" >&2

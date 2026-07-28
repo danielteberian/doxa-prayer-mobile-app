@@ -74,13 +74,14 @@ server version gate:
 ### Release flow
 
 ```bash
-./release.sh bump minor   # 1.0.6+6 -> 1.1.0+7: opens $EDITOR with notes drafted
-                          # from git, then commits and tags v1.1.0
-./release.sh staging      # builds + uploads to the staging app (internal track),
-                          # updates the staging version gate
+./release.sh bump minor        # 1.0.6+6 -> 1.1.0+7: opens $EDITOR with notes
+                               # drafted from git, then commits and tags v1.1.0
+./release.sh deploy staging    # builds + uploads to the staging app (internal track)
+./release.sh gate staging      # ...then point the staging gate at the new version
 # ...test on the Doxa Staging app...
-./release.sh production   # same build -> production app + production gate
-git push --follow-tags    # publish the release commit and tag
+./release.sh deploy production # same build -> production app
+./release.sh gate production   # gate clients onto it once the build is live
+git push --follow-tags         # publish the release commit and tag
 ```
 
 - `bump` types: `build` (default, just `+N`), `patch`, `minor`, `major`.
@@ -92,6 +93,11 @@ git push --follow-tags    # publish the release commit and tag
   (`android/fastlane/metadata/<flavor>/.../changelogs/`). Writing commits in
   conventional format gives the cleanest notes.
 - `./release.sh build staging` builds a signed AAB only (no upload).
+- **The version gate is a separate step.** `deploy` only ships the binary;
+  `./release.sh gate <flavor>` PUTs `pubspec.yaml`'s version as that server's
+  `latest_version`. Run it after the build is live and verified — a build still
+  processing (or one you end up pulling) should never gate users. The gate is
+  shared by Android and iOS, so run it once per release, not once per store.
 - Re-deploying the same target without a new `bump` is rejected by Play
   (duplicate version code) — run `bump` first.
 

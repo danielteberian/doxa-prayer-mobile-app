@@ -194,28 +194,12 @@ platform :ios do
       api_key: api_key,
       skip_waiting_for_build_processing: true,
     )
-    UI.success("Uploaded #{File.basename(ipa)} to TestFlight (#{flavor}). Version gate NOT changed.")
+    UI.success("Uploaded #{File.basename(ipa)} to TestFlight (#{flavor}). Version gate NOT changed — run `./release.sh gate #{flavor}` once the build is live.")
   end
 
-  desc "Build + upload to TestFlight and update the server gate. flavor: staging|production"
+  desc "Build + upload to TestFlight. Alias of `upload` — the server gate is a separate step (`update_server_version`). flavor: staging|production"
   lane :deploy do |options|
-    flavor = (options[:flavor] || "").to_s
-    cfg = require_flavor(flavor)
-
-    api_key = asc_api_key
-    UI.user_error!("ASC_KEY_ID is not set — TestFlight upload needs the App Store Connect API key (see fastlane/.env.example)") if api_key.nil?
-
-    ipa = build_ipa(flavor: flavor)
-
-    upload_to_testflight(
-      app_identifier: cfg[:bundle],
-      ipa: ipa,
-      api_key: api_key,
-      skip_waiting_for_build_processing: true,
-    )
-
-    update_server_version(flavor: flavor)
-    UI.success("Deployed #{read_semver} (#{flavor}) to TestFlight + updated #{flavor} gate")
+    upload(options)
   end
 
   desc "Update the campaigns-server version gate for a flavor. flavor: staging|production"

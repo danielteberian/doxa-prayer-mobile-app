@@ -8,8 +8,9 @@ require "shellwords"
 #
 # Two flavors map to two separate Play apps and two separate server version
 # gates. `bump` cuts a release (version + notes + commit + tag); `deploy`
-# builds the signed AAB, uploads it to that app's internal track, and updates
-# that target's server gate. See ../../release.sh for the friendly wrapper.
+# builds the signed AAB and uploads it to that app's internal track.
+# Gating clients onto the new version is a SEPARATE, deliberate step:
+# `update_server_version` (./release.sh gate). See ../../release.sh.
 # ---------------------------------------------------------------------------
 
 # Repo root, resolved from this file's location so it is independent of the
@@ -119,7 +120,7 @@ platform :android do
     path
   end
 
-  desc "Build + upload to the Play internal track and update the server gate. flavor: staging|production"
+  desc "Build + upload to the Play internal track. Does NOT touch the server gate — run `update_server_version` for that. flavor: staging|production"
   lane :deploy do |options|
     flavor = (options[:flavor] || "").to_s
     cfg = require_flavor(flavor)
@@ -142,8 +143,7 @@ platform :android do
       skip_upload_changelogs: false,
     )
 
-    update_server_version(flavor: flavor)
-    UI.success("Deployed #{read_version[:semver]} (#{flavor}) to Play internal + updated #{flavor} gate")
+    UI.success("Deployed #{read_version[:semver]} (#{flavor}) to Play internal. Version gate NOT changed — run `./release.sh gate #{flavor}` once the build is live.")
   end
 
   desc "Update the campaigns-server version gate for a flavor. flavor: staging|production"
