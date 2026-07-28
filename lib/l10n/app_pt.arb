@@ -76,6 +76,9 @@
     "@dismissNextReminder": {
         "description": "Button on the home-screen next-reminder card that turns off the reminder rule whose next firing is shown"
     },
+    "@dismissReminderLabel": {
+        "description": "Accessibility label for the close button on the home prayer reminder banner"
+    },
     "@donate": {
         "description": "Button that opens the donation page in the browser"
     },
@@ -91,6 +94,15 @@
     "@enableNotifications": {
         "description": "Button label that takes the user to the notification settings page to enable notifications"
     },
+    "@enableNotificationsButton": {
+        "description": "Button that requests OS notification permission so the user can receive push notifications"
+    },
+    "@enableNotificationsPromptBody": {
+        "description": "Prompt shown after signing up for updates, offering to also enable push notifications"
+    },
+    "@engaged": {
+        "description": "Marker label shown when a people group is engaged"
+    },
     "@engagementStatus": {
         "description": "The label of the engagement status field"
     },
@@ -104,7 +116,57 @@
         "description": "Body of the dialog shown after the user creates their first reminder, explaining why to grant the exact-alarm permission"
     },
     "@feedback": {
-        "description": "Button that opens the feedback page in the browser"
+        "description": "Button that opens the in-app feedback panel"
+    },
+    "@feedbackConsentLabel": {
+        "description": "Label for the marketing-consent toggle on the feedback form"
+    },
+    "@feedbackError": {
+        "description": "Generic error shown when feedback submission fails"
+    },
+    "@feedbackIntro": {
+        "description": "Intro text at the top of the feedback form"
+    },
+    "@feedbackMessageLabel": {
+        "description": "Label for the feedback message field"
+    },
+    "@feedbackMessageRequired": {
+        "description": "Validation message when the feedback message is empty"
+    },
+    "@feedbackNameLabel": {
+        "description": "Label for the optional name field on the feedback form"
+    },
+    "@feedbackRateLimited": {
+        "description": "Error shown when the feedback endpoint rate-limits the user"
+    },
+    "@feedbackSubmit": {
+        "description": "Button that submits the feedback form"
+    },
+    "@feedbackSuccessBody": {
+        "description": "Body of the feedback success confirmation, echoing the email used",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+    "@feedbackSuccessTitle": {
+        "description": "Title of the feedback success confirmation"
+    },
+    "@feedbackTypeCompliment": {
+        "description": "Feedback type option for positive feedback"
+    },
+    "@feedbackTypeLabel": {
+        "description": "Label above the feedback-type chooser"
+    },
+    "@feedbackTypeProblem": {
+        "description": "Feedback type option for reporting a problem"
+    },
+    "@feedbackTypeRequired": {
+        "description": "Validation message when no feedback type is selected"
+    },
+    "@feedbackTypeSuggestion": {
+        "description": "Feedback type option for a suggestion or idea"
     },
     "@finish": {
         "description": "Finish button label on the final wizard step"
@@ -194,6 +256,17 @@
         "placeholders": {
             "peopleGroup": { "type": "String" }
         }
+    },
+    "@prayerReminderBody": {
+        "description": "Body of the dismissable home banner; tapping it opens the Pray tab for the selected people group",
+        "placeholders": {
+            "peopleGroup": {
+                "type": "String"
+            }
+        }
+    },
+    "@prayerReminderTitle": {
+        "description": "Title of the dismissable home banner reminding the user they haven't prayed yet today"
     },
     "@resendVerification": {
         "description": "Button that re-sends the verification email for an unverified address"
@@ -556,21 +629,23 @@
     "emailInvalid": "Insira um endereço de e-mail válido.",
     "emailLabel": "E-mail",
     "enableNotifications": "Ativar notificações",
+    "enableNotificationsButton": "Ativar notificações",
+    "enableNotificationsPromptBody": "Ative as notificações para receber as novidades também por notificações push.",
     "engagementStatus": "Status de engajamento",
     "engaged": "Engajado",
     "everyDay": "Todos os dias",
     "exactAlarmsDisabledStatus": "Os alarmes exatos não são permitidos para o Doxa, então seus lembretes de oração podem chegar com alguns minutos de atraso.",
     "exactAlarmsPromptBody": "Para que seus lembretes de oração cheguem na hora certa, permita que o Doxa use alarmes exatos.",
     "feedback": "Comentários",
-    "feedbackConsentLabel": "Mantenha-me atualizado com as novidades da Doxa",
+    "feedbackConsentLabel": "Quero receber novidades da Doxa",
     "feedbackError": "Algo deu errado. Verifique sua conexão e tente novamente.",
-    "feedbackIntro": "Adoraríamos ouvir você. Conte-nos o que acha do aplicativo.",
+    "feedbackIntro": "Adoraríamos ouvir você. Conte-nos o que você acha do aplicativo.",
     "feedbackMessageLabel": "Mensagem",
     "feedbackMessageRequired": "Insira uma mensagem.",
     "feedbackNameLabel": "Nome (opcional)",
     "feedbackRateLimited": "Você enviou muitos comentários recentemente. Tente novamente mais tarde.",
     "feedbackSubmit": "Enviar comentários",
-    "feedbackSuccessBody": "Seus comentários foram enviados como {email}. Se não for o endereço correto, envie-os novamente com o endereço certo.",
+    "feedbackSuccessBody": "Seus comentários foram enviados como {email}. Se esse não for o endereço certo, envie-os novamente com o correto.",
     "feedbackSuccessTitle": "Obrigado!",
     "feedbackTypeCompliment": "Elogio",
     "feedbackTypeLabel": "Que tipo de comentário?",
@@ -599,9 +674,9 @@
     "notNow": "Agora não",
     "pictureCreditLabel": "Crédito da imagem",
     "prayerRecordedAnnouncement": "Oração registrada",
-    "prayForPeopleGroupLabel": "Orar por {peopleGroup}",
+    "prayForPeopleGroupLabel": "Orar por “{peopleGroup}”",
     "resendVerification": "Reenviar e-mail de verificação",
-    "resendVerificationSent": "E-mail de verificação enviado. Verifique sua caixa de entrada.",
+    "resendVerificationSent": "E-mail de verificação enviado. Confira sua caixa de entrada.",
     "resendVerificationCooldown": "Aguarde {seconds} s antes de solicitar outro e-mail.",
     "resendVerificationCountdown": "Reenviar em {seconds} s",
     "signUp": "Inscrever-se",
@@ -630,14 +705,14 @@
     "pauseAndPray": "Pause e ore",
     "peopleCommittedToPraying": "Pessoas comprometidas a orar",
     "peopleGroup": "Povo",
-    "peopleGroupIntroTitle": "Ore por {name}",
+    "peopleGroupIntroTitle": "Ore por “{name}”",
     "peopleGroupOfTheDay": "Povo do dia",
     "peopleGroups": "Povos",
     "population": "População",
     "pray": "Orar",
     "prayedToday": "Orei hoje",
-    "prayerReminderTitle": "Tudo pronto para orar hoje?",
-    "prayerReminderBody": "Toque para orar por {peopleGroup}.",
+    "prayerReminderTitle": "Tudo pronto para a oração de hoje?",
+    "prayerReminderBody": "Toque para orar por “{peopleGroup}”.",
     "dismissReminderLabel": "Dispensar lembrete",
     "prayerStatus": "Status de oração",
     "prayerThankYouMessage": "Sua fidelidade na oração importa. Deus ouve você, e suas orações fazem a diferença.",
@@ -659,7 +734,7 @@
     "retry": "Tentar novamente",
     "save": "Salvar",
     "saveAndContinue": "Salvar e continuar",
-    "scanToPray": "Escaneie o código para baixar o aplicativo e orar por {name}",
+    "scanToPray": "Escaneie o código para baixar o aplicativo e orar por “{name}”",
     "search": "Pesquisar",
     "searchPeopleGroups": "Pesquisar povos",
     "select": "Selecionar",
@@ -669,11 +744,11 @@
     "setReminder": "Definir lembrete",
     "settings": "Configurações",
     "share": "Compartilhar",
-    "shareMessage": "Ore comigo por {name} — baixe o aplicativo Doxa Prayer:",
+    "shareMessage": "Ore comigo por “{name}” — baixe o aplicativo Doxa Prayer:",
     "signUpForUpdates": "Inscreva-se para receber novidades",
     "skip": "Pular",
     "status": "Status",
-    "switchPeopleGroupConfirm": "Você quer parar de orar por {currentName} e começar a orar por {newName}?",
+    "switchPeopleGroupConfirm": "Você quer parar de orar por “{currentName}” e começar a orar por “{newName}”?",
     "time": "Horário",
     "updateAction": "Atualizar",
     "updateAvailableBody": "Uma nova versão do Doxa Prayer está disponível.",
@@ -685,7 +760,7 @@
     "updatesFromDoxa": "Receber novidades da Doxa",
     "wizardChoosePeopleGroupTitle": "Escolha um povo",
     "wizardConfirmPeopleGroupBody": "Vamos mostrar conteúdo de oração e lembretes para este povo. Você pode mudar isso depois.",
-    "wizardConfirmPeopleGroupTitle": "Orar por {name}?",
+    "wizardConfirmPeopleGroupTitle": "Orar por “{name}”?",
     "wizardGetStarted": "Começar",
     "wizardNewsSignupBody": "Opcional. Receba notícias sobre seu povo e novidades da Doxa.",
     "wizardNewsSignupTitle": "Fique por dentro",

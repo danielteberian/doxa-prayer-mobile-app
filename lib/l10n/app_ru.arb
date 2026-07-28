@@ -76,6 +76,9 @@
     "@dismissNextReminder": {
         "description": "Button on the home-screen next-reminder card that turns off the reminder rule whose next firing is shown"
     },
+    "@dismissReminderLabel": {
+        "description": "Accessibility label for the close button on the home prayer reminder banner"
+    },
     "@donate": {
         "description": "Button that opens the donation page in the browser"
     },
@@ -91,6 +94,15 @@
     "@enableNotifications": {
         "description": "Button label that takes the user to the notification settings page to enable notifications"
     },
+    "@enableNotificationsButton": {
+        "description": "Button that requests OS notification permission so the user can receive push notifications"
+    },
+    "@enableNotificationsPromptBody": {
+        "description": "Prompt shown after signing up for updates, offering to also enable push notifications"
+    },
+    "@engaged": {
+        "description": "Marker label shown when a people group is engaged"
+    },
     "@engagementStatus": {
         "description": "The label of the engagement status field"
     },
@@ -104,7 +116,57 @@
         "description": "Body of the dialog shown after the user creates their first reminder, explaining why to grant the exact-alarm permission"
     },
     "@feedback": {
-        "description": "Button that opens the feedback page in the browser"
+        "description": "Button that opens the in-app feedback panel"
+    },
+    "@feedbackConsentLabel": {
+        "description": "Label for the marketing-consent toggle on the feedback form"
+    },
+    "@feedbackError": {
+        "description": "Generic error shown when feedback submission fails"
+    },
+    "@feedbackIntro": {
+        "description": "Intro text at the top of the feedback form"
+    },
+    "@feedbackMessageLabel": {
+        "description": "Label for the feedback message field"
+    },
+    "@feedbackMessageRequired": {
+        "description": "Validation message when the feedback message is empty"
+    },
+    "@feedbackNameLabel": {
+        "description": "Label for the optional name field on the feedback form"
+    },
+    "@feedbackRateLimited": {
+        "description": "Error shown when the feedback endpoint rate-limits the user"
+    },
+    "@feedbackSubmit": {
+        "description": "Button that submits the feedback form"
+    },
+    "@feedbackSuccessBody": {
+        "description": "Body of the feedback success confirmation, echoing the email used",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+    "@feedbackSuccessTitle": {
+        "description": "Title of the feedback success confirmation"
+    },
+    "@feedbackTypeCompliment": {
+        "description": "Feedback type option for positive feedback"
+    },
+    "@feedbackTypeLabel": {
+        "description": "Label above the feedback-type chooser"
+    },
+    "@feedbackTypeProblem": {
+        "description": "Feedback type option for reporting a problem"
+    },
+    "@feedbackTypeRequired": {
+        "description": "Validation message when no feedback type is selected"
+    },
+    "@feedbackTypeSuggestion": {
+        "description": "Feedback type option for a suggestion or idea"
     },
     "@finish": {
         "description": "Finish button label on the final wizard step"
@@ -336,6 +398,17 @@
     "@prayedToday": {
         "description": "Pill shown on the home people group card when the user has prayed for it today"
     },
+    "@prayerReminderBody": {
+        "description": "Body of the dismissable home banner; tapping it opens the Pray tab for the selected people group",
+        "placeholders": {
+            "peopleGroup": {
+                "type": "String"
+            }
+        }
+    },
+    "@prayerReminderTitle": {
+        "description": "Title of the dismissable home banner reminding the user they haven't prayed yet today"
+    },
     "@prayerStatus": {
         "description": "The title of the prayer status section"
     },
@@ -533,7 +606,7 @@
     "alternateName": "Другое название",
     "amen": "Аминь",
     "appName": "Doxa Prayer",
-    "appVersion": "Версия{version}",
+    "appVersion": "Версия {version}",
     "audioScripture": "Аудиозапись Писания",
     "back": "Назад",
     "bibleStories": "Библейские истории",
@@ -545,7 +618,7 @@
     "couldNotLoadPrayerContent": "Не удалось загрузить молитвенные материалы.",
     "country": "Страна",
     "crossCulturalWorkersPresent": "Межкультурные служители присутствуют",
-    "dailyPrayerCoverage": "Ежедневное молитвенное покрытие",
+    "dailyPrayerCoverage": "Ежедневный молитвенный охват",
     "dayInTheLifeTitle": "Один день из жизни",
     "daysOfWeek": "Дни недели",
     "delete": "Удалить",
@@ -556,13 +629,15 @@
     "emailInvalid": "Пожалуйста, введите действительный адрес электронной почты.",
     "emailLabel": "Электронная почта",
     "enableNotifications": "Включить уведомления",
+    "enableNotificationsButton": "Включить уведомления",
+    "enableNotificationsPromptBody": "Включите уведомления, чтобы получать новости также в push-уведомлениях.",
     "engagementStatus": "Статус вовлечения",
     "engaged": "Вовлечён",
     "everyDay": "Каждый день",
     "exactAlarmsDisabledStatus": "Точные будильники не разрешены для Doxa, поэтому напоминания о молитвах могут приходить с опозданием на несколько минут.",
     "exactAlarmsPromptBody": "Чтобы напоминания о молитвах приходили точно вовремя, разрешите Doxa использовать точные будильники.",
     "feedback": "Отзывы",
-    "feedbackConsentLabel": "Держите меня в курсе новостей от Doxa",
+    "feedbackConsentLabel": "Хочу получать новости от Doxa",
     "feedbackError": "Произошла ошибка. Проверьте подключение и попробуйте ещё раз.",
     "feedbackIntro": "Мы будем рады услышать ваше мнение. Расскажите, что вы думаете о приложении.",
     "feedbackMessageLabel": "Сообщение",
@@ -585,8 +660,8 @@
     "jesusFilm": "Фильм «Иисус»",
     "language": "Язык",
     "myPeopleGroupTitle": "Мой народ",
-    "nPeopleGroups": "{count, plural, =0{Нет народов} =1{1 народ} other{{count} народов}}",
-    "nRemindersSet": "{count, plural, =0{Напоминаний не установлено} =1{Установлено 1 напоминание} other{Установлено {count} напоминаний}}",
+    "nPeopleGroups": "{count, plural, =0{Нет народов} one{{count} народ} few{{count} народа} many{{count} народов} other{{count} народов}}",
+    "nRemindersSet": "{count, plural, =0{Напоминаний не установлено} one{Установлено {count} напоминание} few{Установлено {count} напоминания} many{Установлено {count} напоминаний} other{Установлено {count} напоминаний}}",
     "nameLabel": "Имя",
     "nameRequired": "Пожалуйста, введите своё имя.",
     "newReminder": "Новое напоминание",
@@ -599,15 +674,15 @@
     "notNow": "Не сейчас",
     "pictureCreditLabel": "Авторство изображения",
     "prayerRecordedAnnouncement": "Молитва записана",
-    "prayForPeopleGroupLabel": "Помолиться за «{peopleGroup}»",
-    "resendVerification": "Отправить письмо для подтверждения ещё раз",
+    "prayForPeopleGroupLabel": "Помолиться за народ «{peopleGroup}»",
+    "resendVerification": "Отправить письмо повторно",
     "resendVerificationSent": "Письмо для подтверждения отправлено. Проверьте почту.",
     "resendVerificationCooldown": "Подождите {seconds} с, прежде чем запрашивать новое письмо.",
     "resendVerificationCountdown": "Повторить через {seconds} с",
     "signUp": "Зарегистрироваться",
     "resendVerificationFailed": "Не удалось отправить письмо. Попробуйте ещё раз.",
     "viewProfile": "Открыть профиль",
-    "emailsLoadError": "Не удалось загрузить ваши адреса.",
+    "emailsLoadError": "Не удалось загрузить ваши адреса электронной почты.",
     "nextDay": "Следующий день",
     "nextReminder": "Следующее напоминание",
     "nextReminderOn": "{weekday} в {time}",
@@ -636,13 +711,13 @@
     "population": "Население",
     "pray": "Молитесь",
     "prayedToday": "Помолились сегодня",
-    "prayerReminderTitle": "Готовы помолиться сегодня?",
-    "prayerReminderBody": "Нажмите, чтобы помолиться за «{peopleGroup}».",
+    "prayerReminderTitle": "Готовы к сегодняшней молитве?",
+    "prayerReminderBody": "Нажмите, чтобы помолиться за народ «{peopleGroup}».",
     "dismissReminderLabel": "Скрыть напоминание",
     "prayerStatus": "Статус молитвы",
     "prayerThankYouMessage": "Ваша верность в молитве имеет большое значение. Бог слышит вас, и ваши молитвы приносят результаты.",
     "prayerThankYouTitle": "Спасибо за ваши молитвы",
-    "prayerThankYouVerse": "Всегда радуйтесь, непрестанно молитесь, за все благодарите; ибо такова воля Божья для вас во Христе Иисусе.",
+    "prayerThankYouVerse": "Всегда радуйтесь, непрестанно молитесь, за всё благодарите; ибо такова воля Божья для вас во Христе Иисусе.",
     "prayerThankYouVerseReference": "1 Фессалоникийцам 5:16–18",
     "pressBackAgainToExit": "Нажмите «Назад» ещё раз, чтобы выйти",
     "previousDay": "Предыдущий день",
@@ -659,7 +734,7 @@
     "retry": "Повторить попытку",
     "save": "Сохранить",
     "saveAndContinue": "Сохранить и продолжить",
-    "scanToPray": "Отсканируйте QR-код, чтобы установить приложение, и помолитесь за {name}",
+    "scanToPray": "Отсканируйте QR-код, чтобы установить приложение, и помолитесь за «{name}»",
     "search": "Поиск",
     "searchPeopleGroups": "Поиск народов",
     "select": "Выбрать",

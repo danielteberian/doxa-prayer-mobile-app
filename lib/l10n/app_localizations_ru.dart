@@ -26,7 +26,9 @@ class AppLocalizationsRu extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count народов',
-      one: '1 народ',
+      many: '$count народов',
+      few: '$count народа',
+      one: '$count народ',
       zero: 'Нет народов',
     );
     return '$_temp0';
@@ -98,7 +100,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get peopleCommittedToPraying => 'Люди, обязавшиеся молиться';
 
   @override
-  String get dailyPrayerCoverage => 'Ежедневное молитвенное покрытие';
+  String get dailyPrayerCoverage => 'Ежедневный молитвенный охват';
 
   @override
   String get peopleGroup => 'Народ';
@@ -196,7 +198,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get prayerThankYouVerse =>
-      'Всегда радуйтесь, непрестанно молитесь, за все благодарите; ибо такова воля Божья для вас во Христе Иисусе.';
+      'Всегда радуйтесь, непрестанно молитесь, за всё благодарите; ибо такова воля Божья для вас во Христе Иисусе.';
 
   @override
   String get prayerThankYouVerseReference => '1 Фессалоникийцам 5:16–18';
@@ -205,11 +207,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get prayedToday => 'Помолились сегодня';
 
   @override
-  String get prayerReminderTitle => 'Готовы помолиться сегодня?';
+  String get prayerReminderTitle => 'Готовы к сегодняшней молитве?';
 
   @override
   String prayerReminderBody(String peopleGroup) {
-    return 'Нажмите, чтобы помолиться за «$peopleGroup».';
+    return 'Нажмите, чтобы помолиться за народ «$peopleGroup».';
   }
 
   @override
@@ -217,7 +219,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String prayForPeopleGroupLabel(String peopleGroup) {
-    return 'Помолиться за «$peopleGroup»';
+    return 'Помолиться за народ «$peopleGroup»';
   }
 
   @override
@@ -333,7 +335,9 @@ class AppLocalizationsRu extends AppLocalizations {
       count,
       locale: localeName,
       other: 'Установлено $countString напоминаний',
-      one: 'Установлено 1 напоминание',
+      many: 'Установлено $countString напоминаний',
+      few: 'Установлено $countString напоминания',
+      one: 'Установлено $countString напоминание',
       zero: 'Напоминаний не установлено',
     );
     return '$_temp0';
@@ -429,10 +433,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get enableNotificationsPromptBody =>
-      'Enable notifications to also receive updates in push notifications.';
+      'Включите уведомления, чтобы получать новости также в push-уведомлениях.';
 
   @override
-  String get enableNotificationsButton => 'Enable notifications';
+  String get enableNotificationsButton => 'Включить уведомления';
 
   @override
   String get accountSectionTitle => 'Ваш аккаунт';
@@ -444,7 +448,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get emailUnverified => 'Не подтверждён';
 
   @override
-  String get resendVerification => 'Отправить письмо для подтверждения ещё раз';
+  String get resendVerification => 'Отправить письмо повторно';
 
   @override
   String get resendVerificationSent =>
@@ -471,7 +475,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get viewProfile => 'Открыть профиль';
 
   @override
-  String get emailsLoadError => 'Не удалось загрузить ваши адреса.';
+  String get emailsLoadError =>
+      'Не удалось загрузить ваши адреса электронной почты.';
 
   @override
   String get updateAvailableTitle => 'Доступно обновление';
@@ -531,7 +536,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get feedbackMessageRequired => 'Пожалуйста, введите сообщение.';
 
   @override
-  String get feedbackConsentLabel => 'Держите меня в курсе новостей от Doxa';
+  String get feedbackConsentLabel => 'Хочу получать новости от Doxa';
 
   @override
   String get feedbackSubmit => 'Отправить отзыв';
@@ -562,12 +567,12 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String scanToPray(String name) {
-    return 'Отсканируйте QR-код, чтобы установить приложение, и помолитесь за $name';
+    return 'Отсканируйте QR-код, чтобы установить приложение, и помолитесь за «$name»';
   }
 
   @override
   String appVersion(String version) {
-    return 'Версия$version';
+    return 'Версия $version';
   }
 
   @override

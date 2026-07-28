@@ -172,7 +172,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String switchPeopleGroupConfirm(String currentName, String newName) {
-    return '¿Quieres dejar de orar por $currentName y empezar a orar por $newName?';
+    return '¿Quieres dejar de orar por «$currentName» y empezar a orar por «$newName»?';
   }
 
   @override
@@ -207,11 +207,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get prayedToday => 'Hoy he orado';
 
   @override
-  String get prayerReminderTitle => '¿Todo listo para orar hoy?';
+  String get prayerReminderTitle => '¿Todo listo para la oración de hoy?';
 
   @override
   String prayerReminderBody(String peopleGroup) {
-    return 'Toca para orar por $peopleGroup.';
+    return 'Toca para orar por «$peopleGroup».';
   }
 
   @override
@@ -219,7 +219,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String prayForPeopleGroupLabel(String peopleGroup) {
-    return 'Orar por $peopleGroup';
+    return 'Orar por «$peopleGroup»';
   }
 
   @override
@@ -285,7 +285,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get exactAlarmsDisabledStatus =>
-      'Las alarmas exactas no están permitidas para Doxa, por lo que tus recordatorios de oración pueden llegar con varios minutos de retraso.';
+      'Doxa no tiene permiso para usar alarmas exactas, por lo que tus recordatorios de oración pueden llegar con varios minutos de retraso.';
 
   @override
   String get allowExactAlarms => 'Permitir alarmas exactas';
@@ -432,10 +432,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get enableNotificationsPromptBody =>
-      'Enable notifications to also receive updates in push notifications.';
+      'Activa las notificaciones para recibir también las novedades como notificaciones push.';
 
   @override
-  String get enableNotificationsButton => 'Enable notifications';
+  String get enableNotificationsButton => 'Activar notificaciones';
 
   @override
   String get accountSectionTitle => 'Tu cuenta';
@@ -468,13 +468,14 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get resendVerificationFailed =>
-      'No se pudo enviar el correo. Inténtalo de nuevo.';
+      'No se ha podido enviar el correo. Inténtalo de nuevo.';
 
   @override
   String get viewProfile => 'Ver perfil';
 
   @override
-  String get emailsLoadError => 'No se pudieron cargar tus correos.';
+  String get emailsLoadError =>
+      'No se han podido cargar tus direcciones de correo.';
 
   @override
   String get updateAvailableTitle => 'Hay una actualización disponible';
@@ -552,7 +553,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String feedbackSuccessBody(String email) {
-    return 'Tus comentarios se enviaron como $email. Si no es la dirección correcta, vuelve a enviarlos con la correcta.';
+    return 'Tus comentarios se han enviado desde $email. Si esa no es la dirección correcta, vuelve a enviarlos con la correcta.';
   }
 
   @override
@@ -565,7 +566,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String scanToPray(String name) {
-    return 'Escanea el código para descargar la aplicación y ora por los $name';
+    return 'Escanea el código para descargar la aplicación y ora por los «$name»';
   }
 
   @override

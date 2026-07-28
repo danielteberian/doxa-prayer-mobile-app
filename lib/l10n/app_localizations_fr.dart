@@ -151,7 +151,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get no => 'Non';
 
   @override
-  String get partial => 'Partiel';
+  String get partial => 'En partie';
 
   @override
   String get status => 'Statut';
@@ -171,7 +171,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String switchPeopleGroupConfirm(String currentName, String newName) {
-    return 'Voulez-vous cesser de prier pour « $currentName » et commencer à prier pour « $newName » ?';
+    return 'Voulez-vous cesser de prier pour « $currentName » et commencer à prier pour « $newName » ?';
   }
 
   @override
@@ -207,11 +207,11 @@ class AppLocalizationsFr extends AppLocalizations {
   String get prayedToday => 'J\'ai prié aujourd\'hui';
 
   @override
-  String get prayerReminderTitle => 'C\'est le moment de prier aujourd\'hui ?';
+  String get prayerReminderTitle => 'Prêt pour la prière d\'aujourd\'hui ?';
 
   @override
   String prayerReminderBody(String peopleGroup) {
-    return 'Touchez pour prier pour $peopleGroup.';
+    return 'Appuyez ici pour prier pour « $peopleGroup ».';
   }
 
   @override
@@ -219,7 +219,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String prayForPeopleGroupLabel(String peopleGroup) {
-    return 'Prier pour $peopleGroup';
+    return 'Prier pour « $peopleGroup »';
   }
 
   @override
@@ -285,7 +285,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get exactAlarmsDisabledStatus =>
-      'Les alarmes exactes ne sont pas autorisées pour Doxa ; vos rappels de prière peuvent donc arriver avec plusieurs minutes de retard.';
+      'Les alarmes exactes ne sont pas autorisées pour Doxa ; vos rappels de prière peuvent donc arriver avec plusieurs minutes de retard.';
 
   @override
   String get allowExactAlarms => 'Autoriser les alarmes exactes';
@@ -334,7 +334,7 @@ class AppLocalizationsFr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '${countString}s rappels définis',
+      other: '$countString rappels définis',
       one: '1 rappel défini',
       zero: 'Aucun rappel défini',
     );
@@ -359,7 +359,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String wizardConfirmPeopleGroupTitle(String name) {
-    return 'Prier pour « $name » ?';
+    return 'Prier pour « $name » ?';
   }
 
   @override
@@ -418,7 +418,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get signUpForUpdates => 'Inscrivez-vous pour recevoir nos actualités';
 
   @override
-  String get newsSignupSuccessTitle => 'Merci de votre inscription !';
+  String get newsSignupSuccessTitle => 'Merci de votre inscription !';
 
   @override
   String newsSignupSuccessBody(String email) {
@@ -431,10 +431,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get enableNotificationsPromptBody =>
-      'Enable notifications to also receive updates in push notifications.';
+      'Activez les notifications pour recevoir aussi les actualités par notification push.';
 
   @override
-  String get enableNotificationsButton => 'Enable notifications';
+  String get enableNotificationsButton => 'Activer les notifications';
 
   @override
   String get accountSectionTitle => 'Votre compte';
@@ -454,12 +454,12 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String resendVerificationCooldown(int seconds) {
-    return 'Veuillez patienter $seconds s avant de demander un autre e-mail.';
+    return 'Veuillez patienter $seconds s avant de demander un autre e-mail.';
   }
 
   @override
   String resendVerificationCountdown(int seconds) {
-    return 'Renvoyer dans $seconds s';
+    return 'Renvoyer dans $seconds s';
   }
 
   @override
@@ -509,7 +509,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Nous aimerions connaître votre avis. Dites-nous ce que vous pensez de l\'application.';
 
   @override
-  String get feedbackTypeLabel => 'Quel type de commentaire ?';
+  String get feedbackTypeLabel => 'Quel type de commentaire ?';
 
   @override
   String get feedbackTypeCompliment => 'Compliment';
@@ -536,7 +536,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get feedbackConsentLabel => 'Tenez-moi informé des actualités de Doxa';
 
   @override
-  String get feedbackSubmit => 'Envoyer les commentaires';
+  String get feedbackSubmit => 'Envoyer des commentaires';
 
   @override
   String get feedbackError =>
@@ -547,16 +547,16 @@ class AppLocalizationsFr extends AppLocalizations {
       'Vous avez envoyé de nombreux commentaires récemment. Veuillez réessayer plus tard.';
 
   @override
-  String get feedbackSuccessTitle => 'Merci !';
+  String get feedbackSuccessTitle => 'Merci !';
 
   @override
   String feedbackSuccessBody(String email) {
-    return 'Vos commentaires ont été envoyés à l\'adresse $email. Si ce n\'est pas la bonne adresse, renvoyez-les avec la bonne.';
+    return 'Vos commentaires ont été envoyés depuis l\'adresse $email. Si ce n\'est pas la bonne adresse, renvoyez-les avec la bonne.';
   }
 
   @override
   String shareMessage(String name) {
-    return 'Priez avec moi pour l’$name — téléchargez l’application Doxa Prayer :';
+    return 'Priez avec moi pour « $name » — téléchargez l\'application Doxa Prayer :';
   }
 
   @override
@@ -564,7 +564,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String scanToPray(String name) {
-    return 'Scannez le code pour télécharger l\'application et priez pour l\'$name';
+    return 'Scannez le code pour télécharger l\'application et priez pour « $name »';
   }
 
   @override
@@ -586,7 +586,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String peopleGroupIntroTitle(String name) {
-    return 'Priez pour l’$name';
+    return 'Priez pour « $name »';
   }
 
   @override

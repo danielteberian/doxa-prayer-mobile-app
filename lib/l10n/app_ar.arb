@@ -91,8 +91,17 @@
     "@enableNotifications": {
         "description": "Button label that takes the user to the notification settings page to enable notifications"
     },
+    "@enableNotificationsButton": {
+        "description": "Button that requests OS notification permission so the user can receive push notifications"
+    },
+    "@enableNotificationsPromptBody": {
+        "description": "Prompt shown after signing up for updates, offering to also enable push notifications"
+    },
     "@engagementStatus": {
         "description": "The label of the engagement status field"
+    },
+    "@engaged": {
+        "description": "Marker label shown when a people group is engaged"
     },
     "@everyDay": {
         "description": "Days summary shown when a reminder is set for all 7 days"
@@ -104,7 +113,57 @@
         "description": "Body of the dialog shown after the user creates their first reminder, explaining why to grant the exact-alarm permission"
     },
     "@feedback": {
-        "description": "Button that opens the feedback page in the browser"
+        "description": "Button that opens the in-app feedback panel"
+    },
+    "@feedbackConsentLabel": {
+        "description": "Label for the marketing-consent toggle on the feedback form"
+    },
+    "@feedbackError": {
+        "description": "Generic error shown when feedback submission fails"
+    },
+    "@feedbackIntro": {
+        "description": "Intro text at the top of the feedback form"
+    },
+    "@feedbackMessageLabel": {
+        "description": "Label for the feedback message field"
+    },
+    "@feedbackMessageRequired": {
+        "description": "Validation message when the feedback message is empty"
+    },
+    "@feedbackNameLabel": {
+        "description": "Label for the optional name field on the feedback form"
+    },
+    "@feedbackRateLimited": {
+        "description": "Error shown when the feedback endpoint rate-limits the user"
+    },
+    "@feedbackSubmit": {
+        "description": "Button that submits the feedback form"
+    },
+    "@feedbackSuccessBody": {
+        "description": "Body of the feedback success confirmation, echoing the email used",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+    "@feedbackSuccessTitle": {
+        "description": "Title of the feedback success confirmation"
+    },
+    "@feedbackTypeCompliment": {
+        "description": "Feedback type option for positive feedback"
+    },
+    "@feedbackTypeLabel": {
+        "description": "Label above the feedback-type chooser"
+    },
+    "@feedbackTypeProblem": {
+        "description": "Feedback type option for reporting a problem"
+    },
+    "@feedbackTypeRequired": {
+        "description": "Validation message when no feedback type is selected"
+    },
+    "@feedbackTypeSuggestion": {
+        "description": "Feedback type option for a suggestion or idea"
     },
     "@finish": {
         "description": "Finish button label on the final wizard step"
@@ -336,6 +395,20 @@
     "@prayedToday": {
         "description": "Pill shown on the home people group card when the user has prayed for it today"
     },
+    "@prayerReminderTitle": {
+        "description": "Title of the dismissable home banner reminding the user they haven't prayed yet today"
+    },
+    "@prayerReminderBody": {
+        "description": "Body of the dismissable home banner; tapping it opens the Pray tab for the selected people group",
+        "placeholders": {
+            "peopleGroup": {
+                "type": "String"
+            }
+        }
+    },
+    "@dismissReminderLabel": {
+        "description": "Accessibility label for the close button on the home prayer reminder banner"
+    },
     "@prayerStatus": {
         "description": "The title of the prayer status section"
     },
@@ -529,11 +602,11 @@
     },
     "adoptionStatus": "حالة التبنّي",
     "allow": "السماح",
-    "allowExactAlarms": "السماح بالتنبيهات الدقيقة",
+    "allowExactAlarms": "السماح بالمنبّهات الدقيقة",
     "alternateName": "اسم بديل",
     "amen": "آمين",
-    "appName": "صلاة دوكسا",
-    "appVersion": "الإصدار{version}",
+    "appName": "Doxa Prayer",
+    "appVersion": "الإصدار {version}",
     "audioScripture": "الكتاب المقدس الصوتي",
     "back": "العودة إلى الخلف",
     "bibleStories": "قصص الكتاب المقدس",
@@ -556,23 +629,25 @@
     "emailInvalid": "يرجى إدخال عنوان بريد إلكتروني صالح.",
     "emailLabel": "البريد الإلكتروني",
     "enableNotifications": "تمكين الإشعارات",
+    "enableNotificationsButton": "تمكين الإشعارات",
+    "enableNotificationsPromptBody": "قم بتمكين الإشعارات لتصلك آخر المستجدات عبر الإشعارات الفورية أيضًا.",
     "engagementStatus": "حالة الانخراط",
-    "engaged": "مُنخرَط",
+    "engaged": "مُنخرَطة",
     "everyDay": "كل يوم",
-    "exactAlarmsDisabledStatus": "التنبيهات الدقيقة غير مسموح بها لتطبيق Doxa، لذا قد تصل تذكيرات الصلاة متأخرة بعدة دقائق.",
-    "exactAlarmsPromptBody": "لكي تصل تذكيرات الصلاة في وقتها تمامًا، اسمح لتطبيق Doxa باستخدام التنبيهات الدقيقة.",
+    "exactAlarmsDisabledStatus": "المنبّهات الدقيقة غير مسموح بها لتطبيق Doxa، لذا قد تصل تذكيرات الصلاة متأخرة بعدة دقائق.",
+    "exactAlarmsPromptBody": "لكي تصل تذكيرات الصلاة في وقتها تمامًا، اسمح لتطبيق Doxa باستخدام المنبّهات الدقيقة.",
     "feedback": "التعليقات",
     "feedbackConsentLabel": "أبقِني على اطّلاع بآخر أخبار Doxa",
     "feedbackError": "حدث خطأ ما. يرجى التحقق من اتصالك ومحاولة الإجراء مرة أخرى.",
-    "feedbackIntro": "يسعدنا أن نسمع رأيك. أخبرنا برأيك في التطبيق.",
+    "feedbackIntro": "يسعدنا أن نسمع منك. أخبرنا برأيك في التطبيق.",
     "feedbackMessageLabel": "الرسالة",
     "feedbackMessageRequired": "يرجى إدخال رسالة.",
     "feedbackNameLabel": "الاسم (اختياري)",
     "feedbackRateLimited": "لقد أرسلت الكثير من التعليقات مؤخرًا. يرجى المحاولة مرة أخرى لاحقًا.",
     "feedbackSubmit": "إرسال التعليقات",
-    "feedbackSuccessBody": "تم إرسال تعليقاتك باسم {email}. إذا لم يكن هذا هو العنوان الصحيح، فأعد إرسالها بالعنوان الصحيح.",
+    "feedbackSuccessBody": "تم إرسال تعليقاتك من العنوان {email}. إذا لم يكن هذا هو العنوان الصحيح، فأعد إرسالها بالعنوان الصحيح.",
     "feedbackSuccessTitle": "شكرًا لك!",
-    "feedbackTypeCompliment": "إطراء",
+    "feedbackTypeCompliment": "إشادة",
     "feedbackTypeLabel": "ما نوع التعليق؟",
     "feedbackTypeProblem": "مشكلة",
     "feedbackTypeRequired": "يرجى اختيار نوع التعليق.",
@@ -587,7 +662,7 @@
     "myPeopleGroupTitle": "مجموعتي الشعبية",
     "nPeopleGroups": "{count, plural, =0{لا توجد مجموعات شعبية} =1{مجموعة شعبية واحدة} other{{count} مجموعة شعبية}}",
     "nRemindersSet": "{count, plural, =0{لم يتم تعيين أي تذكير} =1{تم تعيين تذكير واحد} other{تم تعيين {count} تذكير}}",
-    "nameLabel": "الإسم",
+    "nameLabel": "الاسم",
     "nameRequired": "يرجى إدخال اسمك.",
     "newReminder": "تذكير جديد",
     "newsSignupError": "حدث خطأ ما. يرجى التحقق من اتصالك ومحاولة الإجراء مرة أخرى.",
@@ -601,18 +676,18 @@
     "prayerRecordedAnnouncement": "تم تسجيل الصلاة",
     "prayForPeopleGroupLabel": "الصلاة من أجل «{peopleGroup}»",
     "resendVerification": "إعادة إرسال رسالة التحقق",
-    "resendVerificationSent": "تم إرسال رسالة التحقق. تحقق من صندوق الوارد.",
-    "resendVerificationCooldown": "يُرجى الانتظار {seconds} ثانية قبل طلب رسالة أخرى.",
-    "resendVerificationCountdown": "إعادة الإرسال خلال {seconds} ثانية",
+    "resendVerificationSent": "تم إرسال رسالة التحقق. تفقَّد صندوق الوارد.",
+    "resendVerificationCooldown": "{seconds, plural, zero{يُرجى الانتظار قليلًا قبل طلب رسالة أخرى.} one{يُرجى الانتظار ثانية واحدة قبل طلب رسالة أخرى.} two{يُرجى الانتظار ثانيتين قبل طلب رسالة أخرى.} few{يُرجى الانتظار {seconds} ثوانٍ قبل طلب رسالة أخرى.} many{يُرجى الانتظار {seconds} ثانية قبل طلب رسالة أخرى.} other{يُرجى الانتظار {seconds} ثانية قبل طلب رسالة أخرى.}}",
+    "resendVerificationCountdown": "{seconds, plural, one{إعادة الإرسال خلال ثانية} two{إعادة الإرسال خلال ثانيتين} few{إعادة الإرسال خلال {seconds} ثوانٍ} many{إعادة الإرسال خلال {seconds} ثانية} other{إعادة الإرسال خلال {seconds} ثانية}}",
     "signUp": "التسجيل",
-    "resendVerificationFailed": "تعذّر إرسال الرسالة. حاول مرة أخرى.",
+    "resendVerificationFailed": "تعذّر إرسال الرسالة. يرجى المحاولة مرة أخرى.",
     "viewProfile": "عرض الملف الشخصي",
     "emailsLoadError": "تعذّر تحميل عناوين بريدك الإلكتروني.",
     "nextDay": "في اليوم التالي",
     "nextReminder": "التذكير التالي",
-    "nextReminderOn": "{weekday} على الرابط {time}",
-    "nextReminderToday": "اليوم على موقع {time}",
-    "nextReminderTomorrow": "غدًا على موقع {time}",
+    "nextReminderOn": "{weekday} في الساعة {time}",
+    "nextReminderToday": "اليوم في الساعة {time}",
+    "nextReminderTomorrow": "غدًا في الساعة {time}",
     "no": "لا",
     "noDaysSelected": "لم يتم تحديد أي أيام",
     "noPeopleGroupSelected": "اختر مجموعة شعبية لتبدأ بالصلاة من أجلها.",
@@ -636,7 +711,7 @@
     "population": "عدد السكان",
     "pray": "صلّ",
     "prayedToday": "صليت اليوم",
-    "prayerReminderTitle": "حان وقت الصلاة اليوم؟",
+    "prayerReminderTitle": "هل أنت مستعد لصلاة اليوم؟",
     "prayerReminderBody": "اضغط للصلاة من أجل «{peopleGroup}».",
     "dismissReminderLabel": "تجاهل التذكير",
     "prayerStatus": "حالة الصلاة",
@@ -652,15 +727,15 @@
     "qrCode": "رمز QR",
     "radioBroadcast": "البث الإذاعي",
     "religiousPractices": "الممارسات الدينية",
-    "reminderNotificationBody": "افتح كتاب «دوكسا» لبدء صلاة اليوم.",
+    "reminderNotificationBody": "افتح تطبيق Doxa لبدء صلاة اليوم.",
     "reminderNotificationTitle": "حان وقت الصلاة",
-    "reminders": "تذكير",
+    "reminders": "التذكيرات",
     "resources": "الموارد",
     "retry": "إعادة المحاولة",
     "save": "حفظ",
     "saveAndContinue": "حفظ والمتابعة",
     "scanToPray": "امسح الرمز للحصول على التطبيق وصلّ من أجل «{name}»",
-    "search": "إبحث",
+    "search": "ابحث",
     "searchPeopleGroups": "البحث عن المجموعات الشعبية",
     "select": "اختر",
     "selectPeopleGroup": "اختر مجموعة شعبية",
@@ -673,7 +748,7 @@
     "signUpForUpdates": "اشترك للحصول على آخر المستجدات",
     "skip": "تخطّي",
     "status": "الحالة",
-    "switchPeopleGroupConfirm": "هل تريد التوقف عن الدعاء من أجل {currentName} والبدء في الدعاء من أجل {newName}؟",
+    "switchPeopleGroupConfirm": "هل تريد التوقف عن الدعاء من أجل «{currentName}» والبدء في الدعاء من أجل «{newName}»؟",
     "time": "الوقت",
     "updateAction": "تحديث",
     "updateAvailableBody": "يتوفر إصدار جديد من تطبيق «Doxa Prayer».",
@@ -691,7 +766,7 @@
     "wizardNewsSignupTitle": "ابقَ على اطلاع",
     "wizardSetReminderBody": "سنرسل لك تذكيرًا لطيفًا في الوقت الذي تختاره. يمكنك تخطي هذه الخطوة وإضافة التذكيرات لاحقًا.",
     "wizardSetReminderTitle": "ضبط تذكير بالصلاة",
-    "wizardWelcomeBody": "تساعدك «دوكسا» على الصلاة من أجل إحدى المجموعات الشعبية غير المُبشَّر بها. سنساعدك في اختيار مجموعة معينة، وضبط تذكير، ومتابعة آخر المستجدات.",
+    "wizardWelcomeBody": "تساعدك Doxa على الصلاة من أجل إحدى المجموعات الشعبية غير المُبشَّر بها. سنساعدك في اختيار مجموعة معينة، وضبط تذكير، ومتابعة آخر المستجدات.",
     "wizardWelcomeTitle": "مرحبًا بكم في «Doxa Prayer»",
     "workInLocalLanguageAndCulture": "العمل باللغة والثقافة المحلية",
     "yes": "نعم"

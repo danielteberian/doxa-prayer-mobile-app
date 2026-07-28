@@ -170,7 +170,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String switchPeopleGroupConfirm(String currentName, String newName) {
-    return 'Você quer parar de orar por $currentName e começar a orar por $newName?';
+    return 'Você quer parar de orar por “$currentName” e começar a orar por “$newName”?';
   }
 
   @override
@@ -204,11 +204,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get prayedToday => 'Orei hoje';
 
   @override
-  String get prayerReminderTitle => 'Tudo pronto para orar hoje?';
+  String get prayerReminderTitle => 'Tudo pronto para a oração de hoje?';
 
   @override
   String prayerReminderBody(String peopleGroup) {
-    return 'Toque para orar por $peopleGroup.';
+    return 'Toque para orar por “$peopleGroup”.';
   }
 
   @override
@@ -216,7 +216,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String prayForPeopleGroupLabel(String peopleGroup) {
-    return 'Orar por $peopleGroup';
+    return 'Orar por “$peopleGroup”';
   }
 
   @override
@@ -356,7 +356,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String wizardConfirmPeopleGroupTitle(String name) {
-    return 'Orar por $name?';
+    return 'Orar por “$name”?';
   }
 
   @override
@@ -427,10 +427,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get enableNotificationsPromptBody =>
-      'Enable notifications to also receive updates in push notifications.';
+      'Ative as notificações para receber as novidades também por notificações push.';
 
   @override
-  String get enableNotificationsButton => 'Enable notifications';
+  String get enableNotificationsButton => 'Ativar notificações';
 
   @override
   String get accountSectionTitle => 'Sua conta';
@@ -446,7 +446,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get resendVerificationSent =>
-      'E-mail de verificação enviado. Verifique sua caixa de entrada.';
+      'E-mail de verificação enviado. Confira sua caixa de entrada.';
 
   @override
   String resendVerificationCooldown(int seconds) {
@@ -502,7 +502,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get feedbackIntro =>
-      'Adoraríamos ouvir você. Conte-nos o que acha do aplicativo.';
+      'Adoraríamos ouvir você. Conte-nos o que você acha do aplicativo.';
 
   @override
   String get feedbackTypeLabel => 'Que tipo de comentário?';
@@ -529,8 +529,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get feedbackMessageRequired => 'Insira uma mensagem.';
 
   @override
-  String get feedbackConsentLabel =>
-      'Mantenha-me atualizado com as novidades da Doxa';
+  String get feedbackConsentLabel => 'Quero receber novidades da Doxa';
 
   @override
   String get feedbackSubmit => 'Enviar comentários';
@@ -548,12 +547,12 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String feedbackSuccessBody(String email) {
-    return 'Seus comentários foram enviados como $email. Se não for o endereço correto, envie-os novamente com o endereço certo.';
+    return 'Seus comentários foram enviados como $email. Se esse não for o endereço certo, envie-os novamente com o correto.';
   }
 
   @override
   String shareMessage(String name) {
-    return 'Ore comigo por $name — baixe o aplicativo Doxa Prayer:';
+    return 'Ore comigo por “$name” — baixe o aplicativo Doxa Prayer:';
   }
 
   @override
@@ -561,7 +560,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String scanToPray(String name) {
-    return 'Escaneie o código para baixar o aplicativo e orar por $name';
+    return 'Escaneie o código para baixar o aplicativo e orar por “$name”';
   }
 
   @override
@@ -583,7 +582,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String peopleGroupIntroTitle(String name) {
-    return 'Ore por $name';
+    return 'Ore por “$name”';
   }
 
   @override

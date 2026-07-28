@@ -523,7 +523,10 @@ class _ErrorView extends StatelessWidget {
               style: AppTypography.bodyMedium,
             ),
             const SizedBox(height: AppSpacing.lg),
-            FilledButton(onPressed: onRetry, child: const Text('Retry')),
+            FilledButton(
+              onPressed: onRetry,
+              child: Text(AppLocalizations.of(context)!.retry),
+            ),
           ],
         ),
       ),

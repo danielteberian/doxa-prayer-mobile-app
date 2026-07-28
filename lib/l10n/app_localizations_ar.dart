@@ -9,7 +9,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get appName => 'صلاة دوكسا';
+  String get appName => 'Doxa Prayer';
 
   @override
   String get home => 'الصفحة الرئيسية';
@@ -39,7 +39,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profile => 'الملف الشخصي';
 
   @override
-  String get reminders => 'تذكير';
+  String get reminders => 'التذكيرات';
 
   @override
   String get settings => 'الإعدادات';
@@ -109,7 +109,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get share => 'مشاركة';
 
   @override
-  String get search => 'إبحث';
+  String get search => 'ابحث';
 
   @override
   String get country => 'الدولة';
@@ -157,7 +157,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get engagementStatus => 'حالة الانخراط';
 
   @override
-  String get engaged => 'مُنخرَط';
+  String get engaged => 'مُنخرَطة';
 
   @override
   String get adoptionStatus => 'حالة التبنّي';
@@ -167,7 +167,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String switchPeopleGroupConfirm(String currentName, String newName) {
-    return 'هل تريد التوقف عن الدعاء من أجل $currentName والبدء في الدعاء من أجل $newName؟';
+    return 'هل تريد التوقف عن الدعاء من أجل «$currentName» والبدء في الدعاء من أجل «$newName»؟';
   }
 
   @override
@@ -201,7 +201,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get prayedToday => 'صليت اليوم';
 
   @override
-  String get prayerReminderTitle => 'حان وقت الصلاة اليوم؟';
+  String get prayerReminderTitle => 'هل أنت مستعد لصلاة اليوم؟';
 
   @override
   String prayerReminderBody(String peopleGroup) {
@@ -259,7 +259,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reminderNotificationTitle => 'حان وقت الصلاة';
 
   @override
-  String get reminderNotificationBody => 'افتح كتاب «دوكسا» لبدء صلاة اليوم.';
+  String get reminderNotificationBody => 'افتح تطبيق Doxa لبدء صلاة اليوم.';
 
   @override
   String get notifications => 'إشعارات';
@@ -278,14 +278,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get exactAlarmsDisabledStatus =>
-      'التنبيهات الدقيقة غير مسموح بها لتطبيق Doxa، لذا قد تصل تذكيرات الصلاة متأخرة بعدة دقائق.';
+      'المنبّهات الدقيقة غير مسموح بها لتطبيق Doxa، لذا قد تصل تذكيرات الصلاة متأخرة بعدة دقائق.';
 
   @override
-  String get allowExactAlarms => 'السماح بالتنبيهات الدقيقة';
+  String get allowExactAlarms => 'السماح بالمنبّهات الدقيقة';
 
   @override
   String get exactAlarmsPromptBody =>
-      'لكي تصل تذكيرات الصلاة في وقتها تمامًا، اسمح لتطبيق Doxa باستخدام التنبيهات الدقيقة.';
+      'لكي تصل تذكيرات الصلاة في وقتها تمامًا، اسمح لتطبيق Doxa باستخدام المنبّهات الدقيقة.';
 
   @override
   String get allow => 'السماح';
@@ -304,17 +304,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String nextReminderToday(String time) {
-    return 'اليوم على موقع $time';
+    return 'اليوم في الساعة $time';
   }
 
   @override
   String nextReminderTomorrow(String time) {
-    return 'غدًا على موقع $time';
+    return 'غدًا في الساعة $time';
   }
 
   @override
   String nextReminderOn(String weekday, String time) {
-    return '$weekday على الرابط $time';
+    return '$weekday في الساعة $time';
   }
 
   @override
@@ -342,7 +342,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get wizardWelcomeBody =>
-      'تساعدك «دوكسا» على الصلاة من أجل إحدى المجموعات الشعبية غير المُبشَّر بها. سنساعدك في اختيار مجموعة معينة، وضبط تذكير، ومتابعة آخر المستجدات.';
+      'تساعدك Doxa على الصلاة من أجل إحدى المجموعات الشعبية غير المُبشَّر بها. سنساعدك في اختيار مجموعة معينة، وضبط تذكير، ومتابعة آخر المستجدات.';
 
   @override
   String get wizardGetStarted => 'ابدؤوا الآن';
@@ -389,7 +389,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get finish => 'إنهاء';
 
   @override
-  String get nameLabel => 'الإسم';
+  String get nameLabel => 'الاسم';
 
   @override
   String get emailLabel => 'البريد الإلكتروني';
@@ -424,10 +424,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enableNotificationsPromptBody =>
-      'Enable notifications to also receive updates in push notifications.';
+      'قم بتمكين الإشعارات لتصلك آخر المستجدات عبر الإشعارات الفورية أيضًا.';
 
   @override
-  String get enableNotificationsButton => 'Enable notifications';
+  String get enableNotificationsButton => 'تمكين الإشعارات';
 
   @override
   String get accountSectionTitle => 'حسابك';
@@ -443,23 +443,43 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get resendVerificationSent =>
-      'تم إرسال رسالة التحقق. تحقق من صندوق الوارد.';
+      'تم إرسال رسالة التحقق. تفقَّد صندوق الوارد.';
 
   @override
   String resendVerificationCooldown(int seconds) {
-    return 'يُرجى الانتظار $seconds ثانية قبل طلب رسالة أخرى.';
+    String _temp0 = intl.Intl.pluralLogic(
+      seconds,
+      locale: localeName,
+      other: 'يُرجى الانتظار $seconds ثانية قبل طلب رسالة أخرى.',
+      many: 'يُرجى الانتظار $seconds ثانية قبل طلب رسالة أخرى.',
+      few: 'يُرجى الانتظار $seconds ثوانٍ قبل طلب رسالة أخرى.',
+      two: 'يُرجى الانتظار ثانيتين قبل طلب رسالة أخرى.',
+      one: 'يُرجى الانتظار ثانية واحدة قبل طلب رسالة أخرى.',
+      zero: 'يُرجى الانتظار قليلًا قبل طلب رسالة أخرى.',
+    );
+    return '$_temp0';
   }
 
   @override
   String resendVerificationCountdown(int seconds) {
-    return 'إعادة الإرسال خلال $seconds ثانية';
+    String _temp0 = intl.Intl.pluralLogic(
+      seconds,
+      locale: localeName,
+      other: 'إعادة الإرسال خلال $seconds ثانية',
+      many: 'إعادة الإرسال خلال $seconds ثانية',
+      few: 'إعادة الإرسال خلال $seconds ثوانٍ',
+      two: 'إعادة الإرسال خلال ثانيتين',
+      one: 'إعادة الإرسال خلال ثانية',
+    );
+    return '$_temp0';
   }
 
   @override
   String get signUp => 'التسجيل';
 
   @override
-  String get resendVerificationFailed => 'تعذّر إرسال الرسالة. حاول مرة أخرى.';
+  String get resendVerificationFailed =>
+      'تعذّر إرسال الرسالة. يرجى المحاولة مرة أخرى.';
 
   @override
   String get viewProfile => 'عرض الملف الشخصي';
@@ -496,13 +516,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get feedback => 'التعليقات';
 
   @override
-  String get feedbackIntro => 'يسعدنا أن نسمع رأيك. أخبرنا برأيك في التطبيق.';
+  String get feedbackIntro => 'يسعدنا أن نسمع منك. أخبرنا برأيك في التطبيق.';
 
   @override
   String get feedbackTypeLabel => 'ما نوع التعليق؟';
 
   @override
-  String get feedbackTypeCompliment => 'إطراء';
+  String get feedbackTypeCompliment => 'إشادة';
 
   @override
   String get feedbackTypeSuggestion => 'اقتراح';
@@ -541,7 +561,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String feedbackSuccessBody(String email) {
-    return 'تم إرسال تعليقاتك باسم $email. إذا لم يكن هذا هو العنوان الصحيح، فأعد إرسالها بالعنوان الصحيح.';
+    return 'تم إرسال تعليقاتك من العنوان $email. إذا لم يكن هذا هو العنوان الصحيح، فأعد إرسالها بالعنوان الصحيح.';
   }
 
   @override
@@ -559,7 +579,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String appVersion(String version) {
-    return 'الإصدار$version';
+    return 'الإصدار $version';
   }
 
   @override
