@@ -98,7 +98,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get peopleCommittedToPraying => 'People committed to praying';
 
   @override
-  String get prayerCoverage24h => '24-Hour Prayer Coverage';
+  String get dailyPrayerCoverage => 'Daily prayer coverage';
 
   @override
   String get peopleGroup => 'People Group';

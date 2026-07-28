@@ -99,7 +99,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get peopleCommittedToPraying => 'Pessoas comprometidas a orar';
 
   @override
-  String get prayerCoverage24h => 'Cobertura de oração de 24 horas';
+  String get dailyPrayerCoverage => 'Cobertura de oração diária';
 
   @override
   String get peopleGroup => 'Povo';

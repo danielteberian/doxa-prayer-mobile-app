@@ -99,7 +99,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get peopleCommittedToPraying => 'Personnes engagées dans la prière';
 
   @override
-  String get prayerCoverage24h => 'Couverture de prière 24h/24';
+  String get dailyPrayerCoverage => 'Couverture de prière quotidienne';
 
   @override
   String get peopleGroup => 'Peuple';

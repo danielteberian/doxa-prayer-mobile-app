@@ -262,11 +262,11 @@ abstract class AppLocalizations {
   /// **'People committed to praying'**
   String get peopleCommittedToPraying;
 
-  /// The label of the prayer coverage 24h field
+  /// The label shown beneath the prayer status progress bar
   ///
   /// In en, this message translates to:
-  /// **'24-Hour Prayer Coverage'**
-  String get prayerCoverage24h;
+  /// **'Daily prayer coverage'**
+  String get dailyPrayerCoverage;
 
   /// The label of the people group field
   ///

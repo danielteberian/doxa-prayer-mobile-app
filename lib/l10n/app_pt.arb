@@ -58,6 +58,9 @@
     "@crossCulturalWorkersPresent": {
         "description": "The label of the cross-cultural workers present field"
     },
+    "@dailyPrayerCoverage": {
+        "description": "The label shown beneath the prayer status progress bar"
+    },
     "@dayInTheLifeTitle": {
         "description": "The title of the day in the life section"
     },
@@ -333,9 +336,6 @@
     "@prayedToday": {
         "description": "Pill shown on the home people group card when the user has prayed for it today"
     },
-    "@prayerCoverage24h": {
-        "description": "The label of the prayer coverage 24h field"
-    },
     "@prayerStatus": {
         "description": "The title of the prayer status section"
     },
@@ -545,6 +545,7 @@
     "couldNotLoadPrayerContent": "Não foi possível carregar o conteúdo de oração.",
     "country": "País",
     "crossCulturalWorkersPresent": "Obreiros transculturais presentes",
+    "dailyPrayerCoverage": "Cobertura de oração diária",
     "dayInTheLifeTitle": "Um dia na vida",
     "daysOfWeek": "Dias da semana",
     "delete": "Excluir",
@@ -638,7 +639,6 @@
     "prayerReminderTitle": "Tudo pronto para orar hoje?",
     "prayerReminderBody": "Toque para orar por {peopleGroup}.",
     "dismissReminderLabel": "Dispensar lembrete",
-    "prayerCoverage24h": "Cobertura de oração de 24 horas",
     "prayerStatus": "Status de oração",
     "prayerThankYouMessage": "Sua fidelidade na oração importa. Deus ouve você, e suas orações fazem a diferença.",
     "prayerThankYouTitle": "Obrigado por orar",

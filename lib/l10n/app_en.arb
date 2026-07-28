@@ -108,9 +108,9 @@
     "@peopleCommittedToPraying": {
         "description": "The label of the people committed to praying field"
     },
-    "prayerCoverage24h": "24-Hour Prayer Coverage",
-    "@prayerCoverage24h": {
-        "description": "The label of the prayer coverage 24h field"
+    "dailyPrayerCoverage": "Daily prayer coverage",
+    "@dailyPrayerCoverage": {
+        "description": "The label shown beneath the prayer status progress bar"
     },
     "peopleGroup": "People Group",
     "@peopleGroup": {

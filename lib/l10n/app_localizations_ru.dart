@@ -98,7 +98,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get peopleCommittedToPraying => 'Люди, обязавшиеся молиться';
 
   @override
-  String get prayerCoverage24h => '24-часовой молитвенный охват';
+  String get dailyPrayerCoverage => 'Ежедневное молитвенное покрытие';
 
   @override
   String get peopleGroup => 'Народ';

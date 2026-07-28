@@ -96,7 +96,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get peopleCommittedToPraying => 'الأشخاص الذين التزموا بالصلاة';
 
   @override
-  String get prayerCoverage24h => 'تغطية الصلاة على مدار 24 ساعة';
+  String get dailyPrayerCoverage => 'تغطية الصلاة اليومية';
 
   @override
   String get peopleGroup => 'مجموعة شعبية';

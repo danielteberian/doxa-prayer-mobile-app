@@ -58,6 +58,9 @@
     "@crossCulturalWorkersPresent": {
         "description": "The label of the cross-cultural workers present field"
     },
+    "@dailyPrayerCoverage": {
+        "description": "The label shown beneath the prayer status progress bar"
+    },
     "@dayInTheLifeTitle": {
         "description": "The title of the day in the life section"
     },
@@ -333,9 +336,6 @@
     "@prayedToday": {
         "description": "Pill shown on the home people group card when the user has prayed for it today"
     },
-    "@prayerCoverage24h": {
-        "description": "The label of the prayer coverage 24h field"
-    },
     "@prayerStatus": {
         "description": "The title of the prayer status section"
     },
@@ -545,6 +545,7 @@
     "couldNotLoadPrayerContent": "Не удалось загрузить молитвенные материалы.",
     "country": "Страна",
     "crossCulturalWorkersPresent": "Межкультурные служители присутствуют",
+    "dailyPrayerCoverage": "Ежедневное молитвенное покрытие",
     "dayInTheLifeTitle": "Один день из жизни",
     "daysOfWeek": "Дни недели",
     "delete": "Удалить",
@@ -638,7 +639,6 @@
     "prayerReminderTitle": "Готовы помолиться сегодня?",
     "prayerReminderBody": "Нажмите, чтобы помолиться за «{peopleGroup}».",
     "dismissReminderLabel": "Скрыть напоминание",
-    "prayerCoverage24h": "24-часовой молитвенный охват",
     "prayerStatus": "Статус молитвы",
     "prayerThankYouMessage": "Ваша верность в молитве имеет большое значение. Бог слышит вас, и ваши молитвы приносят результаты.",
     "prayerThankYouTitle": "Спасибо за ваши молитвы",

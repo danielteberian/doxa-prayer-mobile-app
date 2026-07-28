@@ -100,7 +100,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Personas comprometidas con la oración';
 
   @override
-  String get prayerCoverage24h => 'Cobertura en oración las 24 horas';
+  String get dailyPrayerCoverage => 'Cobertura de oración diaria';
 
   @override
   String get peopleGroup => 'Grupo de personas';

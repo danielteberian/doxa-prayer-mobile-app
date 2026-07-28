@@ -58,6 +58,9 @@
     "@crossCulturalWorkersPresent": {
         "description": "The label of the cross-cultural workers present field"
     },
+    "@dailyPrayerCoverage": {
+        "description": "The label shown beneath the prayer status progress bar"
+    },
     "@dayInTheLifeTitle": {
         "description": "The title of the day in the life section"
     },
@@ -333,9 +336,6 @@
     "@prayedToday": {
         "description": "Pill shown on the home people group card when the user has prayed for it today"
     },
-    "@prayerCoverage24h": {
-        "description": "The label of the prayer coverage 24h field"
-    },
     "@prayerStatus": {
         "description": "The title of the prayer status section"
     },
@@ -545,6 +545,7 @@
     "couldNotLoadPrayerContent": "تعذر تحميل محتوى الصلاة.",
     "country": "الدولة",
     "crossCulturalWorkersPresent": "وجود عمّال عابرين للثقافات",
+    "dailyPrayerCoverage": "تغطية الصلاة اليومية",
     "dayInTheLifeTitle": "يوم في الحياة",
     "daysOfWeek": "أيام الأسبوع",
     "delete": "حذف",
@@ -638,7 +639,6 @@
     "prayerReminderTitle": "حان وقت الصلاة اليوم؟",
     "prayerReminderBody": "اضغط للصلاة من أجل «{peopleGroup}».",
     "dismissReminderLabel": "تجاهل التذكير",
-    "prayerCoverage24h": "تغطية الصلاة على مدار 24 ساعة",
     "prayerStatus": "حالة الصلاة",
     "prayerThankYouMessage": "إخلاصك في الصلاة له أهمية كبيرة. الله يسمعك، وصلواتك تُحدث فرقًا.",
     "prayerThankYouTitle": "شكرًا لكم على صلواتكم",

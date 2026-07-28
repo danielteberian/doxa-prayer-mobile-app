@@ -21,7 +21,7 @@ import 'package:doxa_prayer_mobile_app/theme/app_spacing.dart';
 import 'package:doxa_prayer_mobile_app/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 
-const int _peopleCommittedGoal = 144;
+const int _peopleCommittedGoal = 100;
 
 class PeopleGroupDetailsScreen extends StatefulWidget {
   const PeopleGroupDetailsScreen({
@@ -379,21 +379,38 @@ class _CommittedProgress extends StatelessWidget {
             style: AppTypography.bodyMedium.copyWith(color: AppColors.white),
             textAlign: TextAlign.center,
           ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(999),
-            child: LinearProgressIndicator(
-              value: ratio,
-              minHeight: AppTypography.md,
-              backgroundColor: AppColors.mutedSurface,
-              valueColor: const AlwaysStoppedAnimation<Color>(
-                AppColors.secondary,
+          // The indicator's own semantics node takes the progress-bar role,
+          // which only accepts a bare number for its value (read out as a
+          // percentage of 0-100). Hiding that node and supplying our own lets
+          // the bar announce the count it draws against the goal. The label is
+          // what makes it a stop while swiping: a node carrying only a value
+          // has no text for the screen reader to focus on, so it gets skipped.
+          Semantics(
+            container: true,
+            label: l.dailyPrayerCoverage,
+            value: '$clamped/$_peopleCommittedGoal',
+            child: ExcludeSemantics(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(999),
+                child: LinearProgressIndicator(
+                  value: ratio,
+                  minHeight: AppTypography.md,
+                  backgroundColor: AppColors.mutedSurface,
+                  valueColor: const AlwaysStoppedAnimation<Color>(
+                    AppColors.secondary,
+                  ),
+                ),
               ),
             ),
           ),
-          Text(
-            l.prayerCoverage24h,
-            style: AppTypography.bodyMedium.copyWith(color: AppColors.white),
-            textAlign: TextAlign.center,
+          // The bar above already announces this caption as its label, so the
+          // visible copy is hidden to keep it from being read out twice.
+          ExcludeSemantics(
+            child: Text(
+              l.dailyPrayerCoverage,
+              style: AppTypography.bodyMedium.copyWith(color: AppColors.white),
+              textAlign: TextAlign.center,
+            ),
           ),
         ],
       ),
