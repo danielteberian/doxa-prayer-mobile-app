@@ -1,0 +1,10 @@
+Features:
+- add skeleton loaders for all network content
+
+Bug fixes:
+- overflowing large button text in button bars
+- app to show notification dot when notifications are in the tray
+- change 24-hour to Daily prayer coverage
+
+Building system:
+- Translation updates

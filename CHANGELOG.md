@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.16.0+26 - 2026-07-28
+
+Features:
+- add skeleton loaders for all network content
+
+Bug fixes:
+- overflowing large button text in button bars
+- app to show notification dot when notifications are in the tray
+- change 24-hour to Daily prayer coverage
+
+Building system:
+- Translation updates
+
 ## 1.15.0+25 - 2026-07-23
 
 Feature:
