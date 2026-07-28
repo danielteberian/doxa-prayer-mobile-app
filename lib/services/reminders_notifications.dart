@@ -1,5 +1,6 @@
 import 'package:app_settings/app_settings.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
@@ -19,6 +20,11 @@ const String _androidChannelDescription =
 
 final FlutterLocalNotificationsPlugin _plugin =
     FlutterLocalNotificationsPlugin();
+
+/// Native bridge for clearing the iOS app-icon badge. flutter_local_notifications
+/// can only *set* a badge (via [DarwinNotificationDetails.badgeNumber]); it has
+/// no API to reset it, so the AppDelegate hosts a tiny `clearBadge` handler.
+const MethodChannel _badgeChannel = MethodChannel('app.prayer.doxa/badge');
 
 bool _initialized = false;
 
@@ -62,6 +68,19 @@ Future<bool> promptEnableNotifications() async {
   }
   await AppSettings.openAppSettings(type: AppSettingsType.notification);
   return false;
+}
+
+/// Clears the iOS app-icon badge left by a delivered reminder. Call when the
+/// app comes to the foreground: opening the app means the user has "seen" the
+/// waiting reminder. No-op on Android (launcher notification dots clear on their
+/// own when the notification is tapped or dismissed) and on web.
+Future<void> clearNotificationBadge() async {
+  if (kIsWeb || defaultTargetPlatform != TargetPlatform.iOS) return;
+  try {
+    await _badgeChannel.invokeMethod<void>('clearBadge');
+  } catch (e) {
+    debugPrint('reminders_notifications: clearBadge failed: $e');
+  }
 }
 
 @pragma('vm:entry-point')
@@ -284,6 +303,12 @@ Future<void> rescheduleAllReminders(List<Reminder> all) async {
     presentAlert: true,
     presentBadge: true,
     presentSound: true,
+    // iOS only puts a badge on the app icon when a notification carries a
+    // badge number — presentBadge alone does nothing without it. Local
+    // notifications can't increment, so every reminder sets the badge to 1
+    // ("something's waiting"); it's cleared when the app next opens
+    // (see clearNotificationBadge, called from AppShell).
+    badgeNumber: 1,
   );
   final details = NotificationDetails(android: androidDetails, iOS: iosDetails);
 

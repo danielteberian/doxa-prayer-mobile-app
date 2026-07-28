@@ -35,6 +35,9 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
     }
     refreshNotificationsBlocked();
     refreshExactAlarmsBlocked();
+    // Opening the app means the user has seen any waiting reminder — drop the
+    // iOS app-icon badge a delivered reminder left behind (no-op elsewhere).
+    clearNotificationBadge();
   }
 
   @override
@@ -57,6 +60,8 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
       // Likewise re-check exact-alarm permission — the user may have granted it
       // via the system "Alarms & reminders" screen while away.
       refreshExactAlarmsBlocked();
+      // Clear the iOS app-icon badge now the reminder has been seen.
+      clearNotificationBadge();
     }
   }
 
