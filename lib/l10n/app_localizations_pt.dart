@@ -339,9 +339,6 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get dismissNextReminder => 'Dispensar o próximo';
-
-  @override
   String get wizardWelcomeTitle => 'Bem-vindo ao Doxa Prayer';
 
   @override
@@ -384,9 +381,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get continueLabel => 'Continuar';
 
   @override
-  String get saveAndContinue => 'Salvar e continuar';
-
-  @override
   String get skip => 'Pular';
 
   @override
@@ -427,7 +421,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get enableNotificationsPromptBody =>
-      'Ative as notificações para receber as novidades também por notificações push.';
+      'Ative as notificações para receber essas novidades também no seu celular.';
 
   @override
   String get enableNotificationsButton => 'Ativar notificações';
@@ -469,7 +463,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get viewProfile => 'Ver perfil';
 
   @override
-  String get emailsLoadError => 'Não foi possível carregar seus e-mails.';
+  String get emailsLoadError =>
+      'Não foi possível carregar seus endereços de e-mail.';
 
   @override
   String get updateAvailableTitle => 'Atualização disponível';

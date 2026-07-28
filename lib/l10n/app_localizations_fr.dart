@@ -342,9 +342,6 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get dismissNextReminder => 'Ignorer le prochain';
-
-  @override
   String get wizardWelcomeTitle => 'Bienvenue sur Doxa Prayer';
 
   @override
@@ -385,9 +382,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get continueLabel => 'Continuer';
-
-  @override
-  String get saveAndContinue => 'Enregistrer et continuer';
 
   @override
   String get skip => 'Passer';
@@ -431,7 +425,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get enableNotificationsPromptBody =>
-      'Activez les notifications pour recevoir aussi les actualités par notification push.';
+      'Activez les notifications pour recevoir ces actualités également sur votre téléphone.';
 
   @override
   String get enableNotificationsButton => 'Activer les notifications';
@@ -473,7 +467,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get viewProfile => 'Voir le profil';
 
   @override
-  String get emailsLoadError => 'Impossible de charger vos e-mails.';
+  String get emailsLoadError => 'Impossible de charger vos adresses e-mail.';
 
   @override
   String get updateAvailableTitle => 'Mise à jour disponible';

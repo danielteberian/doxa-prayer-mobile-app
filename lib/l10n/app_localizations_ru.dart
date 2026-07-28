@@ -344,9 +344,6 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get dismissNextReminder => 'Отклонить следующее';
-
-  @override
   String get wizardWelcomeTitle => 'Добро пожаловать в «Doxa Prayer»';
 
   @override
@@ -387,9 +384,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get continueLabel => 'Продолжить';
-
-  @override
-  String get saveAndContinue => 'Сохранить и продолжить';
 
   @override
   String get skip => 'Пропустить';
@@ -433,7 +427,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get enableNotificationsPromptBody =>
-      'Включите уведомления, чтобы получать новости также в push-уведомлениях.';
+      'Включите уведомления, чтобы получать эти новости ещё и на телефон.';
 
   @override
   String get enableNotificationsButton => 'Включить уведомления';

@@ -73,9 +73,6 @@
     "@discipleAndChurchMultiplication": {
         "description": "The label of the disciple and church multiplication field"
     },
-    "@dismissNextReminder": {
-        "description": "Button on the home-screen next-reminder card that turns off the reminder rule whose next firing is shown"
-    },
     "@dismissReminderLabel": {
         "description": "Accessibility label for the close button on the home prayer reminder banner"
     },
@@ -289,7 +286,7 @@
         "description": "Button in settings that opens the user's profile page on the web"
     },
     "@emailsLoadError": {
-        "description": "Message shown when the list of signed-up emails fails to load"
+        "description": "Message shown when the list of signed-up email addresses fails to load"
     },
     "@nextDay": {
         "description": "Accessibility label/tooltip for the arrow that shows the next day's prayer content on the Pray screen"
@@ -466,9 +463,6 @@
     "@save": {
         "description": "Save button label"
     },
-    "@saveAndContinue": {
-        "description": "Save-and-advance button label used in wizard steps"
-    },
     "@scanToPray": {
         "description": "Caption under the QR code in the share modal",
         "placeholders": {
@@ -623,14 +617,13 @@
     "daysOfWeek": "Дни недели",
     "delete": "Удалить",
     "discipleAndChurchMultiplication": "Умножение учеников и церквей",
-    "dismissNextReminder": "Отклонить следующее",
     "donate": "Сделать пожертвование",
     "editReminder": "Редактировать напоминание",
     "emailInvalid": "Пожалуйста, введите действительный адрес электронной почты.",
     "emailLabel": "Электронная почта",
     "enableNotifications": "Включить уведомления",
     "enableNotificationsButton": "Включить уведомления",
-    "enableNotificationsPromptBody": "Включите уведомления, чтобы получать новости также в push-уведомлениях.",
+    "enableNotificationsPromptBody": "Включите уведомления, чтобы получать эти новости ещё и на телефон.",
     "engagementStatus": "Статус вовлечения",
     "engaged": "Вовлечён",
     "everyDay": "Каждый день",
@@ -733,7 +726,6 @@
     "resources": "Ресурсы",
     "retry": "Повторить попытку",
     "save": "Сохранить",
-    "saveAndContinue": "Сохранить и продолжить",
     "scanToPray": "Отсканируйте QR-код, чтобы установить приложение, и помолитесь за «{name}»",
     "search": "Поиск",
     "searchPeopleGroups": "Поиск народов",

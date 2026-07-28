@@ -670,12 +670,6 @@ abstract class AppLocalizations {
   /// **'{count, plural, =0{No reminders set} =1{1 reminder set} other{{count} reminders set}}'**
   String nRemindersSet(num count);
 
-  /// Button on the home-screen next-reminder card that turns off the reminder rule whose next firing is shown
-  ///
-  /// In en, this message translates to:
-  /// **'Dismiss next'**
-  String get dismissNextReminder;
-
   /// Title of the wizard welcome step
   ///
   /// In en, this message translates to:
@@ -747,12 +741,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue'**
   String get continueLabel;
-
-  /// Save-and-advance button label used in wizard steps
-  ///
-  /// In en, this message translates to:
-  /// **'Save & continue'**
-  String get saveAndContinue;
 
   /// Skip button label
   ///
@@ -829,7 +817,7 @@ abstract class AppLocalizations {
   /// Prompt shown after signing up for updates, offering to also enable push notifications
   ///
   /// In en, this message translates to:
-  /// **'Enable notifications to also receive updates in push notifications.'**
+  /// **'Enable notifications to also get these updates on your phone.'**
   String get enableNotificationsPromptBody;
 
   /// Button that requests OS notification permission so the user can receive push notifications
@@ -898,10 +886,10 @@ abstract class AppLocalizations {
   /// **'View profile'**
   String get viewProfile;
 
-  /// Message shown when the list of signed-up emails fails to load
+  /// Message shown when the list of signed-up email addresses fails to load
   ///
   /// In en, this message translates to:
-  /// **'Couldn\'t load your emails.'**
+  /// **'Couldn\'t load your email addresses.'**
   String get emailsLoadError;
 
   /// Title of the optional-update banner

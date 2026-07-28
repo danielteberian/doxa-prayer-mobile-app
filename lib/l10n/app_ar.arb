@@ -73,9 +73,6 @@
     "@discipleAndChurchMultiplication": {
         "description": "The label of the disciple and church multiplication field"
     },
-    "@dismissNextReminder": {
-        "description": "Button on the home-screen next-reminder card that turns off the reminder rule whose next firing is shown"
-    },
     "@donate": {
         "description": "Button that opens the donation page in the browser"
     },
@@ -286,7 +283,7 @@
         "description": "Button in settings that opens the user's profile page on the web"
     },
     "@emailsLoadError": {
-        "description": "Message shown when the list of signed-up emails fails to load"
+        "description": "Message shown when the list of signed-up email addresses fails to load"
     },
     "@nextDay": {
         "description": "Accessibility label/tooltip for the arrow that shows the next day's prayer content on the Pray screen"
@@ -466,9 +463,6 @@
     "@save": {
         "description": "Save button label"
     },
-    "@saveAndContinue": {
-        "description": "Save-and-advance button label used in wizard steps"
-    },
     "@scanToPray": {
         "description": "Caption under the QR code in the share modal",
         "placeholders": {
@@ -623,14 +617,13 @@
     "daysOfWeek": "أيام الأسبوع",
     "delete": "حذف",
     "discipleAndChurchMultiplication": "مضاعفة التلاميذ والكنائس",
-    "dismissNextReminder": "إغلاق التالي",
     "donate": "تبرع",
     "editReminder": "تحرير التذكير",
     "emailInvalid": "يرجى إدخال عنوان بريد إلكتروني صالح.",
     "emailLabel": "البريد الإلكتروني",
     "enableNotifications": "تمكين الإشعارات",
     "enableNotificationsButton": "تمكين الإشعارات",
-    "enableNotificationsPromptBody": "قم بتمكين الإشعارات لتصلك آخر المستجدات عبر الإشعارات الفورية أيضًا.",
+    "enableNotificationsPromptBody": "قم بتمكين الإشعارات لتصلك هذه المستجدات على هاتفك أيضًا.",
     "engagementStatus": "حالة الانخراط",
     "engaged": "مُنخرَطة",
     "everyDay": "كل يوم",
@@ -733,7 +726,6 @@
     "resources": "الموارد",
     "retry": "إعادة المحاولة",
     "save": "حفظ",
-    "saveAndContinue": "حفظ والمتابعة",
     "scanToPray": "امسح الرمز للحصول على التطبيق وصلّ من أجل «{name}»",
     "search": "ابحث",
     "searchPeopleGroups": "البحث عن المجموعات الشعبية",

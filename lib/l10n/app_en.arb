@@ -407,10 +407,6 @@
             "count": { "type": "num", "format": "compact" }
         }
     },
-    "dismissNextReminder": "Dismiss next",
-    "@dismissNextReminder": {
-        "description": "Button on the home-screen next-reminder card that turns off the reminder rule whose next firing is shown"
-    },
     "wizardWelcomeTitle": "Welcome to Doxa Prayer",
     "@wizardWelcomeTitle": {
         "description": "Title of the wizard welcome step"
@@ -461,10 +457,6 @@
     "continueLabel": "Continue",
     "@continueLabel": {
         "description": "Continue button label (named to avoid the reserved word 'continue')"
-    },
-    "saveAndContinue": "Save & continue",
-    "@saveAndContinue": {
-        "description": "Save-and-advance button label used in wizard steps"
     },
     "skip": "Skip",
     "@skip": {
@@ -520,7 +512,7 @@
     "@newsSignupError": {
         "description": "Error message shown when the news signup submission fails"
     },
-    "enableNotificationsPromptBody": "Enable notifications to also receive updates in push notifications.",
+    "enableNotificationsPromptBody": "Enable notifications to also get these updates on your phone.",
     "@enableNotificationsPromptBody": {
         "description": "Prompt shown after signing up for updates, offering to also enable push notifications"
     },
@@ -578,9 +570,9 @@
     "@viewProfile": {
         "description": "Button in settings that opens the user's profile page on the web"
     },
-    "emailsLoadError": "Couldn't load your emails.",
+    "emailsLoadError": "Couldn't load your email addresses.",
     "@emailsLoadError": {
-        "description": "Message shown when the list of signed-up emails fails to load"
+        "description": "Message shown when the list of signed-up email addresses fails to load"
     },
     "updateAvailableTitle": "Update available",
     "@updateAvailableTitle": {

@@ -73,9 +73,6 @@
     "@discipleAndChurchMultiplication": {
         "description": "The label of the disciple and church multiplication field"
     },
-    "@dismissNextReminder": {
-        "description": "Button on the home-screen next-reminder card that turns off the reminder rule whose next firing is shown"
-    },
     "@donate": {
         "description": "Button that opens the donation page in the browser"
     },
@@ -286,7 +283,7 @@
         "description": "Button in settings that opens the user's profile page on the web"
     },
     "@emailsLoadError": {
-        "description": "Message shown when the list of signed-up emails fails to load"
+        "description": "Message shown when the list of signed-up email addresses fails to load"
     },
     "@nextDay": {
         "description": "Accessibility label/tooltip for the arrow that shows the next day's prayer content on the Pray screen"
@@ -466,9 +463,6 @@
     "@save": {
         "description": "Save button label"
     },
-    "@saveAndContinue": {
-        "description": "Save-and-advance button label used in wizard steps"
-    },
     "@scanToPray": {
         "description": "Caption under the QR code in the share modal",
         "placeholders": {
@@ -623,14 +617,13 @@
     "daysOfWeek": "Días de la semana",
     "delete": "Eliminar",
     "discipleAndChurchMultiplication": "Multiplicación de discípulos e iglesias",
-    "dismissNextReminder": "Descartar siguiente",
     "donate": "Donar",
     "editReminder": "Editar recordatorio",
     "emailInvalid": "Introduce una dirección de correo electrónico válida.",
     "emailLabel": "Correo electrónico",
     "enableNotifications": "Activar notificaciones",
     "enableNotificationsButton": "Activar notificaciones",
-    "enableNotificationsPromptBody": "Activa las notificaciones para recibir también las novedades como notificaciones push.",
+    "enableNotificationsPromptBody": "Activa las notificaciones para recibir estas novedades también en tu móvil.",
     "engagementStatus": "Estado del compromiso",
     "engaged": "Comprometido",
     "everyDay": "Todos los días",
@@ -733,7 +726,6 @@
     "resources": "Recursos",
     "retry": "Volver a intentarlo",
     "save": "Guardar",
-    "saveAndContinue": "Guardar y continuar",
     "scanToPray": "Escanea el código para descargar la aplicación y ora por los «{name}»",
     "search": "Buscar",
     "searchPeopleGroups": "Buscar grupos de personas",

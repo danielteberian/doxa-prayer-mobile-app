@@ -73,9 +73,6 @@
     "@discipleAndChurchMultiplication": {
         "description": "The label of the disciple and church multiplication field"
     },
-    "@dismissNextReminder": {
-        "description": "Button on the home-screen next-reminder card that turns off the reminder rule whose next firing is shown"
-    },
     "@dismissReminderLabel": {
         "description": "Accessibility label for the close button on the home prayer reminder banner"
     },
@@ -300,7 +297,7 @@
         "description": "Button in settings that opens the user's profile page on the web"
     },
     "@emailsLoadError": {
-        "description": "Message shown when the list of signed-up emails fails to load"
+        "description": "Message shown when the list of signed-up email addresses fails to load"
     },
     "@nextDay": {
         "description": "Accessibility label/tooltip for the arrow that shows the next day's prayer content on the Pray screen"
@@ -466,9 +463,6 @@
     "@save": {
         "description": "Save button label"
     },
-    "@saveAndContinue": {
-        "description": "Save-and-advance button label used in wizard steps"
-    },
     "@scanToPray": {
         "description": "Caption under the QR code in the share modal",
         "placeholders": {
@@ -623,14 +617,13 @@
     "daysOfWeek": "Dias da semana",
     "delete": "Excluir",
     "discipleAndChurchMultiplication": "Multiplicação de discípulos e igrejas",
-    "dismissNextReminder": "Dispensar o próximo",
     "donate": "Doar",
     "editReminder": "Editar lembrete",
     "emailInvalid": "Insira um endereço de e-mail válido.",
     "emailLabel": "E-mail",
     "enableNotifications": "Ativar notificações",
     "enableNotificationsButton": "Ativar notificações",
-    "enableNotificationsPromptBody": "Ative as notificações para receber as novidades também por notificações push.",
+    "enableNotificationsPromptBody": "Ative as notificações para receber essas novidades também no seu celular.",
     "engagementStatus": "Status de engajamento",
     "engaged": "Engajado",
     "everyDay": "Todos os dias",
@@ -682,7 +675,7 @@
     "signUp": "Inscrever-se",
     "resendVerificationFailed": "Não foi possível enviar o e-mail. Tente novamente.",
     "viewProfile": "Ver perfil",
-    "emailsLoadError": "Não foi possível carregar seus e-mails.",
+    "emailsLoadError": "Não foi possível carregar seus endereços de e-mail.",
     "nextDay": "Próximo dia",
     "nextReminder": "Próximo lembrete",
     "nextReminderOn": "{weekday} às {time}",
@@ -733,7 +726,6 @@
     "resources": "Recursos",
     "retry": "Tentar novamente",
     "save": "Salvar",
-    "saveAndContinue": "Salvar e continuar",
     "scanToPray": "Escaneie o código para baixar o aplicativo e orar por “{name}”",
     "search": "Pesquisar",
     "searchPeopleGroups": "Pesquisar povos",

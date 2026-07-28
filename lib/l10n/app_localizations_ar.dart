@@ -335,9 +335,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get dismissNextReminder => 'إغلاق التالي';
-
-  @override
   String get wizardWelcomeTitle => 'مرحبًا بكم في «Doxa Prayer»';
 
   @override
@@ -378,9 +375,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get continueLabel => 'استمر';
-
-  @override
-  String get saveAndContinue => 'حفظ والمتابعة';
 
   @override
   String get skip => 'تخطّي';
@@ -424,7 +418,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enableNotificationsPromptBody =>
-      'قم بتمكين الإشعارات لتصلك آخر المستجدات عبر الإشعارات الفورية أيضًا.';
+      'قم بتمكين الإشعارات لتصلك هذه المستجدات على هاتفك أيضًا.';
 
   @override
   String get enableNotificationsButton => 'تمكين الإشعارات';
