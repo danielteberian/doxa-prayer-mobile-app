@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.17.0+27 - 2026-07-30
+
+Features:
+- add hyphenations to words split onto multiple lines
+
+Bug fixes:
+- remve flyout headers fixed height to allow for wrapping
+
 ## 1.16.0+26 - 2026-07-28
 
 Features:

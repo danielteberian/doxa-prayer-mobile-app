@@ -1,0 +1,5 @@
+Features:
+- add hyphenations to words split onto multiple lines
+
+Bug fixes:
+- remve flyout headers fixed height to allow for wrapping
