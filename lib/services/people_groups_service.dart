@@ -9,18 +9,16 @@ import 'api_config.dart';
 const _listFields = 'name,slug,image_url,country_code,religion,people_praying';
 
 Future<List<PeopleGroup>> fetchPeopleGroups({String lang = 'en'}) async {
-  final uri = ApiConfig.buildUri(
-    '/api/people-groups/list',
-    {'lang': lang, 'fields': _listFields},
-  );
+  final uri = ApiConfig.buildUri('/api/people-groups/list', {
+    'lang': lang,
+    'fields': _listFields,
+  });
   final response = await http.get(
     uri,
     headers: const {'Accept': 'application/json'},
   );
   if (response.statusCode != 200) {
-    throw Exception(
-      'Failed to load people groups (${response.statusCode})',
-    );
+    throw Exception('Failed to load people groups (${response.statusCode})');
   }
   final body = jsonDecode(response.body) as Map<String, dynamic>;
   final posts = body['posts'] as List<dynamic>;
@@ -33,10 +31,9 @@ Future<PeopleGroupDetail> fetchPeopleGroupDetail(
   String slug, {
   String lang = 'en',
 }) async {
-  final uri = ApiConfig.buildUri(
-    '/api/people-groups/detail/$slug',
-    {'lang': lang},
-  );
+  final uri = ApiConfig.buildUri('/api/people-groups/detail/$slug', {
+    'lang': lang,
+  });
   final response = await http.get(
     uri,
     headers: const {'Accept': 'application/json'},

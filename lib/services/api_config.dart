@@ -40,8 +40,9 @@ class ApiConfig {
         ? _dartDefineBase
         : dotenv.maybeGet('API_BASE_URL');
     if (override != null && override.isNotEmpty) {
-      return Uri.parse(override)
-          .replace(path: path, queryParameters: queryParameters);
+      return Uri.parse(
+        override,
+      ).replace(path: path, queryParameters: queryParameters);
     }
     switch (appFlavor) {
       case 'staging':
@@ -50,8 +51,9 @@ class ApiConfig {
         return Uri.https(_prodHost, path, queryParameters);
     }
     if (kDebugMode) {
-      return Uri.parse(_debugBase)
-          .replace(path: path, queryParameters: queryParameters);
+      return Uri.parse(
+        _debugBase,
+      ).replace(path: path, queryParameters: queryParameters);
     }
     return Uri.https(_prodHost, path, queryParameters);
   }
@@ -63,8 +65,9 @@ class ApiConfig {
 
   /// Compile-time OneSignal App ID override, set per launch via
   /// `--dart-define=ONESIGNAL_APP_ID=<id>`.
-  static const String _dartDefineOneSignal =
-      String.fromEnvironment('ONESIGNAL_APP_ID');
+  static const String _dartDefineOneSignal = String.fromEnvironment(
+    'ONESIGNAL_APP_ID',
+  );
 
   /// The OneSignal App ID for this build. A OneSignal app binds to a single
   /// bundle id / package, so prod and staging use separate apps — resolved in

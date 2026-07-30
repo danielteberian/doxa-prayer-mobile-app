@@ -24,9 +24,7 @@ class SkeletonParagraph extends StatelessWidget {
       spacing: AppSpacing.sm,
       children: [
         for (var i = 0; i < lines; i++)
-          SkeletonLine(
-            widthFactor: i == lines - 1 ? lastLineWidthFactor : 1.0,
-          ),
+          SkeletonLine(widthFactor: i == lines - 1 ? lastLineWidthFactor : 1.0),
       ],
     );
   }

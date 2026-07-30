@@ -25,28 +25,25 @@ void main() {
     remindersController.value = null;
   });
 
-  testWidgets(
-    'banner and reminders stay reachable at 3x font scale',
-    (tester) async {
-      await pumpAtScale(tester, const RemindersScreen(), scale: 3.0);
-
-      // No RenderFlex overflow at large font scales.
-      expect(tester.takeException(), isNull);
-
-      // The blocked-notifications banner scrolls with the content and the
-      // reminder card below it can be scrolled into view.
-      expect(find.byIcon(Icons.notifications_off), findsOneWidget);
-      // textContaining: intl separates time and day period with a narrow
-      // no-break space, so an exact '7:30 AM' match would be brittle.
-      final card = find.textContaining('7:30');
-      await tester.scrollUntilVisible(card, 100);
-      expect(card, findsOneWidget);
-    },
-  );
-
-  testWidgets('empty state shows no overflow at 3x font scale', (
+  testWidgets('banner and reminders stay reachable at 3x font scale', (
     tester,
   ) async {
+    await pumpAtScale(tester, const RemindersScreen(), scale: 3.0);
+
+    // No RenderFlex overflow at large font scales.
+    expect(tester.takeException(), isNull);
+
+    // The blocked-notifications banner scrolls with the content and the
+    // reminder card below it can be scrolled into view.
+    expect(find.byIcon(Icons.notifications_off), findsOneWidget);
+    // textContaining: intl separates time and day period with a narrow
+    // no-break space, so an exact '7:30 AM' match would be brittle.
+    final card = find.textContaining('7:30');
+    await tester.scrollUntilVisible(card, 100);
+    expect(card, findsOneWidget);
+  });
+
+  testWidgets('empty state shows no overflow at 3x font scale', (tester) async {
     remindersController.value = const Reminders(list: []);
 
     await pumpAtScale(tester, const RemindersScreen(), scale: 3.0);

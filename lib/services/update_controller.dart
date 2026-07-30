@@ -62,7 +62,8 @@ Future<void> checkForAppUpdate() async {
       final prefs = SharedPreferencesAsync();
       dismissed = await prefs.getString(_dismissedVersionKey);
       final snoozeUntil = await prefs.getInt(_snoozeUntilKey);
-      snoozed = snoozeUntil != null &&
+      snoozed =
+          snoozeUntil != null &&
           DateTime.now().millisecondsSinceEpoch < snoozeUntil;
     }
 
@@ -74,8 +75,9 @@ Future<void> checkForAppUpdate() async {
       optionalSnoozed: snoozed,
     );
 
-    updateController.value =
-        state == UpdateState.none ? UpdateStatus.none : UpdateStatus(state, info);
+    updateController.value = state == UpdateState.none
+        ? UpdateStatus.none
+        : UpdateStatus(state, info);
   } catch (e, s) {
     developer.log('app update check failed', name: 'update', error: e);
     reportError(e, s, reason: 'app update check failed');
@@ -153,7 +155,11 @@ Future<void> startAppUpdate({bool immediate = false}) async {
         return;
       }
     } catch (e) {
-      developer.log('in_app_update failed, falling back to store', name: 'update', error: e);
+      developer.log(
+        'in_app_update failed, falling back to store',
+        name: 'update',
+        error: e,
+      );
     }
     await _openStore(info?.androidPlayUrl);
     return;
@@ -183,11 +189,7 @@ List<int> _parse(String version) {
   // Drop any build/pre-release suffix (e.g. "1.0.0+3" → "1.0.0").
   final core = version.split('+').first.split('-').first;
   final parts = core.split('.');
-  return [
-    _intAt(parts, 0),
-    _intAt(parts, 1),
-    _intAt(parts, 2),
-  ];
+  return [_intAt(parts, 0), _intAt(parts, 1), _intAt(parts, 2)];
 }
 
 int _intAt(List<String> parts, int i) =>

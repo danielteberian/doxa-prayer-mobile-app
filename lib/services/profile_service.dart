@@ -80,7 +80,9 @@ Future<ResendVerificationResult> resendVerification(
   int contactMethodId,
 ) async {
   try {
-    final uri = ApiConfig.buildUri('/api/profile/$profileId/resend-verification');
+    final uri = ApiConfig.buildUri(
+      '/api/profile/$profileId/resend-verification',
+    );
     final response = await http.post(
       uri,
       headers: ApiConfig.signupHeaders,

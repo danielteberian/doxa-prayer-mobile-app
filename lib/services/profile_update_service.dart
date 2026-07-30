@@ -68,7 +68,8 @@ Future<void> submitProfileUpdate() async {
   // but when the server merges into a pre-existing row the id changes. Adopt the
   // returned id so the cached identity stays in sync.
   final json = jsonDecode(response.body) as Map<String, dynamic>;
-  final returnedId = (json['currentSubscription'] as Map<String, dynamic>?)?['id'];
+  final returnedId =
+      (json['currentSubscription'] as Map<String, dynamic>?)?['id'];
   if (returnedId is num && returnedId.toInt() != identity?.subscriptionId) {
     await setIdentity(subscriptionId: returnedId.toInt());
   }
@@ -103,9 +104,7 @@ _PrayerReminder _selectPrayerReminder() {
   // Union the weekdays of every enabled reminder so the server learns every
   // day the user has any reminder for. Fall back to the time source's days
   // when nothing is enabled, so we still send a usable schedule.
-  final weekdays = <int>{
-    for (final r in enabled) ...r.weekdays,
-  };
+  final weekdays = <int>{for (final r in enabled) ...r.weekdays};
   if (weekdays.isEmpty) weekdays.addAll(timeSource.weekdays);
   return _PrayerReminder(
     hour: timeSource.hour,

@@ -112,7 +112,10 @@ Future<void> updateReminder(Reminder reminder) async {
 }
 
 Future<void> deleteReminder(String id) async {
-  await _persist([for (final r in _current()) if (r.id != id) r]);
+  await _persist([
+    for (final r in _current())
+      if (r.id != id) r,
+  ]);
   await rescheduleAllReminders(_current());
 }
 

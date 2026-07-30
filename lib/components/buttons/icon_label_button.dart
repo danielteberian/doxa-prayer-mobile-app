@@ -44,6 +44,7 @@ class IconLabelButton extends StatelessWidget {
             HyphenatedText(
               label.toUpperCase(),
               style: AppTypography.caption.copyWith(color: AppColors.primary),
+              textAlign: TextAlign.center,
             ),
           ],
         ),

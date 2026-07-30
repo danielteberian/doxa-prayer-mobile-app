@@ -1,22 +1,47 @@
 import 'package:flutter/material.dart';
 
 import '../../theme/app_colors.dart';
-import '../../theme/app_typography.dart';
-import '../misc/hyphenated_text.dart';
 import '../misc/triangle_icon.dart';
+import 'nav_bar_title.dart';
 
 class DetailsNavBar extends StatelessWidget implements PreferredSizeWidget {
-  const DetailsNavBar({super.key, this.title = 'DOXA', this.onBack});
+  /// Needs a [context] so the bar can be as tall as its wrapped title — see
+  /// [NavBarTitle.preferredSizeFor].
+  factory DetailsNavBar({
+    Key? key,
+    required BuildContext context,
+    String title = 'DOXA',
+    VoidCallback? onBack,
+  }) => DetailsNavBar._(
+    key: key,
+    title: title,
+    onBack: onBack,
+    preferredSize: NavBarTitle.preferredSizeFor(
+      context,
+      title: title,
+      hasLeading: onBack != null,
+    ),
+  );
+
+  const DetailsNavBar._({
+    super.key,
+    required this.title,
+    required this.onBack,
+    required this.preferredSize,
+  });
 
   final String title;
   final VoidCallback? onBack;
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  final Size preferredSize;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      // Must match preferredSize, or the Scaffold and the AppBar disagree on
+      // how tall the bar is and the title clips.
+      toolbarHeight: preferredSize.height,
       leading: onBack != null
           ? IconButton(
               icon: TriangleIcon(
@@ -31,12 +56,10 @@ class DetailsNavBar extends StatelessWidget implements PreferredSizeWidget {
             )
           : null,
       centerTitle: true,
-      title: Semantics(
-        header: true,
-        child: HyphenatedText(
-          title,
-          style: AppTypography.h2.copyWith(color: AppColors.onSurface),
-        ),
+      title: NavBarTitle(
+        title,
+        color: AppColors.onSurface,
+        width: NavBarTitle.widthFor(context, hasLeading: onBack != null),
       ),
       backgroundColor: AppColors.surface,
     );

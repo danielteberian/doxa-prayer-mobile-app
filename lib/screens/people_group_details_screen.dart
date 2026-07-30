@@ -74,6 +74,7 @@ class _PeopleGroupDetailsScreenState extends State<PeopleGroupDetailsScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: DetailsNavBar(
+          context: context,
           title: l.peopleGroup,
           onBack: () => safeBack(context),
         ),

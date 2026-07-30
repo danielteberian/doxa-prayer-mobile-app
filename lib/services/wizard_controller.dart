@@ -76,12 +76,16 @@ class WizardController extends ChangeNotifier {
     if (_disposed) return;
     final slug = referredPeopleGroupController.value;
     if (slug == null || slug.isEmpty) {
-      debugPrint('[deferred] welcome: no referred slug — showing people-groups list');
+      debugPrint(
+        '[deferred] welcome: no referred slug — showing people-groups list',
+      );
       _resolvingReferral = false;
       _set(WizardStep.peopleGroupsList);
       return;
     }
-    debugPrint('[deferred] welcome: resolving referred people group slug="$slug"');
+    debugPrint(
+      '[deferred] welcome: resolving referred people group slug="$slug"',
+    );
     await _resolveReferredSlug(slug);
   }
 
@@ -101,7 +105,9 @@ class WizardController extends ChangeNotifier {
         _step != WizardStep.peopleGroupConfirm) {
       return;
     }
-    debugPrint('[deferred] mid-wizard referral arrived slug="$slug" — auto-selecting');
+    debugPrint(
+      '[deferred] mid-wizard referral arrived slug="$slug" — auto-selecting',
+    );
     _resolveReferredSlug(slug);
   }
 

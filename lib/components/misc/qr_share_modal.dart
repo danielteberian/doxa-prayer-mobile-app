@@ -51,9 +51,7 @@ class QrShareModal extends StatelessWidget {
               alignment: AlignmentDirectional.topEnd,
               child: IconButton(
                 icon: const Icon(Icons.close, color: AppColors.primary),
-                tooltip: MaterialLocalizations.of(
-                  context,
-                ).closeButtonTooltip,
+                tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
                 onPressed: () => Navigator.of(context).pop(),
               ),
             ),

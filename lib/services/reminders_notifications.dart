@@ -15,8 +15,7 @@ import 'reminders_controller.dart';
 
 const String _androidChannelId = 'prayer_reminders';
 const String _androidChannelName = 'Prayer Reminders';
-const String _androidChannelDescription =
-    'Scheduled reminders to pray.';
+const String _androidChannelDescription = 'Scheduled reminders to pray.';
 
 final FlutterLocalNotificationsPlugin _plugin =
     FlutterLocalNotificationsPlugin();
@@ -122,8 +121,10 @@ Future<void> initRemindersNotifications() async {
 
   // Create the Android notification channel up-front. On Android 8+, posting
   // to a non-existent channel silently drops the notification.
-  final android = _plugin.resolvePlatformSpecificImplementation<
-      AndroidFlutterLocalNotificationsPlugin>();
+  final android = _plugin
+      .resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin
+      >();
   await android?.createNotificationChannel(
     const AndroidNotificationChannel(
       _androidChannelId,
@@ -157,16 +158,20 @@ void _onLocaleChanged() {
 Future<bool> ensureNotificationPermission() async {
   if (!_initialized) await initRemindersNotifications();
 
-  final android = _plugin.resolvePlatformSpecificImplementation<
-      AndroidFlutterLocalNotificationsPlugin>();
+  final android = _plugin
+      .resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin
+      >();
   if (android != null) {
     final granted = await android.requestNotificationsPermission();
     if (granted ?? false) await _nudgeOneSignalRegister();
     return granted ?? false;
   }
 
-  final ios = _plugin.resolvePlatformSpecificImplementation<
-      IOSFlutterLocalNotificationsPlugin>();
+  final ios = _plugin
+      .resolvePlatformSpecificImplementation<
+        IOSFlutterLocalNotificationsPlugin
+      >();
   if (ios != null) {
     final granted = await ios.requestPermissions(
       alert: true,
@@ -190,7 +195,9 @@ Future<void> _nudgeOneSignalRegister() async {
   try {
     await OneSignal.Notifications.requestPermission(false);
   } catch (e) {
-    debugPrint('reminders_notifications: OneSignal permission nudge failed: $e');
+    debugPrint(
+      'reminders_notifications: OneSignal permission nudge failed: $e',
+    );
   }
 }
 
@@ -200,14 +207,18 @@ Future<void> _nudgeOneSignalRegister() async {
 Future<bool> notificationsAuthorized() async {
   if (!_initialized) await initRemindersNotifications();
 
-  final android = _plugin.resolvePlatformSpecificImplementation<
-      AndroidFlutterLocalNotificationsPlugin>();
+  final android = _plugin
+      .resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin
+      >();
   if (android != null) {
     return (await android.areNotificationsEnabled()) ?? false;
   }
 
-  final ios = _plugin.resolvePlatformSpecificImplementation<
-      IOSFlutterLocalNotificationsPlugin>();
+  final ios = _plugin
+      .resolvePlatformSpecificImplementation<
+        IOSFlutterLocalNotificationsPlugin
+      >();
   if (ios != null) {
     return (await ios.checkPermissions())?.isEnabled ?? false;
   }
@@ -223,8 +234,10 @@ Future<bool> notificationsAuthorized() async {
 Future<bool> exactAlarmsAuthorized() async {
   if (!_initialized) await initRemindersNotifications();
 
-  final android = _plugin.resolvePlatformSpecificImplementation<
-      AndroidFlutterLocalNotificationsPlugin>();
+  final android = _plugin
+      .resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin
+      >();
   if (android != null) {
     return (await android.canScheduleExactNotifications()) ?? true;
   }
@@ -242,8 +255,10 @@ Future<bool> exactAlarmsAuthorized() async {
 Future<bool> promptEnableExactAlarms() async {
   if (!_initialized) await initRemindersNotifications();
 
-  final android = _plugin.resolvePlatformSpecificImplementation<
-      AndroidFlutterLocalNotificationsPlugin>();
+  final android = _plugin
+      .resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin
+      >();
   if (android != null) {
     await android.requestExactAlarmsPermission();
   }
@@ -272,8 +287,11 @@ Future<void> rescheduleAllReminders(List<Reminder> all) async {
   for (final r in all) {
     if (!r.enabled) continue;
     for (final weekday in r.weekdays) {
-      slots[_notificationId(weekday, r.hour, r.minute)] =
-          (weekday: weekday, hour: r.hour, minute: r.minute);
+      slots[_notificationId(weekday, r.hour, r.minute)] = (
+        weekday: weekday,
+        hour: r.hour,
+        minute: r.minute,
+      );
     }
   }
   if (slots.isEmpty) return;

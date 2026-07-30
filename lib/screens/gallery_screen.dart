@@ -73,7 +73,11 @@ class _GalleryScreenState extends State<GalleryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DetailsNavBar(title: 'Gallery', onBack: () => safeBack(context)),
+      appBar: DetailsNavBar(
+        context: context,
+        title: 'Gallery',
+        onBack: () => safeBack(context),
+      ),
       body: SafeArea(
         child: ListView(
           children: [
@@ -219,13 +223,17 @@ class _GalleryScreenState extends State<GalleryScreen> {
         _framed(
           SizedBox(
             height: kToolbarHeight,
-            child: TopNavBar(onSettings: () {}),
+            child: TopNavBar(context: context, onSettings: () {}),
           ),
         ),
         _framed(
           SizedBox(
             height: kToolbarHeight,
-            child: TopNavBar(title: 'People Group', onBack: () {}),
+            child: TopNavBar(
+              context: context,
+              title: 'People Group',
+              onBack: () {},
+            ),
           ),
         ),
       ],

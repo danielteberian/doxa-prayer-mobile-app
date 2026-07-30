@@ -29,14 +29,19 @@ Future<Map<String, String>> gatherDeviceContext() async {
     if (defaultTargetPlatform == TargetPlatform.android) {
       final android = await info.androidInfo;
       context['os_version'] = 'Android ${android.version.release}';
-      context['device_model'] = '${android.manufacturer} ${android.model}'.trim();
+      context['device_model'] = '${android.manufacturer} ${android.model}'
+          .trim();
     } else if (defaultTargetPlatform == TargetPlatform.iOS) {
       final ios = await info.iosInfo;
       context['os_version'] = '${ios.systemName} ${ios.systemVersion}';
       context['device_model'] = ios.utsname.machine;
     }
   } catch (e) {
-    developer.log('failed to resolve device info', name: 'device_context', error: e);
+    developer.log(
+      'failed to resolve device info',
+      name: 'device_context',
+      error: e,
+    );
   }
 
   try {
@@ -44,13 +49,21 @@ Future<Map<String, String>> gatherDeviceContext() async {
     if (pkg.version.isNotEmpty) context['app_version'] = pkg.version;
     if (pkg.buildNumber.isNotEmpty) context['app_build'] = pkg.buildNumber;
   } catch (e) {
-    developer.log('failed to resolve app version', name: 'device_context', error: e);
+    developer.log(
+      'failed to resolve app version',
+      name: 'device_context',
+      error: e,
+    );
   }
 
   try {
     context['timezone'] = (await FlutterTimezone.getLocalTimezone()).identifier;
   } catch (e) {
-    developer.log('failed to resolve timezone', name: 'device_context', error: e);
+    developer.log(
+      'failed to resolve timezone',
+      name: 'device_context',
+      error: e,
+    );
   }
 
   return _cached = context;

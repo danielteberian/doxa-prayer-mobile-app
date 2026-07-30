@@ -92,9 +92,7 @@ _PrayerReminder _selectPrayerReminder() {
   // Union the weekdays of every enabled reminder so the server learns every
   // day the user has any reminder for. Fall back to the time source's days
   // when nothing is enabled, so we still send a usable schedule.
-  final weekdays = <int>{
-    for (final r in enabled) ...r.weekdays,
-  };
+  final weekdays = <int>{for (final r in enabled) ...r.weekdays};
   if (weekdays.isEmpty) weekdays.addAll(timeSource.weekdays);
   return _PrayerReminder(
     hour: timeSource.hour,

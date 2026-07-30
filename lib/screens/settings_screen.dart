@@ -33,7 +33,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: DetailsNavBar(title: l.settings, onBack: () => safeBack(context)),
+      appBar: DetailsNavBar(
+        context: context,
+        title: l.settings,
+        onBack: () => safeBack(context),
+      ),
       body: SafeArea(
         child: PageContainer(
           child: Column(

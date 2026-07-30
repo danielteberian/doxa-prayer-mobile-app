@@ -38,9 +38,7 @@ void trackLanguageSwitched(String language, {String? previous}) {
   _track(
     eventType: _languageSwitchedEvent,
     language: language,
-    metadata: <String, dynamic>{
-      'previous_language': ?previous,
-    },
+    metadata: <String, dynamic>{'previous_language': ?previous},
   );
 }
 
@@ -51,8 +49,11 @@ void _track({
   String? language,
   Map<String, dynamic>? metadata,
 }) {
-  _send(eventType: eventType, language: language, metadata: metadata)
-      .catchError((Object e, StackTrace s) {
+  _send(
+    eventType: eventType,
+    language: language,
+    metadata: metadata,
+  ).catchError((Object e, StackTrace s) {
     developer.log(
       'analytics event "$eventType" failed',
       name: 'analytics_service',

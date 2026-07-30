@@ -5,17 +5,43 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
 import '../misc/app_icon.dart';
-import '../misc/hyphenated_text.dart';
 import '../misc/triangle_icon.dart';
+import 'nav_bar_title.dart';
 
 class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
-  const TopNavBar({
+  /// Needs a [context] so the bar can be as tall as its wrapped title — see
+  /// [NavBarTitle.preferredSizeFor].
+  factory TopNavBar({
+    Key? key,
+    required BuildContext context,
+    String? title,
+    VoidCallback? onSettings,
+    VoidCallback? onBack,
+    VoidCallback? onGallery,
+    VoidCallback? onDebug,
+  }) => TopNavBar._(
+    key: key,
+    title: title,
+    onSettings: onSettings,
+    onBack: onBack,
+    onGallery: onGallery,
+    onDebug: onDebug,
+    preferredSize: NavBarTitle.preferredSizeFor(
+      context,
+      title: title,
+      hasLeading: onBack != null,
+      actionCount: _actionCount(onSettings: onSettings, onDebug: onDebug),
+    ),
+  );
+
+  const TopNavBar._({
     super.key,
-    this.title,
-    this.onSettings,
-    this.onBack,
-    this.onGallery,
-    this.onDebug,
+    required this.title,
+    required this.onSettings,
+    required this.onBack,
+    required this.onGallery,
+    required this.onDebug,
+    required this.preferredSize,
   });
 
   final String? title;
@@ -25,12 +51,21 @@ class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? onDebug;
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  final Size preferredSize;
+
+  /// Kept in step with the [actions] built below.
+  static int _actionCount({VoidCallback? onSettings, VoidCallback? onDebug}) =>
+      (kDebugMode ? 1 : 0) +
+      (kDebugMode && onDebug != null ? 1 : 0) +
+      (onSettings != null ? 1 : 0);
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return AppBar(
+      // Must match preferredSize, or the Scaffold and the AppBar disagree on
+      // how tall the bar is and the title clips.
+      toolbarHeight: preferredSize.height,
       leading: onBack != null
           ? IconButton(
               icon: TriangleIcon(
@@ -46,11 +81,16 @@ class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
           : null,
       centerTitle: true,
       title: title != null
-          ? Semantics(
-              header: true,
-              child: HyphenatedText(
-                title!,
-                style: AppTypography.h2.copyWith(color: AppColors.onPrimary),
+          ? NavBarTitle(
+              title!,
+              color: AppColors.onPrimary,
+              width: NavBarTitle.widthFor(
+                context,
+                hasLeading: onBack != null,
+                actionCount: _actionCount(
+                  onSettings: onSettings,
+                  onDebug: onDebug,
+                ),
               ),
             )
           : Image.asset(

@@ -43,8 +43,7 @@ class AccountSettingsSectionState extends State<AccountSettingsSection> {
     final profileId = identityController.value?.profileId;
     setState(() {
       _profileId = profileId;
-      _emailsFuture =
-          profileId == null ? null : fetchProfileEmails(profileId);
+      _emailsFuture = profileId == null ? null : fetchProfileEmails(profileId);
     });
   }
 

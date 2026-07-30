@@ -26,6 +26,7 @@ class NewsSignupSettingsScreen extends StatelessWidget {
     final alreadySignedUp = identityController.value?.profileId != null;
     return Scaffold(
       appBar: DetailsNavBar(
+        context: context,
         title: l.signUpForUpdates,
         onBack: () => safeBack(context),
       ),

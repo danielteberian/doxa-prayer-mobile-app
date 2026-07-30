@@ -8,7 +8,11 @@ import '../misc/skeleton_line.dart';
 /// screenful of card placeholders, laid out exactly like the real list so the
 /// page does not reflow when the groups arrive.
 class PeopleGroupsListSkeleton extends StatelessWidget {
-  const PeopleGroupsListSkeleton({super.key, this.bottomPadding = 0, this.count = 4});
+  const PeopleGroupsListSkeleton({
+    super.key,
+    this.bottomPadding = 0,
+    this.count = 4,
+  });
 
   final double bottomPadding;
 

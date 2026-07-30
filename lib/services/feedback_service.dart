@@ -73,7 +73,10 @@ Future<void> submitFeedback(FeedbackData data) async {
     return;
   }
 
-  developer.log('POST feedback\nURL: $uri\nBody: $body', name: 'feedback_service');
+  developer.log(
+    'POST feedback\nURL: $uri\nBody: $body',
+    name: 'feedback_service',
+  );
   final response = await http.post(
     uri,
     headers: ApiConfig.signupHeaders,

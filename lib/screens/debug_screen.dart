@@ -39,7 +39,11 @@ class DebugScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DetailsNavBar(title: 'Debug', onBack: () => safeBack(context)),
+      appBar: DetailsNavBar(
+        context: context,
+        title: 'Debug',
+        onBack: () => safeBack(context),
+      ),
       body: SafeArea(
         child: ListView(
           children: [

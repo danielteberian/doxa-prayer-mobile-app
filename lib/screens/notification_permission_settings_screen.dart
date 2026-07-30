@@ -63,6 +63,7 @@ class _NotificationPermissionSettingsScreenState
     final l = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: DetailsNavBar(
+        context: context,
         title: l.notifications,
         onBack: () => safeBack(context),
       ),

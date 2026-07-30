@@ -17,6 +17,7 @@ class FeedbackScreen extends StatelessWidget {
     final l = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: DetailsNavBar(
+        context: context,
         title: l.feedback,
         onBack: () => safeBack(context),
       ),

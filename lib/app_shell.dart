@@ -6,12 +6,12 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 import 'components/misc/app_icon.dart';
+import 'components/misc/hyphenated_text.dart';
 import 'components/nav/bottom_nav_bar.dart';
 import 'router.dart';
 import 'services/analytics_service.dart';
 import 'services/reminders_notifications.dart';
 import 'services/update_controller.dart';
-import 'components/misc/hyphenated_text.dart';
 
 class AppShell extends StatefulWidget {
   const AppShell({super.key, required this.navigationShell});
@@ -126,6 +126,7 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: TopNavBar(
+            context: context,
             onSettings: () => _openSettings(context),
             onGallery: () => _openGallery(context),
             onDebug: () => _openDebug(context),
@@ -161,7 +162,8 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
                   icon: AppIconName.bell,
                   selectedIcon: AppIconName.bellSolid,
                   label: AppLocalizations.of(context)!.reminders,
-                  showBadge: notificationsBlocked.value || exactAlarmsBlocked.value,
+                  showBadge:
+                      notificationsBlocked.value || exactAlarmsBlocked.value,
                 ),
               ],
               currentIndex: widget.navigationShell.currentIndex,

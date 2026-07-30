@@ -50,26 +50,27 @@ void main() {
     expect(find.byType(Wrap), findsOneWidget);
   });
 
-  testWidgets('PeopleGroupListCard profile/select wrap without overflow at 3x', (
-    tester,
-  ) async {
-    await pumpAtScale(
-      tester,
-      const SingleChildScrollView(
-        child: PeopleGroupListCard(
-          name: 'A very long people group name that pushes the layout',
-          imageUrl: null,
-          onSelect: _noop,
-          onDetails: _noop,
+  testWidgets(
+    'PeopleGroupListCard profile/select wrap without overflow at 3x',
+    (tester) async {
+      await pumpAtScale(
+        tester,
+        const SingleChildScrollView(
+          child: PeopleGroupListCard(
+            name: 'A very long people group name that pushes the layout',
+            imageUrl: null,
+            onSelect: _noop,
+            onDetails: _noop,
+          ),
         ),
-      ),
-      scale: 3.0,
-      viewport: narrow,
-    );
+        scale: 3.0,
+        viewport: narrow,
+      );
 
-    expect(tester.takeException(), isNull);
-    expect(find.byType(Wrap), findsOneWidget);
-  });
+      expect(tester.takeException(), isNull);
+      expect(find.byType(Wrap), findsOneWidget);
+    },
+  );
 }
 
 void _noop() {}

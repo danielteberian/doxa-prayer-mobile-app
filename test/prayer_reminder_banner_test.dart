@@ -7,7 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
-const _group = SelectedPeopleGroup(slug: 'kurds', name: 'Kurds', imageUrl: null);
+const _group = SelectedPeopleGroup(
+  slug: 'kurds',
+  name: 'Kurds',
+  imageUrl: null,
+);
 
 Widget _wrap() {
   final router = GoRouter(
@@ -73,7 +77,10 @@ void main() {
 
     expect(find.text("Ready for today's prayer?"), findsOneWidget);
     expect(find.text('Tap to pray for Kurds.'), findsOneWidget);
-    expect(find.text('home content'), findsOneWidget); // content still behind it
+    expect(
+      find.text('home content'),
+      findsOneWidget,
+    ); // content still behind it
   });
 
   testWidgets('dismiss "×" hides the banner for the session', (tester) async {
