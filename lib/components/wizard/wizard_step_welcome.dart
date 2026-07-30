@@ -8,6 +8,7 @@ import '../../services/wizard_controller.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
 import '../buttons/action_button.dart';
+import '../misc/hyphenated_text.dart';
 import '../misc/titles.dart';
 
 class WizardStepWelcome extends StatelessWidget {
@@ -69,7 +70,7 @@ class WizardStepWelcome extends StatelessWidget {
                     semanticLabel: l.appName,
                   ),
                   H1(l.wizardWelcomeTitle, textAlign: TextAlign.center),
-                  Text(
+                  HyphenatedText(
                     l.wizardWelcomeBody,
                     style: AppTypography.bodyMedium,
                     textAlign: TextAlign.center,

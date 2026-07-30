@@ -5,6 +5,7 @@ import '../../l10n/app_localizations.dart';
 import '../../services/identity_service.dart';
 import '../../services/profile_service.dart';
 import '../../theme/app_spacing.dart';
+import '../misc/hyphenated_text.dart';
 import '../misc/titles.dart';
 import 'signed_up_email_tile.dart';
 
@@ -93,7 +94,7 @@ class AccountSettingsSectionState extends State<AccountSettingsSection> {
             if (snapshot.hasError) {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
-                child: Text(l.emailsLoadError),
+                child: HyphenatedText(l.emailsLoadError),
               );
             }
             final emails = snapshot.data ?? const [];
@@ -112,7 +113,7 @@ class AccountSettingsSectionState extends State<AccountSettingsSection> {
         ),
         ListTile(
           contentPadding: EdgeInsets.zero,
-          title: Text(l.viewProfile),
+          title: HyphenatedText(l.viewProfile),
           trailing: const Icon(Icons.open_in_new),
           onTap: () => _openProfile(profileId),
         ),

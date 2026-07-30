@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
+import '../misc/hyphenated_text.dart';
 
 class ButtonLink extends StatelessWidget {
   const ButtonLink({super.key, required this.label, required this.onPressed});
@@ -22,7 +23,7 @@ class ButtonLink extends StatelessWidget {
       borderRadius: BorderRadius.circular(4),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-        child: Text(
+        child: HyphenatedText(
           label,
           style: AppTypography.bodyMedium.copyWith(
             color: AppColors.secondary,

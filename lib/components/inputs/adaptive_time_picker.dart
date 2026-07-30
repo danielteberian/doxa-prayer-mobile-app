@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
+import '../misc/hyphenated_text.dart';
 
 /// Shows a time picker that matches the host platform: the native-style
 /// Cupertino wheel presented in a bottom sheet on iOS, and Flutter's Material
@@ -65,15 +66,16 @@ class _CupertinoTimePickerSheetState extends State<_CupertinoTimePickerSheet> {
               children: [
                 CupertinoButton(
                   onPressed: () => Navigator.of(context).pop(),
-                  child: Text(
+                  child: HyphenatedText(
                     l.cancelButtonLabel,
-                    style: AppTypography.bodyMedium
-                        .copyWith(color: AppColors.primaryLight),
+                    style: AppTypography.bodyMedium.copyWith(
+                      color: AppColors.primaryLight,
+                    ),
                   ),
                 ),
                 CupertinoButton(
                   onPressed: () => Navigator.of(context).pop(_selected),
-                  child: Text(
+                  child: HyphenatedText(
                     l.okButtonLabel,
                     style: AppTypography.bodyMedium.copyWith(
                       color: AppColors.secondary,

@@ -1,6 +1,7 @@
 import 'package:doxa_prayer_mobile_app/theme/app_spacing.dart';
 import 'package:flutter/material.dart';
 
+import '../components/misc/hyphenated_text.dart';
 import '../components/misc/titles.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
@@ -27,7 +28,7 @@ class Section extends StatelessWidget {
         children: [
           H2(title),
           if (description != null) ...[
-            Text(
+            HyphenatedText(
               description!,
               style: AppTypography.caption.copyWith(
                 color: AppColors.onSurface.withValues(alpha: 0.7),

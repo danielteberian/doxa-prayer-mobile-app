@@ -23,6 +23,7 @@ import '../components/inputs/time_field.dart';
 import '../components/inputs/toggle_field.dart';
 import '../components/misc/app_icon.dart';
 import '../components/misc/app_image.dart';
+import '../components/misc/hyphenated_text.dart';
 import '../components/misc/icon_set.dart';
 import '../components/misc/progress_dots.dart';
 import '../components/misc/skeleton_box.dart';
@@ -82,7 +83,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                 spacing: AppSpacing.xl,
                 children: [
                   const H1('Component Gallery'),
-                  Text(
+                  HyphenatedText(
                     'Phase 2 kitchen sink — every component + layout primitive for review.',
                     style: AppTypography.bodyMedium,
                   ),
@@ -125,7 +126,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          HyphenatedText(
             name,
             style: AppTypography.caption.copyWith(
               color: onColor ?? AppColors.onSurface,
@@ -133,7 +134,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
             ),
           ),
           const SizedBox(height: 24),
-          Text(
+          HyphenatedText(
             '#${color.toARGB32().toRadixString(16).padLeft(8, '0').substring(2).toUpperCase()}',
             style: AppTypography.caption.copyWith(
               color: onColor ?? AppColors.onSurface,
@@ -169,19 +170,34 @@ class _GalleryScreenState extends State<GalleryScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: AppSpacing.md,
       children: [
-        Text('displayLarge / h1 — BebasKai +2', style: AppTypography.h1),
-        Text('displayMedium / h2 — BebasKai +1', style: AppTypography.h2),
-        Text(
+        HyphenatedText(
+          'displayLarge / h1 — BebasKai +2',
+          style: AppTypography.h1,
+        ),
+        HyphenatedText(
+          'displayMedium / h2 — BebasKai +1',
+          style: AppTypography.h2,
+        ),
+        HyphenatedText(
           'titleMedium — Poppins 500 / base',
           style: AppTypography.titleMedium,
         ),
-        Text('bodyLarge — Poppins 400 / base', style: AppTypography.bodyLarge),
-        Text('bodyMedium — Poppins 400 / -1', style: AppTypography.bodyMedium),
-        Text(
+        HyphenatedText(
+          'bodyLarge — Poppins 400 / base',
+          style: AppTypography.bodyLarge,
+        ),
+        HyphenatedText(
+          'bodyMedium — Poppins 400 / -1',
+          style: AppTypography.bodyMedium,
+        ),
+        HyphenatedText(
           'LABELLARGE — BRANDON GROTESQUE 600 / base',
           style: AppTypography.button,
         ),
-        Text('caption — Poppins 400 / -2', style: AppTypography.caption),
+        HyphenatedText(
+          'caption — Poppins 400 / -2',
+          style: AppTypography.caption,
+        ),
       ],
     ),
   );
@@ -380,7 +396,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
             spacing: AppSpacing.md,
             children: [
               const H2('Elevated card'),
-              Text(
+              HyphenatedText(
                 'Used for primary content surfaces (e.g. home people-group card).',
                 style: AppTypography.bodyMedium,
               ),
@@ -393,7 +409,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
             spacing: AppSpacing.md,
             children: [
               const H2('Flat card'),
-              Text(
+              HyphenatedText(
                 'Used for secondary groupings (e.g. reminder cards).',
                 style: AppTypography.bodyMedium,
               ),
@@ -446,9 +462,9 @@ class _GalleryScreenState extends State<GalleryScreen> {
           label: 'Language',
           value: _selectValue,
           items: const [
-            DropdownMenuItem(value: 'en', child: Text('English')),
-            DropdownMenuItem(value: 'es', child: Text('Español')),
-            DropdownMenuItem(value: 'fr', child: Text('Français')),
+            DropdownMenuItem(value: 'en', child: HyphenatedText('English')),
+            DropdownMenuItem(value: 'es', child: HyphenatedText('Español')),
+            DropdownMenuItem(value: 'fr', child: HyphenatedText('Français')),
           ],
           onChanged: (v) => setState(() => _selectValue = v),
         ),
@@ -485,7 +501,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
         TextButton(
           onPressed: () =>
               setState(() => _progressIndex = (_progressIndex + 1) % 4),
-          child: const Text('NEXT'),
+          child: const HyphenatedText('NEXT'),
         ),
       ],
     ),
@@ -571,7 +587,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
           Container(
             color: AppColors.mutedSurface,
             padding: const EdgeInsets.all(12),
-            child: const Text(
+            child: const HyphenatedText(
               'Content is capped at a max width so tablet layouts stay readable.',
               style: AppTypography.bodyMedium,
             ),
@@ -583,7 +599,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
 
   Widget _layoutLabel(String text) => Padding(
     padding: const EdgeInsets.only(bottom: 6),
-    child: Text(
+    child: HyphenatedText(
       text,
       style: AppTypography.caption.copyWith(fontWeight: FontWeight.w500),
     ),
@@ -611,6 +627,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
         style: BorderStyle.solid,
       ),
     ),
-    child: Text(label, style: AppTypography.caption),
+    child: HyphenatedText(label, style: AppTypography.caption),
   );
 }

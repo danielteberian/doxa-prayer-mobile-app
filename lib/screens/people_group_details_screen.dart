@@ -20,6 +20,7 @@ import 'package:doxa_prayer_mobile_app/theme/app_colors.dart';
 import 'package:doxa_prayer_mobile_app/theme/app_spacing.dart';
 import 'package:doxa_prayer_mobile_app/theme/app_typography.dart';
 import 'package:flutter/material.dart';
+import '../components/misc/hyphenated_text.dart';
 
 const int _peopleCommittedGoal = 100;
 
@@ -298,7 +299,7 @@ class _Hero extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: AppSpacing.lg,
         children: [
-          Text(
+          HyphenatedText(
             detail.name,
             textAlign: TextAlign.center,
             style: AppTypography.titleLarge,
@@ -323,12 +324,12 @@ class _Hero extends StatelessWidget {
           ),
           Column(
             children: [
-              Text(
+              HyphenatedText(
                 detail.raw['country_code']?['label'] ?? '',
                 textAlign: TextAlign.center,
                 style: AppTypography.titleMedium,
               ),
-              Text(
+              HyphenatedText(
                 '(${detail.raw['rop1']?['label']})',
                 textAlign: TextAlign.center,
                 style: AppTypography.titleMedium,
@@ -336,7 +337,7 @@ class _Hero extends StatelessWidget {
             ],
           ),
           if (detail.raw['imb_people_description'] is String)
-            Text(
+            HyphenatedText(
               detail.raw['imb_people_description'] as String,
               style: AppTypography.bodyMedium,
             ),
@@ -366,7 +367,7 @@ class _CommittedProgress extends StatelessWidget {
         spacing: AppSpacing.md,
         children: [
           H1(l.prayerStatus, color: AppColors.white),
-          Text(
+          HyphenatedText(
             '$committed',
             style: AppTypography.bodyLarge.copyWith(
               color: AppColors.white,
@@ -374,7 +375,7 @@ class _CommittedProgress extends StatelessWidget {
               fontSize: AppTypography.xxl,
             ),
           ),
-          Text(
+          HyphenatedText(
             l.peopleCommittedToPraying,
             style: AppTypography.bodyMedium.copyWith(color: AppColors.white),
             textAlign: TextAlign.center,
@@ -406,7 +407,7 @@ class _CommittedProgress extends StatelessWidget {
           // The bar above already announces this caption as its label, so the
           // visible copy is hidden to keep it from being read out twice.
           ExcludeSemantics(
-            child: Text(
+            child: HyphenatedText(
               l.dailyPrayerCoverage,
               style: AppTypography.bodyMedium.copyWith(color: AppColors.white),
               textAlign: TextAlign.center,
@@ -432,7 +433,7 @@ class _Section extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: AppSpacing.md,
         children: [
-          Text(
+          HyphenatedText(
             title,
             style: AppTypography.h2.copyWith(color: AppColors.secondary),
           ),
@@ -487,7 +488,7 @@ class _DetailRow extends StatelessWidget {
                       ),
               SizedBox(
                 width: 140,
-                child: Text(
+                child: HyphenatedText(
                   label,
                   style: AppTypography.bodySmall.copyWith(
                     color: AppColors.onSurface.withValues(alpha: 0.6),
@@ -497,7 +498,9 @@ class _DetailRow extends StatelessWidget {
             ],
           ),
         ),
-        Expanded(child: Text(value!, style: AppTypography.bodyMedium)),
+        Expanded(
+          child: HyphenatedText(value!, style: AppTypography.bodyMedium),
+        ),
       ],
     );
   }
@@ -517,7 +520,7 @@ class _ErrorView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
+            HyphenatedText(
               message,
               textAlign: TextAlign.center,
               style: AppTypography.bodyMedium,
@@ -525,7 +528,7 @@ class _ErrorView extends StatelessWidget {
             const SizedBox(height: AppSpacing.lg),
             FilledButton(
               onPressed: onRetry,
-              child: Text(AppLocalizations.of(context)!.retry),
+              child: HyphenatedText(AppLocalizations.of(context)!.retry),
             ),
           ],
         ),

@@ -5,6 +5,7 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
 import '../misc/app_icon.dart';
+import '../misc/hyphenated_text.dart';
 import '../misc/triangle_icon.dart';
 
 class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
@@ -47,7 +48,7 @@ class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
       title: title != null
           ? Semantics(
               header: true,
-              child: Text(
+              child: HyphenatedText(
                 title!,
                 style: AppTypography.h2.copyWith(color: AppColors.onPrimary),
               ),

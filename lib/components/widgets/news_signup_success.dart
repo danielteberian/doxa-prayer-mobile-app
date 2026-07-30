@@ -4,6 +4,7 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
+import '../misc/hyphenated_text.dart';
 import '../misc/titles.dart';
 import '../notifications/enable_notifications_prompt.dart';
 
@@ -29,7 +30,7 @@ class NewsSignupSuccess extends StatelessWidget {
         const SizedBox(height: AppSpacing.lg),
         H1(l.newsSignupSuccessTitle, textAlign: TextAlign.center),
         const SizedBox(height: AppSpacing.lg),
-        Text(
+        HyphenatedText(
           l.newsSignupSuccessBody(email),
           style: AppTypography.bodyMedium,
           textAlign: TextAlign.center,

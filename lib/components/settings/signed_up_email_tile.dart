@@ -6,6 +6,7 @@ import '../../l10n/app_localizations.dart';
 import '../../services/profile_service.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_spacing.dart';
+import '../misc/hyphenated_text.dart';
 
 /// One signed-up email address: its (redacted) value, verified/unverified
 /// status, and — while unverified — a "resend verification email" action with a
@@ -66,18 +67,20 @@ class _SignedUpEmailTileState extends State<SignedUpEmailTile> {
       case ResendVerificationStatus.sent:
       case ResendVerificationStatus.alreadyVerified:
         messenger.showSnackBar(
-          SnackBar(content: Text(l.resendVerificationSent)),
+          SnackBar(content: HyphenatedText(l.resendVerificationSent)),
         );
         _startCooldown(_defaultCooldownSeconds);
       case ResendVerificationStatus.cooldown:
         final seconds = result.retryAfterSeconds ?? _defaultCooldownSeconds;
         messenger.showSnackBar(
-          SnackBar(content: Text(l.resendVerificationCooldown(seconds))),
+          SnackBar(
+            content: HyphenatedText(l.resendVerificationCooldown(seconds)),
+          ),
         );
         _startCooldown(seconds);
       case ResendVerificationStatus.failed:
         messenger.showSnackBar(
-          SnackBar(content: Text(l.resendVerificationFailed)),
+          SnackBar(content: HyphenatedText(l.resendVerificationFailed)),
         );
     }
   }
@@ -103,8 +106,8 @@ class _SignedUpEmailTileState extends State<SignedUpEmailTile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(widget.email.value),
-                    Text(
+                    HyphenatedText(widget.email.value),
+                    HyphenatedText(
                       verified ? l.emailVerified : l.emailUnverified,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: verified
@@ -121,14 +124,16 @@ class _SignedUpEmailTileState extends State<SignedUpEmailTile> {
             Align(
               alignment: AlignmentDirectional.centerEnd,
               child: TextButton(
-                onPressed: (_sending || _cooldownRemaining > 0) ? null : _resend,
+                onPressed: (_sending || _cooldownRemaining > 0)
+                    ? null
+                    : _resend,
                 child: _sending
                     ? const SizedBox(
                         height: 16,
                         width: 16,
                         child: CircularProgressIndicator(strokeWidth: 2),
                       )
-                    : Text(
+                    : HyphenatedText(
                         _cooldownRemaining > 0
                             ? l.resendVerificationCountdown(_cooldownRemaining)
                             : l.resendVerification,

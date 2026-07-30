@@ -6,6 +6,7 @@ import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
 import 'app_icon.dart';
 import 'triangle_icon.dart';
+import 'hyphenated_text.dart';
 
 class AppIconEntry {
   const AppIconEntry(this.icon, this.label);
@@ -50,7 +51,7 @@ class IconSet extends StatelessWidget {
             children: [
               AppIcon(it.icon, color: AppColors.primary, size: 28),
               const SizedBox(height: 4),
-              Text(it.label, style: AppTypography.caption),
+              HyphenatedText(it.label, style: AppTypography.caption),
             ],
           ),
         for (final dir in TriangleDirection.values)
@@ -59,7 +60,10 @@ class IconSet extends StatelessWidget {
             children: [
               TriangleIcon(direction: dir, color: AppColors.primary, size: 16),
               const SizedBox(height: 4),
-              Text('triangle-${dir.name}', style: AppTypography.caption),
+              HyphenatedText(
+                'triangle-${dir.name}',
+                style: AppTypography.caption,
+              ),
             ],
           ),
         PlusIcon(color: AppColors.primary, size: 16),

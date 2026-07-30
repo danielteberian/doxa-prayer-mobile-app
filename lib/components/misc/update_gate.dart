@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../../services/update_controller.dart';
+import 'hyphenated_text.dart';
 
 /// Wraps the app and overlays the update prompt driven by [updateController]:
 ///   - optional → a dismissible banner pinned below the status bar
@@ -61,12 +62,12 @@ class _OptionalBanner extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Text(
+                            HyphenatedText(
                               l10n.updateAvailableTitle,
                               style: theme.textTheme.titleSmall,
                             ),
                             const SizedBox(height: 2),
-                            Text(
+                            HyphenatedText(
                               l10n.updateAvailableBody,
                               style: theme.textTheme.bodySmall,
                             ),
@@ -75,11 +76,11 @@ class _OptionalBanner extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: dismissOptionalUpdate,
-                        child: Text(l10n.updateDismiss),
+                        child: HyphenatedText(l10n.updateDismiss),
                       ),
                       FilledButton(
                         onPressed: () => startAppUpdate(),
-                        child: Text(l10n.updateAction.toUpperCase()),
+                        child: HyphenatedText(l10n.updateAction.toUpperCase()),
                       ),
                     ],
                   ),
@@ -122,13 +123,13 @@ class _ForcedModal extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
+                      HyphenatedText(
                         l10n.updateRequiredTitle,
                         style: theme.textTheme.titleLarge,
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 12),
-                      Text(
+                      HyphenatedText(
                         l10n.updateRequiredBody,
                         style: theme.textTheme.bodyMedium,
                         textAlign: TextAlign.center,
@@ -138,7 +139,9 @@ class _ForcedModal extends StatelessWidget {
                         width: double.infinity,
                         child: FilledButton(
                           onPressed: () => startAppUpdate(immediate: true),
-                          child: Text(l10n.updateAction.toUpperCase()),
+                          child: HyphenatedText(
+                            l10n.updateAction.toUpperCase(),
+                          ),
                         ),
                       ),
                     ],

@@ -6,6 +6,7 @@ import '../../theme/app_colors.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
 import '../buttons/action_button.dart';
+import '../misc/hyphenated_text.dart';
 
 /// Warning shown on the reminders screen when notifications are allowed but the
 /// app can't schedule *exact* alarms (Android 12+ without SCHEDULE_EXACT_ALARM).
@@ -52,7 +53,7 @@ class _Banner extends StatelessWidget {
                 const Icon(Icons.alarm_off, color: AppColors.warning),
                 const SizedBox(width: AppSpacing.sm),
                 Expanded(
-                  child: Text(
+                  child: HyphenatedText(
                     l.exactAlarmsDisabledStatus,
                     style: AppTypography.bodySmall,
                   ),

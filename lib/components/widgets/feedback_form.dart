@@ -11,6 +11,7 @@ import '../buttons/action_button.dart';
 import '../inputs/checkbox_field.dart';
 import '../inputs/text_field.dart';
 import 'feedback_success.dart';
+import '../misc/hyphenated_text.dart';
 
 /// The in-app feedback form. Mirrors the hosted web form's fields (type, name,
 /// email, message, marketing consent) and submits via [submitFeedback], which
@@ -97,7 +98,8 @@ class _FeedbackFormState extends State<FeedbackForm> {
     } on FeedbackRateLimitedException {
       if (mounted) {
         setState(
-          () => _errorMessage = AppLocalizations.of(context)!.feedbackRateLimited,
+          () =>
+              _errorMessage = AppLocalizations.of(context)!.feedbackRateLimited,
         );
       }
     } catch (e, s) {
@@ -121,12 +123,17 @@ class _FeedbackFormState extends State<FeedbackForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(l.feedbackIntro, style: TextStyle(color: AppColors.primaryLight)),
+        HyphenatedText(
+          l.feedbackIntro,
+          style: TextStyle(color: AppColors.primaryLight),
+        ),
         const SizedBox(height: AppSpacing.xl),
         _TypeSelector(
           label: l.feedbackTypeLabel,
           selected: _type,
-          errorText: _submitAttempted && !_typeValid ? l.feedbackTypeRequired : null,
+          errorText: _submitAttempted && !_typeValid
+              ? l.feedbackTypeRequired
+              : null,
           onSelected: (t) => setState(() => _type = t),
         ),
         const SizedBox(height: AppSpacing.lg),
@@ -163,7 +170,10 @@ class _FeedbackFormState extends State<FeedbackForm> {
         ),
         if (_errorMessage != null) ...[
           const SizedBox(height: AppSpacing.lg),
-          Text(_errorMessage!, style: TextStyle(color: AppColors.scheme.error)),
+          HyphenatedText(
+            _errorMessage!,
+            style: TextStyle(color: AppColors.scheme.error),
+          ),
         ],
         const SizedBox(height: AppSpacing.xxl),
         Row(
@@ -207,14 +217,22 @@ class _TypeSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context)!;
     final items = <(FeedbackType, String, IconData)>[
-      (FeedbackType.compliment, l.feedbackTypeCompliment, Icons.favorite_outline),
-      (FeedbackType.suggestion, l.feedbackTypeSuggestion, Icons.lightbulb_outline),
+      (
+        FeedbackType.compliment,
+        l.feedbackTypeCompliment,
+        Icons.favorite_outline,
+      ),
+      (
+        FeedbackType.suggestion,
+        l.feedbackTypeSuggestion,
+        Icons.lightbulb_outline,
+      ),
       (FeedbackType.problem, l.feedbackTypeProblem, Icons.error_outline),
     ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label),
+        HyphenatedText(label),
         const SizedBox(height: AppSpacing.sm),
         Wrap(
           spacing: AppSpacing.sm,
@@ -228,11 +246,13 @@ class _TypeSelector extends StatelessWidget {
                   size: 18,
                   color: selected == type ? AppColors.white : AppColors.primary,
                 ),
-                label: Text(itemLabel),
+                label: HyphenatedText(itemLabel),
                 selected: selected == type,
                 selectedColor: AppColors.secondary,
                 labelStyle: TextStyle(
-                  color: selected == type ? AppColors.white : AppColors.onSurface,
+                  color: selected == type
+                      ? AppColors.white
+                      : AppColors.onSurface,
                 ),
                 onSelected: (_) => onSelected(type),
               ),
@@ -240,7 +260,7 @@ class _TypeSelector extends StatelessWidget {
         ),
         if (errorText != null) ...[
           const SizedBox(height: AppSpacing.xs),
-          Text(
+          HyphenatedText(
             errorText!,
             style: TextStyle(color: AppColors.scheme.error, fontSize: 12),
           ),

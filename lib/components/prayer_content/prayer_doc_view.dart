@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
 import 'prayer_verse_view.dart';
+import '../misc/hyphenated_text.dart';
 
 /// Renders a TipTap-style document tree (the `content_json` field on a
 /// prayer-content static block).
@@ -38,7 +39,7 @@ class PrayerDocView extends StatelessWidget {
       Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Text(
+          HyphenatedText(
             AppLocalizations.of(context)!.pauseAndPray.toUpperCase(),
             style: AppTypography.caption.copyWith(
               fontSize: AppTypography.md,

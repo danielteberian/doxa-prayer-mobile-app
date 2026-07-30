@@ -13,6 +13,7 @@ import '../../services/people_groups_service.dart';
 import '../../services/select_people_group_flow.dart';
 import '../../services/selected_people_group_controller.dart';
 import '../../theme/app_spacing.dart';
+import '../misc/hyphenated_text.dart';
 
 class PeopleGroupsList extends StatefulWidget {
   const PeopleGroupsList({
@@ -131,7 +132,7 @@ class _PeopleGroupsListState extends State<PeopleGroupsList> {
                         const SizedBox(height: AppSpacing.lg),
                     itemBuilder: (context, i) {
                       if (i == 0) {
-                        return Text(
+                        return HyphenatedText(
                           AppLocalizations.of(
                             context,
                           )!.nPeopleGroups(filtered.length),
@@ -183,7 +184,7 @@ class _ErrorView extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         spacing: AppSpacing.lg,
         children: [
-          Text(message, textAlign: TextAlign.center),
+          HyphenatedText(message, textAlign: TextAlign.center),
           ActionButton(
             label: AppLocalizations.of(context)!.retry,
             onPressed: onRetry,

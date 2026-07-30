@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../components/buttons/action_button.dart';
+import '../components/misc/hyphenated_text.dart';
 import '../components/misc/titles.dart';
 import '../components/nav/details_nav_bar.dart';
 import '../components/nav/root_pop_scope.dart';
@@ -105,7 +106,7 @@ class _NotificationPermissionSettingsScreenState
           ],
         ),
         const SizedBox(height: AppSpacing.lg),
-        Text(
+        HyphenatedText(
           l.notificationsEnabledStatus,
           style: AppTypography.bodyMedium,
           textAlign: TextAlign.center,
@@ -134,13 +135,13 @@ class _NotificationPermissionSettingsScreenState
           ],
         ),
         const SizedBox(height: AppSpacing.lg),
-        Text(
+        HyphenatedText(
           l.notificationsDisabledStatus,
           style: AppTypography.bodyMedium,
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: AppSpacing.md),
-        Text(
+        HyphenatedText(
           l.notificationsHowToEnable,
           style: AppTypography.bodySmall,
           textAlign: TextAlign.center,

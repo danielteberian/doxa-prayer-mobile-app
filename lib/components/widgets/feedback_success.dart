@@ -4,6 +4,7 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
+import '../misc/hyphenated_text.dart';
 import '../misc/titles.dart';
 
 /// In-place confirmation shown after feedback is submitted. Thanks the user and
@@ -29,7 +30,7 @@ class FeedbackSuccess extends StatelessWidget {
         const SizedBox(height: AppSpacing.lg),
         H1(l.feedbackSuccessTitle, textAlign: TextAlign.center),
         const SizedBox(height: AppSpacing.lg),
-        Text(
+        HyphenatedText(
           l.feedbackSuccessBody(email),
           style: AppTypography.bodyMedium,
           textAlign: TextAlign.center,

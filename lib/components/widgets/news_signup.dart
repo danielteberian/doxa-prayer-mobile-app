@@ -8,6 +8,7 @@ import '../buttons/action_button.dart';
 import '../inputs/checkbox_field.dart';
 import '../inputs/text_field.dart';
 import 'news_signup_success.dart';
+import '../misc/hyphenated_text.dart';
 
 class NewsSignupData {
   const NewsSignupData({
@@ -177,7 +178,7 @@ class NewsSignupState extends State<NewsSignup> {
         ),
         if (_errorMessage != null) ...[
           const SizedBox(height: AppSpacing.lg),
-          Text(
+          HyphenatedText(
             _errorMessage!,
             style: TextStyle(color: AppColors.scheme.error),
           ),

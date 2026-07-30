@@ -7,6 +7,7 @@ import '../../theme/app_typography.dart';
 import '../buttons/action_button.dart';
 import '../buttons/button_bar_wrap.dart';
 import '../inputs/adaptive_time_picker.dart';
+import '../misc/hyphenated_text.dart';
 import '../misc/titles.dart';
 import 'weekday_selector.dart';
 
@@ -127,7 +128,7 @@ class _ReminderFormState extends State<ReminderForm> {
                   labelText: l.time,
                   suffixIcon: const Icon(Icons.access_time),
                 ),
-                child: Text(
+                child: HyphenatedText(
                   _time.format(context),
                   style: AppTypography.bodyMedium,
                 ),
@@ -136,7 +137,7 @@ class _ReminderFormState extends State<ReminderForm> {
           ),
         ),
         const SizedBox(height: AppSpacing.xl),
-        Text(l.daysOfWeek, style: AppTypography.titleMedium),
+        HyphenatedText(l.daysOfWeek, style: AppTypography.titleMedium),
         const SizedBox(height: AppSpacing.sm),
         WeekdaySelector(
           selected: _weekdays,

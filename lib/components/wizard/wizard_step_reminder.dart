@@ -11,6 +11,7 @@ import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
 import '../buttons/action_button.dart';
 import '../buttons/button_bar_wrap.dart';
+import '../misc/hyphenated_text.dart';
 import '../reminders/exact_alarm_permission_prompt.dart';
 import '../reminders/reminder_form.dart';
 
@@ -41,7 +42,7 @@ class _WizardStepReminderState extends State<WizardStepReminder> {
       if (!mounted) return;
       if (!granted) {
         messenger.showSnackBar(
-          SnackBar(content: Text(l.notificationsDisabledStatus)),
+          SnackBar(content: HyphenatedText(l.notificationsDisabledStatus)),
         );
       }
       if (await shouldPromptExactAlarms(
@@ -66,21 +67,26 @@ class _WizardStepReminderState extends State<WizardStepReminder> {
       child: FillViewportScrollView(
         builder: (context, maxWidth) => Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            H1(l.wizardSetReminderTitle, textAlign: TextAlign.center),
-            Text(
-              l.wizardSetReminderBody,
-              style: AppTypography.bodyMedium,
-              textAlign: TextAlign.center,
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                H1(l.wizardSetReminderTitle, textAlign: TextAlign.center),
+                HyphenatedText(
+                  l.wizardSetReminderBody,
+                  style: AppTypography.bodyMedium,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: AppSpacing.xl),
+                ReminderForm(
+                  title: '',
+                  onChanged: (r) => setState(() => _current = r),
+                ),
+                const SizedBox(height: AppSpacing.xxl),
+              ],
             ),
-            const SizedBox(height: AppSpacing.xl),
-            ReminderForm(
-              title: '',
-              onChanged: (r) => setState(() => _current = r),
-            ),
-            const SizedBox(height: AppSpacing.xxl),
-            const Expanded(child: SizedBox.shrink()),
             ButtonBarWrap(
               maxWidth: maxWidth,
               leading: ActionButton(

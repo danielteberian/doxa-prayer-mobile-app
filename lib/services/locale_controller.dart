@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'analytics_service.dart';
+import 'hyphenation_service.dart';
 
 class AppLanguage {
   const AppLanguage({required this.locale, required this.nativeName});
@@ -27,36 +28,43 @@ final ValueNotifier<Locale> localeController = ValueNotifier<Locale>(
   appLanguages.first.locale,
 );
 
+/// Switches the app to [locale], with its hyphenation patterns already loaded.
+///
+/// Building a hyphenator takes 165–280ms, which must not happen lazily inside a
+/// layout pass, so it is awaited here — before any text is laid out in the new
+/// language. See `hyphenation_service.dart`.
+Future<void> _applyLocale(Locale locale) async {
+  await preloadHyphenator(locale);
+  localeController.value = locale;
+}
+
 Future<void> loadLocale() async {
   final prefs = SharedPreferencesAsync();
   final saved = await prefs.getString(_storageKey);
   if (saved != null) {
     final match = _matchByLanguageCode(saved);
     if (match != null) {
-      localeController.value = match;
+      await _applyLocale(match);
       return;
     }
   }
-  localeController.value = _bestMatchForSystem();
+  await _applyLocale(_bestMatchForSystem());
 }
 
 Future<void> setLocale(Locale locale) async {
   final previous = localeController.value;
-  localeController.value = locale;
+  await _applyLocale(locale);
   final prefs = SharedPreferencesAsync();
   await prefs.setString(_storageKey, locale.languageCode);
   if (locale.languageCode != previous.languageCode) {
-    trackLanguageSwitched(
-      locale.languageCode,
-      previous: previous.languageCode,
-    );
+    trackLanguageSwitched(locale.languageCode, previous: previous.languageCode);
   }
 }
 
 Future<void> clearLocale() async {
   final prefs = SharedPreferencesAsync();
   await prefs.remove(_storageKey);
-  localeController.value = _bestMatchForSystem();
+  await _applyLocale(_bestMatchForSystem());
 }
 
 Locale _bestMatchForSystem() {

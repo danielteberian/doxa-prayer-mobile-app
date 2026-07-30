@@ -4,6 +4,7 @@ import '../../services/reminders_format.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
+import '../misc/hyphenated_text.dart';
 
 class WeekdaySelector extends StatelessWidget {
   const WeekdaySelector({
@@ -73,7 +74,7 @@ class _WeekdayCircle extends StatelessWidget {
             height: _diameter,
             child: Center(
               child: ExcludeSemantics(
-                child: Text(
+                child: HyphenatedText(
                   label,
                   style: AppTypography.bodyMedium.copyWith(
                     color: selected

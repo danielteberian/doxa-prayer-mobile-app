@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
+import '../misc/hyphenated_text.dart';
 
 /// A styled bible-verse block: a left accent bar, the verse text (with
 /// superscript verse numbers preserved by the caller), and a small
@@ -58,7 +59,7 @@ class PrayerVerseView extends StatelessWidget {
                 // another line (staying right-aligned) instead of overflowing
                 // at large font scales.
                 Flexible(
-                  child: Text(
+                  child: HyphenatedText(
                     citation,
                     textAlign: TextAlign.end,
                     style: AppTypography.caption.copyWith(

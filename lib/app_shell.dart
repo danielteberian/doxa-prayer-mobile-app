@@ -11,6 +11,7 @@ import 'router.dart';
 import 'services/analytics_service.dart';
 import 'services/reminders_notifications.dart';
 import 'services/update_controller.dart';
+import 'components/misc/hyphenated_text.dart';
 
 class AppShell extends StatefulWidget {
   const AppShell({super.key, required this.navigationShell});
@@ -105,7 +106,9 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
     _lastBackPress = now;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(AppLocalizations.of(context)!.pressBackAgainToExit),
+        content: HyphenatedText(
+          AppLocalizations.of(context)!.pressBackAgainToExit,
+        ),
         duration: const Duration(seconds: 2),
       ),
     );

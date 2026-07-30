@@ -7,6 +7,7 @@ import '../../l10n/app_localizations.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
+import 'hyphenated_text.dart';
 
 /// Shows a dismissable dialog with a QR code of [url], so someone physically
 /// nearby can scan the share link instead of receiving it over a channel.
@@ -74,7 +75,7 @@ class QrShareModal extends StatelessWidget {
               ),
             ),
             const SizedBox(height: AppSpacing.lg),
-            Text(
+            HyphenatedText(
               l.scanToPray(peopleGroupName),
               style: AppTypography.bodyMedium,
               textAlign: TextAlign.center,

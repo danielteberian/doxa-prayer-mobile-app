@@ -22,6 +22,7 @@ import 'people_group_of_the_day_view.dart';
 import 'prayer_content_skeleton.dart';
 import 'prayer_content_view.dart';
 import 'prayer_thank_you_modal.dart';
+import '../misc/hyphenated_text.dart';
 
 const _minimumDurationInSeconds = 5;
 
@@ -310,7 +311,7 @@ class _PrayerSessionViewState extends State<PrayerSessionView>
                 if (!data.hasContent || data.content.isEmpty) {
                   return PageContainer(
                     child: Center(
-                      child: Text(
+                      child: HyphenatedText(
                         l10n.noPrayerContentAvailable,
                         textAlign: TextAlign.center,
                         style: AppTypography.bodyMedium,
@@ -444,7 +445,7 @@ class _DateNavigator extends StatelessWidget {
               onPressed: canGoPrevious ? onPrevious : null,
             ),
             Expanded(
-              child: Text(
+              child: HyphenatedText(
                 label,
                 textAlign: TextAlign.center,
                 style: AppTypography.titleMedium.copyWith(
@@ -494,7 +495,7 @@ class _CopyrightNotices extends StatelessWidget {
           spacing: AppSpacing.xxs,
           children: [
             for (final notice in notices)
-              Text(
+              HyphenatedText(
                 notice.notice,
                 style: AppTypography.caption.copyWith(
                   fontSize: AppTypography.xxs,
@@ -522,7 +523,7 @@ class _ErrorView extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         spacing: AppSpacing.lg,
         children: [
-          Text(message, textAlign: TextAlign.center),
+          HyphenatedText(message, textAlign: TextAlign.center),
           ActionButton(
             label: AppLocalizations.of(context)!.retry,
             onPressed: onRetry,

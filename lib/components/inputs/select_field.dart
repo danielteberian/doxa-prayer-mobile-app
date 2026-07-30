@@ -1,5 +1,6 @@
 import 'package:doxa_prayer_mobile_app/theme/app_typography.dart';
 import 'package:flutter/material.dart';
+import '../misc/hyphenated_text.dart';
 
 class SelectField<T> extends StatelessWidget {
   const SelectField({
@@ -31,7 +32,7 @@ class SelectField<T> extends StatelessWidget {
         // value itself is left unclamped.
         label: MediaQuery.withClampedTextScaling(
           maxScaleFactor: 1.3,
-          child: Text(label),
+          child: HyphenatedText(label),
         ),
         hintText: hint,
       ),

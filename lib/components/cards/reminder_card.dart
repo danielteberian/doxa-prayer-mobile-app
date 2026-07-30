@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
 import '../misc/app_icon.dart';
+import '../misc/hyphenated_text.dart';
 
 class ReminderCard extends StatelessWidget {
   const ReminderCard({
@@ -38,9 +39,9 @@ class ReminderCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(time, style: AppTypography.titleMedium),
+                HyphenatedText(time, style: AppTypography.titleMedium),
                 const SizedBox(height: 2),
-                Text(daysSummary, style: AppTypography.caption),
+                HyphenatedText(daysSummary, style: AppTypography.caption),
               ],
             ),
           ),

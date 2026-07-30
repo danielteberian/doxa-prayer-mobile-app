@@ -8,6 +8,7 @@ import '../../services/prayer_reminder_controller.dart';
 import '../../services/selected_people_group_controller.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_spacing.dart';
+import 'hyphenated_text.dart';
 
 /// Overlays [child] with a gentle, dismissable banner pinned to the bottom of
 /// the home screen, reminding the user they haven't prayed yet today. Tapping
@@ -88,14 +89,14 @@ class _Banner extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
+                        HyphenatedText(
                           l10n.prayerReminderTitle,
                           style: theme.textTheme.titleSmall?.copyWith(
                             color: AppColors.white,
                           ),
                         ),
                         const SizedBox(height: 2),
-                        Text(
+                        HyphenatedText(
                           l10n.prayerReminderBody(peopleGroupName),
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: AppColors.white,

@@ -7,6 +7,7 @@ import '../buttons/action_button.dart';
 import '../buttons/button_link.dart';
 import '../misc/app_image.dart';
 import 'elevated_card.dart';
+import '../misc/hyphenated_text.dart';
 
 class PeopleGroupListCard extends StatelessWidget {
   const PeopleGroupListCard({
@@ -44,7 +45,7 @@ class PeopleGroupListCard extends StatelessWidget {
                 semanticLabel: name,
               ),
               Expanded(
-                child: Text(
+                child: HyphenatedText(
                   name,
                   softWrap: true,
                   style: AppTypography.bodyMedium.copyWith(

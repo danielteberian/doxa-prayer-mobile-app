@@ -2,6 +2,7 @@ import 'package:doxa_prayer_mobile_app/theme/app_colors.dart';
 import 'package:doxa_prayer_mobile_app/theme/app_spacing.dart';
 import 'package:doxa_prayer_mobile_app/theme/app_typography.dart';
 import 'package:flutter/material.dart';
+import 'hyphenated_text.dart';
 
 class PeopleDetailsView extends StatelessWidget {
   const PeopleDetailsView({super.key, required this.text, required this.icon});
@@ -20,7 +21,7 @@ class PeopleDetailsView extends StatelessWidget {
           size: AppTypography.caption.fontSize,
           color: AppColors.onSurface.withValues(alpha: 0.5),
         ),
-        Text(
+        HyphenatedText(
           text,
           style: AppTypography.caption.copyWith(
             color: AppColors.onSurface.withValues(alpha: 0.5),

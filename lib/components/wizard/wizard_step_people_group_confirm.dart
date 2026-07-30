@@ -10,6 +10,7 @@ import '../../theme/app_typography.dart';
 import '../buttons/action_button.dart';
 import '../buttons/button_bar_wrap.dart';
 import '../cards/people_group_card.dart';
+import '../misc/hyphenated_text.dart';
 import '../misc/titles.dart';
 
 class WizardStepPeopleGroupConfirm extends StatelessWidget {
@@ -37,21 +38,27 @@ class WizardStepPeopleGroupConfirm extends StatelessWidget {
       child: FillViewportScrollView(
         builder: (context, maxWidth) => Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            H1(
-              l.wizardConfirmPeopleGroupTitle(g.name),
-              textAlign: TextAlign.center,
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                H1(
+                  l.wizardConfirmPeopleGroupTitle(g.name),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: AppSpacing.lg),
+                HyphenatedText(
+                  l.wizardConfirmPeopleGroupBody,
+                  style: AppTypography.bodyMedium,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: AppSpacing.xl),
+                PeopleGroupCard(name: g.name, imageUrl: g.imageUrl),
+                const SizedBox(height: AppSpacing.xxl),
+              ],
             ),
-            const SizedBox(height: AppSpacing.lg),
-            Text(
-              l.wizardConfirmPeopleGroupBody,
-              style: AppTypography.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: AppSpacing.xl),
-            PeopleGroupCard(name: g.name, imageUrl: g.imageUrl),
-            const SizedBox(height: AppSpacing.xxl),
-            const Expanded(child: SizedBox.shrink()),
             ButtonBarWrap(
               maxWidth: maxWidth,
               leading: ActionButton(

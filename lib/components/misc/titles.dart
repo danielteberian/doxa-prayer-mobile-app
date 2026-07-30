@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../theme/app_typography.dart';
+import 'hyphenated_text.dart';
 
 class H1 extends StatelessWidget {
   const H1(this.text, {super.key, this.textAlign, this.color});
@@ -15,7 +16,7 @@ class H1 extends StatelessWidget {
         : AppTypography.h1;
     return Semantics(
       header: true,
-      child: Text(text, style: style, textAlign: textAlign),
+      child: HyphenatedText(text, style: style, textAlign: textAlign),
     );
   }
 }
@@ -28,6 +29,6 @@ class H2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Semantics(
     header: true,
-    child: Text(text, style: AppTypography.h2, textAlign: textAlign),
+    child: HyphenatedText(text, style: AppTypography.h2, textAlign: textAlign),
   );
 }

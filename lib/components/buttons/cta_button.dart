@@ -4,6 +4,7 @@ import 'package:doxa_prayer_mobile_app/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme/app_colors.dart';
+import '../misc/hyphenated_text.dart';
 
 class CtaButton extends StatelessWidget {
   const CtaButton({
@@ -48,10 +49,9 @@ class CtaButton extends StatelessWidget {
                     const SizedBox(width: 8),
                   ],
                   Expanded(
-                    child: Text(
+                    child: HyphenatedText(
                       label.toUpperCase(),
-                      style:
-                          AppTypography.h2.copyWith(color: AppColors.white),
+                      style: AppTypography.h2.copyWith(color: AppColors.white),
                     ),
                   ),
                 ],

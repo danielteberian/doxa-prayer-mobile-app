@@ -2,6 +2,7 @@ import 'package:doxa_prayer_mobile_app/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 
 import 'adaptive_time_picker.dart';
+import '../misc/hyphenated_text.dart';
 
 class TimeField extends StatelessWidget {
   const TimeField({
@@ -37,7 +38,7 @@ class TimeField extends StatelessWidget {
               labelText: label,
               suffixIcon: const Icon(Icons.access_time),
             ),
-            child: Text(text, style: AppTypography.bodyMedium),
+            child: HyphenatedText(text, style: AppTypography.bodyMedium),
           ),
         ),
       ),

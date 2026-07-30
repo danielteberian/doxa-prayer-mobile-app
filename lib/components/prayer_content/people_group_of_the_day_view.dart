@@ -7,6 +7,7 @@ import '../../theme/app_colors.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
 import '../misc/app_image.dart';
+import '../misc/hyphenated_text.dart';
 import '../misc/titles.dart';
 
 /// Renders the introductory `people_group` block of a prayer-content
@@ -78,7 +79,7 @@ class PeopleGroupOfTheDayView extends StatelessWidget {
           ],
         ),
         if (data.description.isNotEmpty)
-          Text(data.description, style: AppTypography.bodyMedium),
+          HyphenatedText(data.description, style: AppTypography.bodyMedium),
       ],
     );
   }

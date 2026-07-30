@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../theme/app_typography.dart';
+import '../misc/hyphenated_text.dart';
 
 class ToggleField extends StatelessWidget {
   const ToggleField({
@@ -33,10 +34,10 @@ class ToggleField extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(label, style: AppTypography.bodyLarge),
+                  HyphenatedText(label, style: AppTypography.bodyLarge),
                   if (subtitle != null) ...[
                     const SizedBox(height: 2),
-                    Text(subtitle!, style: AppTypography.caption),
+                    HyphenatedText(subtitle!, style: AppTypography.caption),
                   ],
                 ],
               ),

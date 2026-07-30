@@ -4,6 +4,7 @@ import 'package:doxa_prayer_mobile_app/theme/app_colors.dart';
 import 'package:doxa_prayer_mobile_app/theme/app_spacing.dart';
 import 'package:doxa_prayer_mobile_app/theme/app_typography.dart';
 import 'package:flutter/material.dart';
+import 'hyphenated_text.dart';
 
 class ActionModal extends StatelessWidget {
   const ActionModal({
@@ -42,7 +43,7 @@ class ActionModal extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
+            HyphenatedText(
               message,
               style: AppTypography.bodyLarge.copyWith(
                 color: AppColors.onSecondary,

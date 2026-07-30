@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../theme/app_colors.dart';
+import '../misc/hyphenated_text.dart';
 
 enum _ActionButtonKind { label, iconLabel, icon, fullWidth }
 
@@ -105,14 +106,14 @@ class ActionButton extends StatelessWidget {
         return FilledButton(
           onPressed: onPressed,
           style: getStyle(color!),
-          child: Text(upper, textAlign: TextAlign.center),
+          child: HyphenatedText(upper, textAlign: TextAlign.center),
         );
       case _ActionButtonKind.iconLabel:
         return FilledButton.icon(
           onPressed: onPressed,
           style: getStyle(color!),
           icon: icon!,
-          label: Text(upper, textAlign: TextAlign.center),
+          label: HyphenatedText(upper, textAlign: TextAlign.center),
         );
       case _ActionButtonKind.icon:
         return Semantics(
@@ -135,13 +136,13 @@ class ActionButton extends StatelessWidget {
               ? FilledButton(
                   onPressed: onPressed,
                   style: getStyle(color!),
-                  child: Text(upper, textAlign: TextAlign.center),
+                  child: HyphenatedText(upper, textAlign: TextAlign.center),
                 )
               : FilledButton.icon(
                   onPressed: onPressed,
                   style: getStyle(color!),
                   icon: icon!,
-                  label: Text(upper),
+                  label: HyphenatedText(upper),
                 ),
         );
     }

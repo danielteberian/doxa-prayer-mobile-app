@@ -9,6 +9,7 @@ import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
 import '../misc/app_icon.dart';
 import 'elevated_card.dart';
+import '../misc/hyphenated_text.dart';
 
 class RemindersSummary extends StatelessWidget {
   const RemindersSummary({super.key, required this.reminders});
@@ -40,21 +41,21 @@ class RemindersSummary extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (next != null) ...[
-                      Text(
+                      HyphenatedText(
                         l.nextReminder,
                         style: AppTypography.caption.copyWith(
                           color: AppColors.onPrimary,
                         ),
                       ),
                       const SizedBox(height: 2),
-                      Text(
+                      HyphenatedText(
                         formatNextReminderWhen(context, next.firesAt),
                         style: AppTypography.titleMedium.copyWith(
                           color: AppColors.onPrimary,
                         ),
                       ),
                     ] else
-                      Text(
+                      HyphenatedText(
                         countLabel,
                         style: AppTypography.titleMedium.copyWith(
                           color: AppColors.onPrimary,

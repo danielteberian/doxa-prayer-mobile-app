@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../components/buttons/action_button.dart';
 import '../components/inputs/text_field.dart';
+import '../components/misc/hyphenated_text.dart';
 import '../components/misc/titles.dart';
 import '../components/nav/details_nav_bar.dart';
 import '../components/nav/root_pop_scope.dart';
@@ -38,10 +39,7 @@ class DebugScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DetailsNavBar(
-        title: 'Debug',
-        onBack: () => safeBack(context),
-      ),
+      appBar: DetailsNavBar(title: 'Debug', onBack: () => safeBack(context)),
       body: SafeArea(
         child: ListView(
           children: [
@@ -51,7 +49,7 @@ class DebugScreen extends StatelessWidget {
                 spacing: AppSpacing.xl,
                 children: [
                   const H1('Debug'),
-                  Text(
+                  HyphenatedText(
                     'Clear individual saved preferences to test cold-start flows.',
                     style: AppTypography.bodyMedium,
                   ),
@@ -157,7 +155,7 @@ class DebugScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: AppSpacing.md,
       children: [
-        Text(
+        HyphenatedText(
           'Simulate a /api/app/version response to preview the update UI. '
           'The blocking modal can only be cleared by relaunching the app or '
           'tapping the store button.',
@@ -171,7 +169,9 @@ class DebugScreen extends StatelessWidget {
               _fakeUpdateInfo,
             );
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Triggered optional update banner')),
+              const SnackBar(
+                content: HyphenatedText('Triggered optional update banner'),
+              ),
             );
           },
         ),
@@ -189,7 +189,7 @@ class DebugScreen extends StatelessWidget {
           onPressed: () {
             updateController.value = UpdateStatus.none;
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Cleared update prompt')),
+              const SnackBar(content: HyphenatedText('Cleared update prompt')),
             );
           },
         ),
@@ -203,7 +203,7 @@ class DebugScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: AppSpacing.md,
       children: [
-        Text(
+        HyphenatedText(
           'Verify crash reporting. Collection is disabled in debug builds, so '
           'reports only reach the Firebase console from a profile/release build '
           '(e.g. flutter run --profile --flavor staging). A fatal crash uploads '
@@ -219,7 +219,9 @@ class DebugScreen extends StatelessWidget {
               reason: 'debug screen test non-fatal',
             );
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Recorded test non-fatal')),
+              const SnackBar(
+                content: HyphenatedText('Recorded test non-fatal'),
+              ),
             );
           },
         ),
@@ -244,17 +246,16 @@ class DebugScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(label, style: AppTypography.titleMedium),
+              HyphenatedText(label, style: AppTypography.titleMedium),
               if (description != null)
-                Text(description, style: AppTypography.caption),
+                HyphenatedText(description, style: AppTypography.caption),
             ],
           ),
         ),
         const SizedBox(width: AppSpacing.md),
         ActionButton(
           label: 'Clear',
-          onPressed: () =>
-              _runClear(context, label: label, action: onClear),
+          onPressed: () => _runClear(context, label: label, action: onClear),
         ),
       ],
     );
@@ -267,7 +268,9 @@ class DebugScreen extends StatelessWidget {
   }) async {
     final messenger = ScaffoldMessenger.of(context);
     await action();
-    messenger.showSnackBar(SnackBar(content: Text('Cleared: $label')));
+    messenger.showSnackBar(
+      SnackBar(content: HyphenatedText('Cleared: $label')),
+    );
   }
 }
 
@@ -297,7 +300,7 @@ class _SimulateReferralCardState extends State<_SimulateReferralCard> {
     final messenger = ScaffoldMessenger.of(context);
     await setReferredPeopleGroup(slug);
     messenger.showSnackBar(
-      SnackBar(content: Text('Referred people group set to "$slug"')),
+      SnackBar(content: HyphenatedText('Referred people group set to "$slug"')),
     );
   }
 
@@ -318,11 +321,11 @@ class _SimulateReferralCardState extends State<_SimulateReferralCard> {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      HyphenatedText(
                         'Referred (deferred) slug: ${referredSlug ?? '(none)'}',
                         style: AppTypography.titleMedium,
                       ),
-                      Text(
+                      HyphenatedText(
                         'Selected people group: ${selected?.slug ?? '(none)'}',
                         style: AppTypography.titleMedium,
                       ),
@@ -332,7 +335,7 @@ class _SimulateReferralCardState extends State<_SimulateReferralCard> {
               );
             },
           ),
-          Text(
+          HyphenatedText(
             'Stash a people-group slug as if it arrived via a "Pray on the app" '
             'install referrer. Clear "Wizard completion" too, then relaunch: the '
             'wizard should auto-select this group on the confirm step.',

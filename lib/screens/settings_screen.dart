@@ -10,6 +10,7 @@ import 'package:doxa_prayer_mobile_app/theme/app_spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import '../components/misc/hyphenated_text.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -32,10 +33,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: DetailsNavBar(
-        title: l.settings,
-        onBack: () => safeBack(context),
-      ),
+      appBar: DetailsNavBar(title: l.settings, onBack: () => safeBack(context)),
       body: SafeArea(
         child: PageContainer(
           child: Column(
@@ -48,7 +46,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     const Divider(height: 1),
                     ListTile(
                       contentPadding: EdgeInsets.zero,
-                      title: Text(l.signUpForUpdates),
+                      title: HyphenatedText(l.signUpForUpdates),
                       trailing: const Icon(Icons.chevron_right),
                       onTap: _openNewsSignup,
                     ),
@@ -56,7 +54,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       valueListenable: notificationsBlocked,
                       builder: (context, blocked, _) => ListTile(
                         contentPadding: EdgeInsets.zero,
-                        title: Text(l.notifications),
+                        title: HyphenatedText(l.notifications),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
@@ -102,7 +100,7 @@ class _VersionLabel extends StatelessWidget {
           if (version == null) return const SizedBox.shrink();
           return Padding(
             padding: const EdgeInsets.all(AppSpacing.xxl),
-            child: Text(
+            child: HyphenatedText(
               l.appVersion(version),
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant.withValues(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../components/misc/hyphenated_text.dart';
 import '../components/prayer_content/prayer_session_view.dart';
 import '../l10n/app_localizations.dart';
 import '../layouts/page_scaffold.dart';
@@ -55,7 +56,7 @@ class _NoSelectionView extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return Center(
-      child: Text(
+      child: HyphenatedText(
         l10n.noPeopleGroupSelected,
         textAlign: TextAlign.center,
         style: AppTypography.bodyMedium,

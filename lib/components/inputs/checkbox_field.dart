@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../theme/app_typography.dart';
+import '../misc/hyphenated_text.dart';
 
 class CheckboxField extends StatelessWidget {
   const CheckboxField({
@@ -33,7 +34,9 @@ class CheckboxField extends StatelessWidget {
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
             const SizedBox(width: 8),
-            Expanded(child: Text(label, style: AppTypography.bodyMedium)),
+            Expanded(
+              child: HyphenatedText(label, style: AppTypography.bodyMedium),
+            ),
           ],
         ),
       ),

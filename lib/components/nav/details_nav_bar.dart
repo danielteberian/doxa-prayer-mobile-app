@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
+import '../misc/hyphenated_text.dart';
 import '../misc/triangle_icon.dart';
 
 class DetailsNavBar extends StatelessWidget implements PreferredSizeWidget {
@@ -32,7 +33,7 @@ class DetailsNavBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: Semantics(
         header: true,
-        child: Text(
+        child: HyphenatedText(
           title,
           style: AppTypography.h2.copyWith(color: AppColors.onSurface),
         ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
+import '../misc/hyphenated_text.dart';
 
 class IconLabelButton extends StatelessWidget {
   const IconLabelButton({
@@ -40,7 +41,7 @@ class IconLabelButton extends StatelessWidget {
               child: icon,
             ),
             const SizedBox(height: 6),
-            Text(
+            HyphenatedText(
               label.toUpperCase(),
               style: AppTypography.caption.copyWith(color: AppColors.primary),
             ),

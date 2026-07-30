@@ -9,6 +9,7 @@ import '../../theme/app_typography.dart';
 import '../buttons/action_button.dart';
 import '../misc/app_image.dart';
 import 'elevated_card.dart';
+import '../misc/hyphenated_text.dart';
 
 class PeopleGroupCard extends StatelessWidget {
   const PeopleGroupCard({
@@ -38,7 +39,7 @@ class PeopleGroupCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         spacing: AppSpacing.xl,
         children: [
-          Text(name, style: AppTypography.h2),
+          HyphenatedText(name, style: AppTypography.h2),
           AppImage(
             url: imageUrl,
             aspectRatio: 1,
@@ -115,7 +116,7 @@ class _PrayedTodayPill extends StatelessWidget {
           spacing: AppSpacing.xs,
           children: [
             const Icon(Icons.check, size: 16, color: AppColors.onSecondary),
-            Text(
+            HyphenatedText(
               label,
               style: AppTypography.bodySmall.copyWith(
                 color: AppColors.onSecondary,

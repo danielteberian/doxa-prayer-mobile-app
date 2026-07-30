@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
 import '../../services/locale_controller.dart';
 import 'select_field.dart';
+import '../misc/hyphenated_text.dart';
 
 class LanguageSwitcher extends StatelessWidget {
   const LanguageSwitcher({super.key});
@@ -19,7 +20,7 @@ class LanguageSwitcher extends StatelessWidget {
               .map(
                 (lang) => DropdownMenuItem<Locale>(
                   value: lang.locale,
-                  child: Text(lang.nativeName),
+                  child: HyphenatedText(lang.nativeName),
                 ),
               )
               .toList(growable: false),

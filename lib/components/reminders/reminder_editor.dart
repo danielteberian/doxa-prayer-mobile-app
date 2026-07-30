@@ -7,8 +7,12 @@ import '../../theme/app_colors.dart';
 import '../../theme/app_spacing.dart';
 import 'exact_alarm_permission_prompt.dart';
 import 'reminder_form.dart';
+import '../misc/hyphenated_text.dart';
 
-Future<void> showReminderEditor(BuildContext context, {Reminder? existing}) async {
+Future<void> showReminderEditor(
+  BuildContext context, {
+  Reminder? existing,
+}) async {
   // The sheet pops with `true` when it just saved the user's first reminder and
   // we should nudge for exact-alarm permission. We show that prompt here — after
   // the sheet has closed — so the dialog lands on the reminders screen rather
@@ -48,7 +52,7 @@ class _ReminderEditorSheet extends StatelessWidget {
     if (!context.mounted) return;
     if (!granted) {
       messenger.showSnackBar(
-        SnackBar(content: Text(l.notificationsDisabledStatus)),
+        SnackBar(content: HyphenatedText(l.notificationsDisabledStatus)),
       );
     }
     final promptExactAlarms = await shouldPromptExactAlarms(

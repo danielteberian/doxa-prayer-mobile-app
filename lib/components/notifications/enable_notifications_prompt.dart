@@ -5,6 +5,7 @@ import '../../services/reminders_notifications.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
 import '../buttons/action_button.dart';
+import '../misc/hyphenated_text.dart';
 
 /// Text + button offering to enable OS notification permission so the user can
 /// also receive push notifications. Shown after signing up for updates and on
@@ -79,7 +80,7 @@ class _EnableNotificationsPromptState extends State<EnableNotificationsPrompt>
         // Own the leading gap so callers can drop the widget in unconditionally
         // without leaving an empty space when it self-hides.
         const SizedBox(height: AppSpacing.xxl),
-        Text(
+        HyphenatedText(
           l.enableNotificationsPromptBody,
           style: AppTypography.bodyMedium,
           textAlign: TextAlign.center,

@@ -8,6 +8,7 @@ import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
 import '../buttons/action_button.dart';
 import '../buttons/button_bar_wrap.dart';
+import '../misc/hyphenated_text.dart';
 import '../misc/titles.dart';
 import '../widgets/news_signup.dart';
 
@@ -67,22 +68,28 @@ class _WizardStepNewsSignupState extends State<WizardStepNewsSignup> {
       child: FillViewportScrollView(
         builder: (context, maxWidth) => Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Once signed up, NewsSignup shows its own thank-you/verify
-            // message, so the step's heading and blurb are hidden.
-            if (!_signedUp) ...[
-              H1(l.wizardNewsSignupTitle, textAlign: TextAlign.center),
-              const SizedBox(height: AppSpacing.lg),
-              Text(
-                l.wizardNewsSignupBody,
-                style: AppTypography.bodyMedium,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: AppSpacing.xl),
-            ],
-            NewsSignup(key: _signupKey),
-            const SizedBox(height: AppSpacing.xxl),
-            const Expanded(child: SizedBox.shrink()),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // Once signed up, NewsSignup shows its own thank-you/verify
+                // message, so the step's heading and blurb are hidden.
+                if (!_signedUp) ...[
+                  H1(l.wizardNewsSignupTitle, textAlign: TextAlign.center),
+                  const SizedBox(height: AppSpacing.lg),
+                  HyphenatedText(
+                    l.wizardNewsSignupBody,
+                    style: AppTypography.bodyMedium,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: AppSpacing.xl),
+                ],
+                NewsSignup(key: _signupKey),
+                const SizedBox(height: AppSpacing.xxl),
+              ],
+            ),
             if (_signedUp)
               ActionButton.fullWidth(
                 label: l.finish,

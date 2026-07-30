@@ -4,16 +4,15 @@ import 'package:flutter_test/flutter_test.dart';
 
 const _viewport = Size(360, 690);
 
-Widget _wrap(Widget child) => MaterialApp(
-  home: Scaffold(resizeToAvoidBottomInset: false, body: child),
-);
+Widget _wrap(Widget child) =>
+    MaterialApp(home: Scaffold(resizeToAvoidBottomInset: false, body: child));
 
 Widget _column({required double contentHeight}) => FillViewportScrollView(
   builder: (context, maxWidth) => Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       SizedBox(height: contentHeight, child: const Text('content')),
-      const Expanded(child: SizedBox.shrink()),
       const SizedBox(key: Key('footer'), height: 48),
     ],
   ),
@@ -51,9 +50,40 @@ void main() {
     // ...and can be scrolled into view.
     await tester.ensureVisible(footer);
     await tester.pumpAndSettle();
+    expect(tester.getRect(footer).bottom, lessThanOrEqualTo(_viewport.height));
+  });
+
+  testWidgets('allows inner LayoutBuilders', (tester) async {
+    // HyphenatedText measures itself with a LayoutBuilder, which the previous
+    // IntrinsicHeight-based implementation made illegal anywhere in this
+    // subtree.
+    tester.view.physicalSize = _viewport;
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      _wrap(
+        FillViewportScrollView(
+          builder: (context, maxWidth) => Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              LayoutBuilder(
+                builder: (context, constraints) =>
+                    Text('width ${constraints.maxWidth}'),
+              ),
+              const SizedBox(key: Key('footer'), height: 48),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    expect(tester.takeException(), isNull);
+    expect(find.text('width 360.0'), findsOneWidget);
     expect(
-      tester.getRect(footer).bottom,
-      lessThanOrEqualTo(_viewport.height),
+      tester.getRect(find.byKey(const Key('footer'))).bottom,
+      _viewport.height,
     );
   });
 

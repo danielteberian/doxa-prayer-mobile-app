@@ -7,6 +7,7 @@ import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
 import '../buttons/action_button.dart';
 import '../misc/app_icon.dart';
+import '../misc/hyphenated_text.dart';
 
 /// Shows an encouraging modal thanking the user for praying, affirming that
 /// their prayers make a difference. Shown after the user taps "Amen".
@@ -45,20 +46,20 @@ class PrayerThankYouModal extends StatelessWidget {
             ),
             Semantics(
               header: true,
-              child: Text(
+              child: HyphenatedText(
                 l10n.prayerThankYouTitle,
                 style: AppTypography.titleLarge,
                 textAlign: TextAlign.center,
               ),
             ),
             const SizedBox(height: AppSpacing.md),
-            Text(
+            HyphenatedText(
               l10n.prayerThankYouMessage,
               style: AppTypography.bodyMedium,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: AppSpacing.lg),
-            Text(
+            HyphenatedText(
               l10n.prayerThankYouVerse,
               style: AppTypography.bodyMedium.copyWith(
                 fontStyle: FontStyle.italic,
@@ -67,7 +68,7 @@ class PrayerThankYouModal extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: AppSpacing.sm),
-            Text(
+            HyphenatedText(
               l10n.prayerThankYouVerseReference,
               style: AppTypography.caption.copyWith(
                 color: AppColors.primaryLight,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../theme/app_colors.dart';
 import '../../theme/app_typography.dart';
+import '../misc/hyphenated_text.dart';
 
 class NavbarIconLabelButton extends StatelessWidget {
   const NavbarIconLabelButton({
@@ -43,7 +44,7 @@ class NavbarIconLabelButton extends StatelessWidget {
               child: icon,
             ),
             const SizedBox(height: 4),
-            Text(
+            HyphenatedText(
               label,
               style: AppTypography.caption.copyWith(
                 color: color,

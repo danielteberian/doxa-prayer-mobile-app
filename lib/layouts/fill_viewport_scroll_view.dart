@@ -3,25 +3,30 @@ import 'package:flutter/material.dart';
 /// A scroll view whose content fills the viewport when short and scrolls when
 /// tall (e.g. at large accessibility font scales).
 ///
-/// The child column can bottom-pin widgets with an
-/// `Expanded(child: SizedBox.shrink())` spacer: when everything fits, the
-/// spacer absorbs the slack and the widgets after it sit at the bottom; when
-/// the content is taller than the viewport, the spacer collapses and the view
-/// scrolls instead of overflowing.
+/// The content is given a minimum height of the viewport and an unbounded
+/// maximum, so a [Column] built by [builder] can bottom-pin widgets with
+/// `mainAxisAlignment` — the column takes the full viewport height when its
+/// children are shorter, and the alignment distributes the slack; when the
+/// children are taller it grows and the view scrolls instead of overflowing.
+///
+/// A two-child column with [MainAxisAlignment.spaceBetween] is the usual shape:
+/// content grouped in an inner `Column(mainAxisSize: MainAxisSize.min)`, with
+/// the pinned widget last.
 ///
 /// With [padKeyboardInset] (the default), bottom scroll padding equal to the
 /// keyboard height is added so content can be scrolled up above an overlaying
 /// keyboard (use with `resizeToAvoidBottomInset: false` on the Scaffold).
 ///
-/// The content is measured with [IntrinsicHeight], which imposes two rules on
-/// the subtree built by [builder]:
-/// - No lazy scrollables ([ListView] & co.) — they cannot report an intrinsic
-///   height. Screens with a scrolling list should lay out the list themselves
-///   instead of using this widget.
-/// - No inner [LayoutBuilder]s — they throw during intrinsic measurement.
-///   [builder] receives the available `maxWidth` so widgets that would
-///   otherwise measure themselves (e.g. `ButtonBarWrap`) can be given it
-///   explicitly: `ButtonBarWrap(maxWidth: maxWidth, ...)`.
+/// One rule on the subtree built by [builder]: **no flex children** (no
+/// [Expanded], no [Spacer]). Flex needs a bounded height, and bounding the
+/// height here would mean measuring the content — which means intrinsic
+/// measurement, which forbids the inner [LayoutBuilder]s that `HyphenatedText`
+/// relies on to measure its available width. `mainAxisAlignment` replaces the
+/// spacer; [SliverFillRemaining] is not an alternative, it measures intrinsics
+/// too.
+///
+/// [builder] still receives the available `maxWidth` for widgets that prefer to
+/// be told rather than measure (e.g. `ButtonBarWrap(maxWidth: maxWidth, ...)`).
 class FillViewportScrollView extends StatelessWidget {
   const FillViewportScrollView({
     super.key,
@@ -49,9 +54,7 @@ class FillViewportScrollView extends StatelessWidget {
           padding: EdgeInsets.only(bottom: keyboardInset),
           child: ConstrainedBox(
             constraints: BoxConstraints(minHeight: constraints.maxHeight),
-            child: IntrinsicHeight(
-              child: builder(context, constraints.maxWidth),
-            ),
+            child: builder(context, constraints.maxWidth),
           ),
         );
       },
