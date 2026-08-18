@@ -1,21 +1,13 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '15.0'
+ platform :ios, '15.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
-# Flavored build configurations (production / staging) map to CocoaPods'
-# :debug / :release build types. CocoaPods will error on `pod install` if any
-# configuration listed here does not yet exist in Runner.xcodeproj, so create
-# the six flavor configurations in Xcode FIRST (see FIREBASE_CRASHLYTICS_SETUP.md
-# §3), then run `pod install`.
 project 'Runner', {
-  'Debug-production' => :debug,
-  'Profile-production' => :release,
-  'Release-production' => :release,
-  'Debug-staging' => :debug,
-  'Profile-staging' => :release,
-  'Release-staging' => :release,
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
 }
 
 def flutter_root
