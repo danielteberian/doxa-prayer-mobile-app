@@ -24,10 +24,14 @@ class AppShell extends StatefulWidget {
 
 class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
   DateTime? _lastBackPress;
+  late PageController _pageController;
 
   @override
   void initState() {
     super.initState();
+    _pageController = PageController(
+      initialPage: widget.navigationShell.currentIndex,
+    );
     WidgetsBinding.instance.addObserver(this);
     reminderTapPayload.addListener(_onReminderTap);
     // Handle a payload that was already set (cold-start from notification tap).
@@ -43,6 +47,7 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
 
   @override
   void dispose() {
+    _pageController.dispose();
     WidgetsBinding.instance.removeObserver(this);
     reminderTapPayload.removeListener(_onReminderTap);
     super.dispose();
@@ -72,7 +77,7 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
     reminderTapPayload.value = null;
     if (!mounted) return;
     final prayIndex = AppRoute.values.indexOf(AppRoute.pray);
-    widget.navigationShell.goBranch(prayIndex, initialLocation: true);
+    _navigateToIndex(prayIndex, initialLocation: true);
   }
 
   void _openSettings(BuildContext context) => context.push('/settings');
@@ -81,11 +86,24 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
 
   void _openDebug(BuildContext context) => context.push('/debug');
 
-  void _onTabTap(int index) {
+  void _navigateToIndex(int index, {bool initialLocation = false}) {
     widget.navigationShell.goBranch(
       index,
-      initialLocation: index == widget.navigationShell.currentIndex,
+      initialLocation: initialLocation || index == widget.navigationShell.currentIndex,
     );
+    _pageController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  void _onTabTap(int index) {
+    _navigateToIndex(index);
+  }
+
+  void _onPageChanged(int index) {
+    widget.navigationShell.goBranch(index);
   }
 
   void _handleBack() {
@@ -93,7 +111,7 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
     // From any non-Home tab, switch to Home (deterministic — no reliance on
     // navigation history, so it works on the very first back press too).
     if (shell.currentIndex != AppRoute.home.index) {
-      shell.goBranch(AppRoute.home.index);
+      _navigateToIndex(AppRoute.home.index);
       return;
     }
     // Already on Home: double-tap within 2s to exit.
@@ -131,7 +149,18 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
             onGallery: () => _openGallery(context),
             onDebug: () => _openDebug(context),
           ),
-          body: widget.navigationShell,
+          body: PageView(
+            controller: _pageController,
+            onPageChanged: _onPageChanged,
+            children: [
+              for (int i = 0; i < AppRoute.values.length; i++)
+                // Wrap each page to preserve the navigation shell's state management
+                _NavigationPage(
+                  navigationShell: widget.navigationShell,
+                  index: i,
+                ),
+            ],
+          ),
           // Badge the reminders tab when anything stops reminders from firing as
           // expected: notifications turned off, or exact alarms not permitted
           // (reminders would arrive late). Merge both notifiers so either flips
@@ -172,6 +201,26 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
           ),
         ),
       ),
+    );
+  }
+}
+
+// Helper widget to display the correct page from the navigation shell
+class _NavigationPage extends StatelessWidget {
+  const _NavigationPage({
+    required this.navigationShell,
+    required this.index,
+  });
+
+  final StatefulNavigationShell navigationShell;
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    // Only show the current branch's content to maintain go_router's state management
+    return Offstage(
+      offstage: navigationShell.currentIndex != index,
+      child: navigationShell,
     );
   }
 }

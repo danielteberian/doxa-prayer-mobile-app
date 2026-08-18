@@ -6,6 +6,48 @@
 	<integer>11</integer>
 	<key>logs</key>
 	<dict>
+		<key>A205E317-477A-4874-B00D-8B575CBE85CD</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A205E317-477A-4874-B00D-8B575CBE85CD.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>device_info_plus-13.2.0</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>device-info-plus</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Cleaning workspace Runner with scheme device-info-plus</string>
+			<key>timeStartedRecording</key>
+			<real>808724836.83613706</real>
+			<key>timeStoppedRecording</key>
+			<real>808724841.65467405</real>
+			<key>title</key>
+			<string>Cleaning workspace Runner with scheme device-info-plus</string>
+			<key>uniqueIdentifier</key>
+			<string>A205E317-477A-4874-B00D-8B575CBE85CD</string>
+		</dict>
 		<key>C68908F8-996C-495A-91CF-6F5DE43316CA</key>
 		<dict>
 			<key>className</key>
